@@ -1,11 +1,11 @@
-# Dependencies
+# 依赖
 markdown:         kramdown
 highlighter:      rouge
 
 # Setup
-title:            Rocky
-tagline:          '小曲的博客'
-description:      '小曲的 <a href="https://designqu.github.io/" target="_blank">博客'
+title:            Qu
+tagline:          'Rocky's Blog'
+description:      'Rocky's Blog'
 url:              https://designqu.github.io/ 
 baseurl:          # the optional subpath of your site, e.g. "/blog"
 
@@ -15,6 +15,7 @@ author:
 
 paginate:         5
 
+# 插件
 plugins:
   - jekyll-feed
   - jekyll-gist
