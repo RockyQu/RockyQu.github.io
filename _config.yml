@@ -3,9 +3,9 @@ markdown:         kramdown
 highlighter:      rouge
 
 # Setup
-title:            Hydeout
-tagline:          'A Jekyll themea'
-description:      'Android工程师'
+title:            Qu
+tagline:          'Android Engineer'
+description:      'Android Engineer'
 url:              https://fongandrew.github.io/hydeout
 baseurl:          # the optional subpath of your site, e.g. "/blog"
 
