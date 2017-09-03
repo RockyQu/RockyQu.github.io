@@ -3,15 +3,15 @@ markdown:         kramdown
 highlighter:      rouge
 
 # Setup
-title:            Qu
-tagline:          'Rocky's Blog'
-description:      'Rocky's Blog'
-url:              https://designqu.github.io/ 
+title:            Hydeout
+tagline:          'A Jekyll theme'
+description:      'The <a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme for <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, refreshed.'
+url:              https://fongandrew.github.io/hydeout
 baseurl:          # the optional subpath of your site, e.g. "/blog"
 
 author:
-  name:           'Rocky'
-  url:            https://designqu.github.io/
+  name:           'Andrew Fong'
+  url:            https://twitter.com/fongandrewc
 
 paginate:         5
 
@@ -21,7 +21,7 @@ plugins:
   - jekyll-paginate
 
 # Custom vars
-version:            1.0.0
+version:            3.4.1
 sidebar_home_link:  true
 github:
-  repo:             https://github.com/DesignQu
+  repo:             https://github.com/fongandrew/hydeout
