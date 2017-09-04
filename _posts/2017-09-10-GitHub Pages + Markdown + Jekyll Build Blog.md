@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "使用GitHub Pages + Markdown + Jekyll搭建自己的免费且无限流量博客"
+title: "使用GitHub Pages + Markdown + Jekyll搭建自己的博客"
 date: 2017-9-10
 categories:
   - Post
@@ -12,14 +12,14 @@ tags:
 
 ### 这里只介绍一种快速搭建个人博客的方式
 
-### 先了解一下一些相关术语说明
+### 一、先了解一下一些相关概念说明
 
 - **What is GitHub Pages?**
-
+> Markdown Github Pages可以创建免费的静态站点，支持自带主题、支持自制页面等，并且可以使用Jekyll或者Hexo等静态博客框架进行管理。    —— [GithubPages](https://pages.github.com/)
 - **What is Markdown?**
 > Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— [维基百科](https://zh.wikipedia.org/wiki/Markdown)
 - **What is  Jekyll?**
-
+> Markdown Jekyll是一个简单的免费的静态网页生成工具，不需要数据库支持。但是可以配合第三方服务,最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。    —— [百度百科](https://baike.baidu.com/item/Jekyll)
 
 
 
