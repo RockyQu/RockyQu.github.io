@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "使用GitHub Pages + Jekyll搭建自己的博客"
+title: "使用GitHub Pages + Markdown + Jekyll搭建免费且无限流量的博客"
 date: 2017-9-10
 categories:
   - Post
