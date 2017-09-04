@@ -2,6 +2,8 @@
 layout: post
 title: "使用GitHub Pages + Markdown + Jekyll搭建自己的博客"
 date: 2017-9-10
+categories:
+  - 个人笔记
 tags:
   - GitHub Pages
   - Jekyll
