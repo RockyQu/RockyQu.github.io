@@ -37,7 +37,7 @@ tags:
 **3、注册一个Github账号并新建一个仓库**
 如何注册略过，主要讲一下新建仓库。
 仓库的名称需要命名为`用户名.github.io`
-![项目菜单](_screenshots/2017-09-10-2-3-1.png) 
+![项目菜单](https://github.com/DesignQu/DesignQu.github.io/tree/master/_screenshots/2017-09-10-2-3-1.png) 
 ![screenshots1](Logg/ImageFolder/screenshots1.png "screenshots1")
 ![设计页面](DesignQu.github.io/_screenshots/2.3.1.png)
 
