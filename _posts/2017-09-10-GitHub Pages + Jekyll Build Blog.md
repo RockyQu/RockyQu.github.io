@@ -5,9 +5,9 @@ date: 2017-9-10
 categories:
   - Post
 tags:
-  - edge case
-  - layout
-  - title
+  - GitHub Pages
+  - Jekyll
+  - Build Blog
 ---
 
 This post lives in the future and is dated {{ page.date | date: "%c" }}. It should only appear when Jekyll builds your project with the `--future` flag.
