@@ -10,9 +10,9 @@ tags:
   - Build Blog
 ---
 
-###这里只介绍一种快速搭建个人博客的方式
+### 这里只介绍一种快速搭建个人博客的方式
 
-###先了解一下一些术语说明
+### 先了解一下一些术语说明
 
 * What is GitHub Pages?
 
@@ -20,46 +20,8 @@ tags:
 
 * What is  Jekyll?
 
-* 有数量也有质量的`主题`,编辑器和预览区域
-* 完美兼容`Github`的markdown语法
-* 预览区域`代码高亮`
-* 所有选项自动记忆
 
-##有问题反馈
-在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
 
-* 邮件(dev.hubo#gmail.com, 把#换成@)
-* QQ: 287759234
-* weibo: [@草依山](http://weibo.com/ihubo)
-* twitter: [@ihubo](http://twitter.com/ihubo)
-
-##捐助开发者
-在兴趣的驱动下,写一个`免费`的东西，有欣喜，也还有汗水，希望你喜欢我的作品，同时也能支持一下。
-当然，有钱捧个钱场（右上角的爱心标志，支持支付宝和PayPal捐助），没钱捧个人场，谢谢各位。
-
-##感激
-感谢以下的项目,排名不分先后
-
-* [mou](http://mouapp.com/) 
-* [ace](http://ace.ajax.org/)
-* [jquery](http://jquery.com)
-
-##关于作者
-
-```javascript
-  var ihubo = {
-    nickName  : "草依山",
-    site : "http://jser.me"
-  }
-```
-
-（Linux 环境 Ubuntu 15.10）：
-（1） 在本地安装jekyll： 主要目的是预览，在本地编辑好文件后，在本地可以看到效果，这样只需要一次Git push就可以了。如果本地不安装jekyll，github pages中一旦出现显示问题，就需要不断地修改，并不断git push提交修改。
-（2）预览jekyll测试用的博客: 可以快速看到博客的样子，以及博客中都有哪些文件。
-（3）Fork github中其他人的博客：github pages是托管博客的服务器，并提供了jekyll支持。github pages托管的博客，默认都是public的，即每个人都能看到。也可以设置成private的，需要每年付费84美元（目前的价格）。
-（4） 在本地预览其他人的博客：这样就可以基于别人的博客继续修改完善，形成自己的博客风格。
-（5）设置自己的域名：为了个性化和容易记住。默认的域名是<github-account>.github.io。
-网上有大量的教程，以及有大量用jekyll+github pages搭建的博客，都是很棒的参考资料，更详细的内容，可以google或者继续阅读参考中的链接。
 
 # 欢迎使用马克飞象
 
