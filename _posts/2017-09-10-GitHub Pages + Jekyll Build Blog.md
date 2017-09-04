@@ -10,6 +10,16 @@ tags:
   - Build Blog
 ---
 
-This post lives in the future and is dated {{ page.date | date: "%c" }}. It should only appear when Jekyll builds your project with the `--future` flag.
+# Header one
 
-```
+## Header two
+
+### Header three
+
+#### Header four
+
+##### Header five
+
+###### Header six
+
+This post lives in the future and is dated {{ page.date | date: "%c" }}. It should only appear when Jekyll builds your project with the `--future` flag.
