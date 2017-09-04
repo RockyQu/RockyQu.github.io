@@ -15,11 +15,11 @@ tags:
 ### 一、先了解一下一些相关概念说明
 
 - **What is GitHub Pages?**
-> Markdown Github Pages可以创建免费的静态站点，支持自带主题、支持自制页面等，并且可以使用Jekyll或者Hexo等静态博客框架进行管理。    —— [GithubPages](https://pages.github.com/)
+> Github Pages可以创建免费的静态站点，支持自带主题、支持自制页面等，并且可以使用Jekyll或者Hexo等静态博客框架进行管理。    —— [GithubPages](https://pages.github.com/)
 - **What is Markdown?**
-> Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— [维基百科](https://zh.wikipedia.org/wiki/Markdown)
+> 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— [维基百科](https://zh.wikipedia.org/wiki/Markdown)
 - **What is  Jekyll?**
-> Markdown Jekyll是一个简单的免费的静态网页生成工具，不需要数据库支持。但是可以配合第三方服务,最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。    —— [百度百科](https://baike.baidu.com/item/Jekyll)
+> Jekyll是一个简单的免费的静态网页生成工具，不需要数据库支持。但是可以配合第三方服务,最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。    —— [百度百科](https://baike.baidu.com/item/Jekyll)
 
 
 
