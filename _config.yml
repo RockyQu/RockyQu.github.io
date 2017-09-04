@@ -7,7 +7,7 @@ title:            Qu
 tagline:          'Android Engineer'
 description:      'Android Engineer'
 url:              https://designqu.github.io
-baseurl:          # the optional subpath of your site, e.g. "/blog"
+baseurl:          https://designqu.github.io
 
 author:
   name:           'Andrew Fong'
