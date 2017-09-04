@@ -39,7 +39,18 @@ tags:
 仓库的名称需要命名为`用户名.github.io`
 
 以这种方式新建好仓库后，在`Settings`的`GitHub Pages` 下你的Blog已经生成出来了。
-地址就是`https://用户名.github.io/` 
+地址就是`https://用户名.github.io/`，网上大部分老教程讲的这个地方需要再设置一下，新版的其实已经不用了
+
+**4、上传`Jekyll`博客模板**  
+打开Github Desktop客户端，登录自己账号
+
+Clone刚才新建好的`用户名.github.io`项目到本地，删除所有文件，只保留`.git`
+
+
+去Jekyll找一套你喜欢的模板下载，解压后将根目录所有文件复制到项目的根目录
+
+
+使用Github Desktop
 
 -------------------
 
