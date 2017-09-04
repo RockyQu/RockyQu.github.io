@@ -12,13 +12,13 @@ tags:
 
 ### 这里只介绍一种快速搭建个人博客的方式
 
-### 先了解一下一些术语说明
+### 先了解一下一些相关术语说明
 
-* What is GitHub Pages?
+- **What is GitHub Pages?**
 
-* What is Markdown?
-
-* What is  Jekyll?
+- **What is Markdown?**
+> Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— [维基百科](https://zh.wikipedia.org/wiki/Markdown)
+- **What is  Jekyll?**
 
 
 
