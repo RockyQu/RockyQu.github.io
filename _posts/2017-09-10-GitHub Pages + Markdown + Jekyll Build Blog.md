@@ -38,7 +38,8 @@ tags:
 如何注册略过，主要讲一下新建仓库。
 仓库的名称需要命名为`用户名.github.io`
 ![项目菜单](../_screenshots/2.3.1.png)
-![设计页面](/_screenshots/2.3.2.png)
+![screenshots1](https://github.com/DesignQu/Tool-Log/blob/master/ImageFolder/screenshots1.png "screenshots1")
+![设计页面](/../_screenshots/2.3.2.png)
 
 当以这种方式新建好仓库后，在`Settings`的`GitHub Pages` 下你会发现你的Blog已经生成出来了。
 
