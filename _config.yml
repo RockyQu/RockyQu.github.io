@@ -6,8 +6,8 @@ highlighter:      rouge
 title:            Qu
 tagline:          'Android Engineer'
 description:      'Android Engineer'
+baseurl:          ""
 url:              https://designqu.github.io
-baseurl:          https://designqu.github.io
 
 author:
   name:           'Andrew Fong'
