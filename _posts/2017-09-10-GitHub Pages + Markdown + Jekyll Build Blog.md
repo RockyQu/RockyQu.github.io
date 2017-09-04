@@ -2,8 +2,6 @@
 layout: post
 title: "使用GitHub Pages + Markdown + Jekyll搭建自己的博客"
 date: 2017-9-10
-categories:
-  - Post
 tags:
   - GitHub Pages
   - Jekyll
@@ -19,7 +17,7 @@ tags:
 - **What is Markdown?**
 > 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— [维基百科](https://zh.wikipedia.org/wiki/Markdown)
 - **What is  Jekyll?**
-> Jekyll是一个简单的免费的静态网页生成工具，不需要数据库支持。但是可以配合第三方服务,最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。    —— [百度百科](https://baike.baidu.com/item/Jekyll)
+> Jekyll是一个简单的免费的静态网页生成工具，不需要数据库支持。但是可以配合第三方服务，最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。    —— [百度百科](https://baike.baidu.com/item/Jekyll)
 
 
 
