@@ -27,21 +27,19 @@ tags:
 
 ### 二、开始搭建（Windows）
 
-**1、安装Git**
+**1、安装Git**  
 [Git Download](https://git-scm.com/downloads)
 
- **2、安装Github客户端**
-为了方便提交到Github， 可以安装这个Github可视化操作客户端，也可以直接用Git上传，如果你对Git比较熟悉。
+ **2、安装Github客户端**  
+为了方便提交到Github， 可以安装这个Github可视化操作客户端，也可以直接用Git上传，如果你对Git比较熟悉。  
 [Github Desktop](https://desktop.github.com/)
 
-**3、注册一个Github账号并新建一个仓库**
+**3、注册Github账号并新建一个仓库**  
 如何注册略过，主要讲一下新建仓库。
 仓库的名称需要命名为`用户名.github.io`
-![2017-09-10-2-3-1](/_screenshots/2017-09-10-2-3-1.png) 
 
-当以这种方式新建好仓库后，在`Settings`的`GitHub Pages` 下你会发现你的Blog已经生成出来了。
-
-[Github Desktop](https://desktop.github.com/)
+以这种方式新建好仓库后，在`Settings`的`GitHub Pages` 下你的Blog已经生成出来了。
+地址就是`https://用户名.github.io/` 
 
 -------------------
 
