@@ -1,12 +1,16 @@
 ---
 layout: post
-title: What's Jekyll?
+title: "使用GitHub Pages + Jekyll搭建自己的博客"
+date: 2017-9-10
+categories:
+  - Post
+last_modified_at: 2017-09-10T12:45:25-05:00
+tags:
+  - edge case
+  - layout
+  - title
 ---
 
-[Jekyll](http://jekyllrb.com) is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From [the project's readme](https://github.com/mojombo/jekyll/blob/master/README.markdown):
+This post lives in the future and is dated {{ page.date | date: "%c" }}. It should only appear when Jekyll builds your project with the `--future` flag.
 
-  > Jekyll is a simple, blog aware, static site generator. It takes a template directory [...] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.
-
-It's an immensely useful tool and one we encourage you to use here with Hyde.
-
-Find out more by [visiting the project on GitHub](https://github.com/mojombo/jekyll).
+```
