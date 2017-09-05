@@ -73,7 +73,7 @@ tags:
 
 ### Jekyll文件结构
 
-- 用于保存配置（jekyll会自动加载这些配置）
+- `_config.yml`用于保存配置（jekyll会自动加载这些配置）
 
 ## 反馈与建议
 - [Issues](https://github.com/DesignQu/DesignQu.github.io/issues)
