@@ -37,33 +37,33 @@ tags:
 [Github Desktop](https://desktop.github.com/)
 
 **3、注册Github账号并新建一个仓库**  
-如何注册略过，主要讲一下新建仓库。
+- 如何注册略过，主要讲一下新建仓库。
 
 ![233](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 233.png)  
 
-仓库的名称需要命名为`用户名.github.io`
+- 仓库的名称需要命名为`用户名.github.io`
 
 ![231](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 231.png)  
 
-以这种方式新建好仓库后，在`Settings`的`GitHub Pages` 下你的Blog已经生成出来了。
+- 以这种方式新建好仓库后，在`Settings`的`GitHub Pages` 下你的Blog已经生成出来了。
 
 ![232](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 232.png)  
 
-地址就是`https://用户名.github.io/`，网上大部分老教程讲的这个地方需要再设置一下`Launch automatic page generator`，新版的其实已经不用了
+- 地址就是`https://用户名.github.io/`，网上大部分老教程讲的这个地方需要再设置一下`Launch automatic page generator`，新版的其实已经不用了
 
 **4、上传`Jekyll`博客模板**  
-打开`Github Desktop`客户端，登录自己的`Github`账号
+- 打开`Github Desktop`客户端，登录自己的`Github`账号
 
 ![234](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 234.png)  
 
-Clone刚才新建好的`用户名.github.io`项目到本地，删除所有文件，只保留`.git`
+- Clone刚才新建好的`用户名.github.io`项目到本地，删除所有文件，只保留`.git`
 
 ![235](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 235.png) 
 
-去[Jekyll](http://jekyllthemes.org/)找一套你喜欢的模板下载，解压后将根目录所有文件复制到项目的根目录
+- 去[Jekyll](http://jekyllthemes.org/)找一套你喜欢的模板下载，解压后将根目录所有文件复制到项目的根目录
 
 
-使用Github Desktop Push到Github，此时你的博客已经建立完毕了！
+- 使用Github Desktop Push到Github，此时你的博客已经建立完毕了！
 
 -------------------
 
