@@ -38,6 +38,9 @@ tags:
 
 **3、注册Github账号并新建一个仓库**  
 如何注册略过，主要讲一下新建仓库。
+
+![233](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 233.png)  
+
 仓库的名称需要命名为`用户名.github.io`
 
 ![231](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 231.png)  
