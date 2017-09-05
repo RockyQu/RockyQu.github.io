@@ -18,7 +18,7 @@ tags:
 
 - **What is GitHub Pages?**
 > Github Pages可以认为是用户编写的、托管在github上的静态网页，支持自带主题，并且可以使用Jekyll或者Hexo等静态博客框架进行管理。    —— [GithubPages](https://pages.github.com/)
-[aaa](/assets/image/2017-09-10-2-3-1.png)
+
 - **What is Markdown?**
 > 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— [维基百科](https://zh.wikipedia.org/wiki/Markdown)
 
@@ -39,7 +39,7 @@ tags:
 **3、注册Github账号并新建一个仓库**  
 如何注册略过，主要讲一下新建仓库。
 仓库的名称需要命名为`用户名.github.io`
-
+[2017-09-10-2-3-1](/assets/image/2017-09-10-2-3-1.png)
 以这种方式新建好仓库后，在`Settings`的`GitHub Pages` 下你的Blog已经生成出来了。
 地址就是`https://用户名.github.io/`，网上大部分老教程讲的这个地方需要再设置一下，新版的其实已经不用了
 
