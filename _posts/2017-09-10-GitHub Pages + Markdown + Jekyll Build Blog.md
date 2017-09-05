@@ -18,7 +18,7 @@ tags:
 
 - **What is GitHub Pages?**
 > Github Pages可以认为是用户编写的、托管在github上的静态网页，支持自带主题，并且可以使用Jekyll或者Hexo等静态博客框架进行管理。    —— [GithubPages](https://pages.github.com/)
-
+[aaa](/assets/image/2017-09-10-2-3-1.png)
 - **What is Markdown?**
 > 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— [维基百科](https://zh.wikipedia.org/wiki/Markdown)
 
