@@ -74,9 +74,7 @@ tags:
 ### Jekyll文件结构
 
 - `_config.yml` 用于保存配置（jekyll会自动加载这些配置）
-- `_includes` 存放可以重复利用的文件，可以被其他的文件包含（方法：{% include 文件名 %}）
-- `_layouts` 存放模板文件（标签{{ content }}将content插入页面中）
-- `_posts` 存放实际的博客文章内容（文件名格式：年-月-日-标题.md）
+
 - `assets` 存放实际的博客用到的图片、音频等
 
 ## 反馈与建议
