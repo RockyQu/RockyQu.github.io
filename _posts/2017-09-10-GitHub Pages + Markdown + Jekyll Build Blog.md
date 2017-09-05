@@ -54,8 +54,11 @@ tags:
 **4、上传`Jekyll`博客模板**  
 打开`Github Desktop`客户端，登录自己的`Github`账号
 
+![234](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 234.png)  
+
 Clone刚才新建好的`用户名.github.io`项目到本地，删除所有文件，只保留`.git`
 
+![235](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 235.png) 
 
 去[Jekyll](http://jekyllthemes.org/)找一套你喜欢的模板下载，解压后将根目录所有文件复制到项目的根目录
 
