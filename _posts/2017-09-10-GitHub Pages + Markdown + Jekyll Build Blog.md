@@ -80,7 +80,11 @@ tags:
 - `assets` 存放实际的博客用到的图片、音频等
 
 **2、编辑博客**  
-直接在_posts文件夹下找一篇复制一份，用[Markdown在线编辑](https://maxiang.io/)修改里面的内容，改好了再复制回去，用Github Desktop Push到Github，即可看到了，其他更多教程[Jekyll教程](http://jekyll.com.cn/docs/home/)
+直接在_posts文件夹下找一篇复制一份，用[Markdown在线编辑](https://maxiang.io/)修改里面的内容，改好了再复制回去，用Github Desktop Push到Github，即可看到了  
+
+其他更多教程  
+[Jekyll教程](http://jekyll.com.cn/docs/home/)  
+[Markdown教程](http://www.appinn.com/markdown/)
 
 ## 反馈与建议
 - [Issues](https://github.com/DesignQu/DesignQu.github.io/issues)
