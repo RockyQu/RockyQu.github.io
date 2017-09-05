@@ -40,7 +40,7 @@ tags:
 如何注册略过，主要讲一下新建仓库。
 仓库的名称需要命名为`用户名.github.io`
 
-![2017-09-10-2-3-1](/assets/image/2017-09-10-2-3-1.png)  
+![2017-09-10-2-3-1](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 231.png)  
 
 以这种方式新建好仓库后，在`Settings`的`GitHub Pages` 下你的Blog已经生成出来了。
 地址就是`https://用户名.github.io/`，网上大部分老教程讲的这个地方需要再设置一下，新版的其实已经不用了
