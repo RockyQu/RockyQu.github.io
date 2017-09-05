@@ -71,7 +71,7 @@ tags:
 > 网上教程大部份只是讲了上面的如何建立博客，当你完成后你会发现不知道如何编辑一个博客，下面介绍关于`Jekyll`如果编辑博客的简单教程。
 有些教程让你安装Jekyll环境，目的就是为了可以在本地生成页面，实时浏览，方便调试，如果嫌麻烦，也可以用以下方法，Jekyll编辑一篇博客使用Markdown，有很多在线Markdown编辑，推荐[Markdown在线编辑](https://maxiang.io/)，效果实时预览的，很方便。
 
-- **Jekyll文件结构**
+**1、Jekyll文件结构**
 
 - `_config.yml` 用于保存配置（jekyll会自动加载这些配置）
 - `_includes` 存放可以重复利用的文件，可以被其他的文件包含
@@ -79,7 +79,7 @@ tags:
 - `_posts` 存放实际的博客文章内容（文件名格式：年-月-日-标题.md）
 - `assets` 存放实际的博客用到的图片、音频等
 
-- **编辑博客**
+**2、编辑博客**  
 直接在_posts文件夹下找一篇复制一份，用[Markdown在线编辑](https://maxiang.io/)修改里面的内容，改好了再复制回去，用Github Desktop Push到Github，即可看到了，其他更多教程[Jekyll教程](http://jekyll.com.cn/docs/home/)
 
 ## 反馈与建议
