@@ -52,7 +52,7 @@ tags:
 地址就是`https://用户名.github.io/`，网上大部分老教程讲的这个地方需要再设置一下`Launch automatic page generator`，新版的其实已经不用了
 
 **4、上传`Jekyll`博客模板**  
-打开Github Desktop客户端，登录自己账号
+打开`Github Desktop`客户端，登录自己的`Github`账号
 
 Clone刚才新建好的`用户名.github.io`项目到本地，删除所有文件，只保留`.git`
 
