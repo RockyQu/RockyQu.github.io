@@ -12,7 +12,7 @@ tags:
 
 ### 这里只介绍一种快速搭建个人博客的方式
 
-### 一、先了解一下一些相关概念说明
+### 先了解一下一些相关概念说明
 
 - **What is GitHub Pages?**
 > Github Pages可以认为是用户编写的、托管在github上的静态网页，支持自带主题，并且可以使用Jekyll或者Hexo等静态博客框架进行管理。    —— [GithubPages](https://pages.github.com/)
@@ -25,7 +25,7 @@ tags:
 
 -------------------
 
-### 二、开始搭建（Windows）
+### 开始搭建（Windows）
 
 **1、安装Git**  
 [Git Download](https://git-scm.com/downloads)
@@ -47,53 +47,23 @@ tags:
 Clone刚才新建好的`用户名.github.io`项目到本地，删除所有文件，只保留`.git`
 
 
-去Jekyll找一套你喜欢的模板下载，解压后将根目录所有文件复制到项目的根目录
+去[Jekyll](http://jekyllthemes.org/)找一套你喜欢的模板下载，解压后将根目录所有文件复制到项目的根目录
 
 
 使用Github Desktop Push到Github，此时你的博客已经建立完毕了！
 
 -------------------
 
-## Markdown简介
-
-> Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— [维基百科](https://zh.wikipedia.org/wiki/Markdown)
-
-正如您在阅读的这份文档，它使用简单的符号标识不同的标题，将某些文字标记为**粗体**或者*斜体*，创建一个[链接](http://www.example.com)或一个脚注[^demo]。下面列举了几个高级功能，更多语法请按`Ctrl + /`查看帮助。 
-
-### 代码块
-``` python
-@requires_authorization
-def somefunc(param1='', param2=0):
-    '''A docstring'''
-    if param1 > param2: # interesting
-        print 'Greater'
-    return (param2 - param1 + 1) or None
-class SomeClass:
-    pass
->>> message = '''interpreter
-... prompt'''
-```
-
-### 表格
-| Item      |    Value | Qty  |
-| :-------- | --------:| :--: |
-| Computer  | 1600 USD |  5   |
-| Phone     |   12 USD |  12  |
-| Pipe      |    1 USD | 234  |
-
-### 离线存储
-**马克飞象**使用浏览器离线存储将内容实时保存在本地，不必担心网络断掉或浏览器崩溃。为了节省空间和避免冲突，已同步至印象笔记并且不再修改的笔记将删除部分本地缓存，不过依然可以随时通过`文档管理`打开。
-
-> **注意：**虽然浏览器存储大部分时候都比较可靠，但印象笔记作为专业云存储，更值得信赖。以防万一，**请务必经常及时同步到印象笔记**。
-
-## 关于收费
-
-**马克飞象**为新用户提供 10 天的试用期，试用期过后需要[续费](maxiang.info/vip.html)才能继续使用。未购买或者未及时续费，将不能同步新的笔记。之前保存过的笔记依然可以编辑。
+### Jekyll教程
+> 网上教程大部份只是讲了上面的如何建立博客，当你完成后你会发现不知道如何编辑一个博客，下面介绍关于`Jekyll`如果编辑博客的简单教程。
+有些教程让你安装Jekyll环境，目的就是为了可以在本地生成页面，实时浏览，方便调试，如果嫌麻烦，也可以用以下方法，Jekyll编辑一篇博客使用Markdown，有很多在线Markdown编辑，推荐[Markdown在线编辑](https://maxiang.io/)，效果实时预览的，很方便。
 
 
-## 反馈与建议
-- 微博：[@马克飞象](http://weibo.com/u/2788354117)，[@GGock](http://weibo.com/ggock "开发者个人账号")
-- 邮箱：<hustgock@gmail.com>
 
----------
-感谢阅读这份帮助文档。请点击右上角，绑定印象笔记账号，开启全新的记录与分享体验吧。
+### 反馈与建议
+- [Issues](https://github.com/DesignQu/DesignQu.github.io/issues)
+- <quhaifeng2017@gmail.com>
+
+-------------------
+
+感谢你阅读这份教程。
