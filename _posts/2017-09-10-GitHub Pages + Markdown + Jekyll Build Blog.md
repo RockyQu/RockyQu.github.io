@@ -6,6 +6,7 @@ categories:
   - 笔记
 tags:
   - GitHub Pages
+  - Markdown
   - Jekyll
   - Build Blog
 ---
