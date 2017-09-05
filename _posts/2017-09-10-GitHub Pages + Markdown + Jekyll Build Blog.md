@@ -49,7 +49,7 @@ tags:
 
 ![232](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 232.png)  
 
-地址就是`https://用户名.github.io/`，网上大部分老教程讲的这个地方需要再设置一下，新版的其实已经不用了
+地址就是`https://用户名.github.io/`，网上大部分老教程讲的这个地方需要再设置一下`Launch automatic page generator`，新版的其实已经不用了
 
 **4、上传`Jekyll`博客模板**  
 打开Github Desktop客户端，登录自己账号
