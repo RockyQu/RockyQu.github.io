@@ -17,21 +17,26 @@ tags:
 
 当安装TortoiseSVN时，command line client tools 这项默认是不会安装的，必须手动选择安装上，否则svn.exe文件不存在，无法在 Android Studio 中进行SVN关联配置
 
-![图一](/assets/image/2017-09-18-Android Studio SVN Config 1.png)  
+![img1](/assets/image/2017-09-18-Android Studio SVN Config 1.png)  
 
-![图二](/assets/image/2017-09-18-Android Studio SVN Config 2.png)  
+![img2](/assets/image/2017-09-18-Android Studio SVN Config 2.png)  
 
-![图三](/assets/image/2017-09-18-Android Studio SVN Config 3.png)  
+![img3](/assets/image/2017-09-18-Android Studio SVN Config 3.png)  
 
 -------------------
 
 ### 2、关联SVN  
 
-![图三](/assets/image/2017-09-18-Android Studio SVN Config 4.png)  
+![img4](/assets/image/2017-09-18-Android Studio SVN Config 4.png)  
 
 -------------------
 
 ### 3、忽略文件
 
+![img5](/assets/image/2017-09-18-Android Studio SVN Config 5.png) 
+
+![img6](/assets/image/2017-09-18-Android Studio SVN Config 6.png) 
+
+![img7](/assets/image/2017-09-18-Android Studio SVN Config 7.png) 
 
 -------------------
