@@ -23,11 +23,11 @@ tags:
 
 ![图三](/assets/image/2017-09-18-Android Studio SVN Config 3.png)  
 
- ### 关联SVN  
+### 关联SVN  
 
-![图三](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 233.png)  
+![图三](/assets/image/2017-09-18-Android Studio SVN Config 4.png)  
 
 ### 忽略文件
 
--------------------
 
+-------------------
