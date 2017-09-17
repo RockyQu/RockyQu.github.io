@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "使用GitHub Pages + Markdown + Jekyll搭建自己的博客"
+excerpt: "这里只是介绍一种快速搭建个人博客的方式"
 date: 2017-9-10
 categories:
   - 笔记
@@ -10,10 +11,6 @@ tags:
   - Jekyll
   - Build Blog
 ---
-
-#### 这里只是介绍一种快速搭建个人博客的方式
-
--------------------
 
 ## 先了解一下一些相关概念说明
 
