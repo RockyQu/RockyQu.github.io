@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "关于 Android Studio 使用 SVN 的填坑记录"
+excerpt: "Android Studio 使用 SVN 的曾经遇到的问题记录"
 date: 2017-9-18
 categories:
   - Android Studio
@@ -9,10 +10,6 @@ tags:
   - SVN
   - TortoiseSVN
 ---
-
-#### 关于 Android Studio 使用 SVN 的填坑记录
-
--------------------
 
 ### 1、安装SVN
 
