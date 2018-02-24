@@ -7,7 +7,7 @@ title:            Qu
 tagline:          'Android Engineer'
 description:      'Android Engineer'
 baseurl:          ""
-url:              https://designqu.github.io
+url:              https://rockyqu.github.io
 
 author:
   name:           'Andrew Fong'
@@ -24,4 +24,4 @@ plugins:
 version:            3.4.1
 sidebar_home_link:  true
 github:
-  repo:             https://github.com/DesignQu
+  repo:             https://github.com/RockyQu
