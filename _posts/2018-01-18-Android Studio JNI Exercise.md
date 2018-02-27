@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Android NDK 开发简单实例教程"
+excerpt: "简单实现了Java与C之间的互相调用实例"
 date: 2018-1-18
 categories:
   - Android NDK
@@ -8,10 +9,6 @@ tags:
   - Android NDK
   - NDK
 ---
-
-#### 简单实现了Java与C之间的互相调用实例
-
--------------------
 
 ## 先了解一下一些相关概念说明
 

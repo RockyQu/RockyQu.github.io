@@ -1,16 +1,13 @@
 ---
 layout: post
 title: "APP客户端与服务器通信接口规范化设计手册"
+excerpt: "整理一些APP客户端与API范化的内容"
 date: 2018-2-3
 categories:
   - 笔记
 tags:
   - API
 ---
-
-#### 整理一些APP客户端与API范化的内容
-
--------------------
 
 ## 先了解一下一些相关概念说明
 
