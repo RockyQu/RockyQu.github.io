@@ -1,15 +1,14 @@
 ---
 layout: post
-title: "Android NDK 开发简单实例教程"
-date: 2018-1-18
+title: "APP客户端与服务器通信接口规范化设计手册"
+date: 2018-2-3
 categories:
-  - Android NDK
+  - 笔记
 tags:
-  - Android NDK
-  - NDK
+  - API
 ---
 
-#### 简单实现了Java与C之间的互相调用实例
+#### 整理一些APP客户端与API范化的内容
 
 -------------------
 
