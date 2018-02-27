@@ -7,22 +7,23 @@ categories:
   - 笔记
 tags:
   - API
+  - 规范化
+  - 版本
+  - 安全
 ---
 
-## 先了解一下一些相关概念说明
+## 一、接口版本设计
 
-- **What is GitHub Pages?**
-> Github Pages可以认为是用户编写的、托管在github上的静态网页，支持自带主题，并且可以使用Jekyll或者Hexo等静态博客框架进行管理。    —— [GithubPages](https://pages.github.com/)
+> 意义在于对接口增加版本控制，方便接口的维护与日常更新。当应用已经上线，接口发生逻辑更新，为不影响历史版本的使用应增加接口版本管理。
 
-- **What is Markdown?**
-> 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— [维基百科](https://zh.wikipedia.org/wiki/Markdown)
-
-- **What is  Jekyll?**
-> [Jekyll](https://github.com/jekyll)是一个简单的免费的静态网页生成工具，不需要数据库支持。但是可以配合第三方服务，最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。    —— [百度百科](https://baike.baidu.com/item/Jekyll)
+- **常用方法**
+1. 如业务改动较小。根据App调用接口传入接口版本号，服务器业务逻辑做相应区分处理。
+2. 如业务改动较大，应启用新接口，在BaseAPI后端加入版本号例v1、v2、v3
+![1](/assets/image/2018-02-03-Android API Specification 1.png)  
 
 -------------------
 
-## 开始搭建（Windows）
+## 二、接口数据传输格式
 
 **1、安装Git**  
 [Git Download](https://git-scm.com/downloads)
@@ -62,7 +63,7 @@ tags:
 
 -------------------
 
-## Jekyll基本教程
+## 三、	接口安全机制
 > 网上教程大部份只是讲了上面的如何建立博客，当你完成后你会发现不知道如何编辑一个博客，下面介绍关于`Jekyll`如果编辑博客的简单教程。
 有些教程让你安装Jekyll环境，目的就是为了可以在本地生成页面，实时浏览，方便调试，如果嫌麻烦，也可以用以下方法，Jekyll编辑一篇博客使用Markdown，有很多在线Markdown编辑，推荐[Markdown在线编辑](https://maxiang.io/)，效果实时预览的，很方便。
 
@@ -81,7 +82,7 @@ tags:
 [Jekyll教程](http://jekyll.com.cn/docs/home/)  
 [Markdown教程](http://www.appinn.com/markdown/)
 
-## 反馈与建议
+## 四、	其他
 - [Issues](https://github.com/DesignQu/DesignQu.github.io/issues)
 - <quhaifeng2017@gmail.com>
 
