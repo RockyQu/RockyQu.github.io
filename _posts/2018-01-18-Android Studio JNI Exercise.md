@@ -25,6 +25,8 @@ tags:
 - 提高程序的执行效率。将要求高性能的应用逻辑使用 C 开发，从而提高应用程序的执行效率。
 - 便于移植。用 C/C++ 写得库可以方便在其他的嵌入式平台上再次使用。
 
+在Android Studio 2.2 之后，工具中增加了 CMake 的支持，你可以这么认为，在 Android Studio 2.2 之后你有2种选择来编译你写的 c/c++ 代码。一个是 ndk-build + Android.mk + Application.mk 组合，另一个是 CMake + CMakeLists.txt 组合。这2个组合与Android代码和c/c++代码无关，只是不同的构建脚本和构建命令。本篇文章主要讲解后者的组合。（也是Android现在主推的）
+  
 参考[NDK](https://baike.baidu.com/item/NDK/5967464?fr=aladdin)
 
 ### 2、CMake
@@ -32,6 +34,14 @@ tags:
 
 ### 3、LLDB
 > 是一个高效的c/c++的调试器，是与LLVM编译器一起使用，提供了丰富的流程控制和数据检测,有效的帮忙我们调试程序。LLDB也已经取代GDB成为XCode的默认调试器，Android Studio中也可以使用LLDB调试NDK程序，在Android Studio也中可以LLDB,从SDK Tools中下载LLDB最新版本，配合Android Studio和gradle-experimental一起调试NDK项目，会更加的方便。
+
+### 4、JNI
+定义 Java Native Interface，即 Java 本地接口，使得 Java 与本地其他类型语言 C/C++ 交互
+**特别注意**  
+- JNI是 Java 调用 Native 语言的一种特性
+- JNI 是属于 Java 的，与 Android 无直接关系
+
+
 
 -------------------
 
