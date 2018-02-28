@@ -16,25 +16,26 @@ tags:
 
 ## 二、概念说明
 ### 1、NDK（WNative Development Kit） 
-NDK 是一系列工具的集合，帮助开发者快速开发 C/C++ 的动态库。Android程序运行在Dalvik虚拟机中，NDK允许用户使用类似 C/C++ 之类的原生代码语言执行部分程序。NDK包括从 C/C++ 生成原生代码库所需要的工具和build files。
+> NDK 是一系列工具的集合，帮助开发者快速开发 C/C++ 的动态库。Android程序运行在Dalvik虚拟机中，NDK允许用户使用类似 C/C++ 之类的原生代码语言执行部分程序。NDK包括从 C/C++ 生成原生代码库所需要的工具和build files。
 将一致的原生库嵌入可以在Android设备上部署的应用程序包文件（application packages files ，即.apk文件）中。支持所有未来Android平台的一系列原生系统头文件和库
 
-**为何要用到NDK?**
+**为何要用到NDK?**  
 概括来说主要分为以下几种情况：
 - 代码的保护。由于 apk 的 java 层代码很容易被反编译，而 C/C++ 库反汇难度较大。
-- 可以方便地使用现存的开源库。大部分现存的开源库都是用 C/C++ 代码编写的。
 - 提高程序的执行效率。将要求高性能的应用逻辑使用 C 开发，从而提高应用程序的执行效率。
 - 便于移植。用 C/C++ 写得库可以方便在其他的嵌入式平台上再次使用。
 
-摘自[参考](https://baike.baidu.com/item/NDK/5967464?fr=aladdin)
+参考[NDK](https://baike.baidu.com/item/NDK/5967464?fr=aladdin)
 
 ### 2、CMake
+参考[CMake](https://baike.baidu.com/item/cmake)
 
 ### 3、LLDB
+> 是一个高效的c/c++的调试器，是与LLVM编译器一起使用，提供了丰富的流程控制和数据检测,有效的帮忙我们调试程序。LLDB也已经取代GDB成为XCode的默认调试器，Android Studio中也可以使用LLDB调试NDK程序，在Android Studio也中可以LLDB,从SDK Tools中下载LLDB最新版本，配合Android Studio和gradle-experimental一起调试NDK项目，会更加的方便。
 
 -------------------
 
-## 开始搭建（Windows）
+## 三、开始搭建（Windows）
 
 **1、安装Git**  
 [Git Download](https://git-scm.com/downloads)
