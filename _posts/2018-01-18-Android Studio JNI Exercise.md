@@ -1,25 +1,31 @@
 ---
 layout: post
-title: "Android NDK 开发简单实例教程"
+title: "AndroidStudio NDK 开发简单实例教程"
 excerpt: "简单实现了Java与C之间的互相调用实例"
 date: 2018-1-18
 categories:
   - Android NDK
 tags:
-  - Android NDK
+  - AndroidStudio NDK
   - NDK
+  - JNI
 ---
 
-## 先了解一下一些相关概念说明
+## 所需工具
+> Android Studio 2.3.2、NDK、CMake、LLDB
 
-- **What is GitHub Pages?**
-> Github Pages可以认为是用户编写的、托管在github上的静态网页，支持自带主题，并且可以使用Jekyll或者Hexo等静态博客框架进行管理。    —— [GithubPages](https://pages.github.com/)
-
-- **What is Markdown?**
-> 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— [维基百科](https://zh.wikipedia.org/wiki/Markdown)
-
-- **What is  Jekyll?**
-> [Jekyll](https://github.com/jekyll)是一个简单的免费的静态网页生成工具，不需要数据库支持。但是可以配合第三方服务，最关键的是jekyll可以免费部署在Github上，而且可以绑定自己的域名。    —— [百度百科](https://baike.baidu.com/item/Jekyll)
+## 概念说明
+- NDK
+Android程序运行在Dalvik虚拟机中，NDK允许用户使用类似C / C++之类的原生代码语言执行部分程序。
+NDK包括了：
+从C / C++生成原生代码库所需要的工具和build files。
+将一致的原生库嵌入可以在Android设备上部署的应用程序包文件（application packages files ，即.apk文件）中。
+支持所有未来Android平台的一系列原生系统头文件和库
+为何要用到NDK?
+概括来说主要分为以下几种情况：
+1、代码的保护，由于apk的java层代码很容易被反编译，而C/C++库被反编译的难度较大。
+2、在NDK中调用第三方C/C++库，因为大部分的开源库都是用C/C++代码编写的。
+3、便于移植，用C/C++写的库可以方便在其他的嵌入式平台上再次使用。
 
 -------------------
 
