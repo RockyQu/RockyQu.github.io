@@ -53,7 +53,10 @@ tags:
 - mips64设备兼容mips64、mips；
 - mips只兼容mips；
 
+### 6、NDK与JNI的关系
+![1](/assets/image/2018-01-18-Android Studio JNI Exercise 1.png)  
 
+参考[NDK与JNI的关系](http://blog.csdn.net/carson_ho/article/details/73250163)
 
 -------------------
 
@@ -77,7 +80,7 @@ tags:
 
 - 以这种方式新建好仓库后，在`Settings`的`GitHub Pages` 下你的Blog已经生成出来了。
 
-![232](/assets/image/2017-09-10-GitHub Pages + Markdown + Jekyll Build Blog 232.png)  
+
 
 - 地址就是`https://用户名.github.io/`，网上大部分老教程讲的这个地方需要再设置一下`Launch automatic page generator`，新版的其实已经不用了
 
