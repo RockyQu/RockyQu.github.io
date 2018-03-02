@@ -1,12 +1,13 @@
-<!DOCTYPE HTML>
-<html>
-<body>
+---
+layout: page
+title: About
+sidebar_link: true
+---
 
-<video width="320" height="240" controls="controls">
-  <source src="movie.ogg" type="video/ogg">
-  <source src="movie.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+<p class="message">
+  Hey there! This page is included as an example. Feel free to customize it
+  for your own use upon downloading. Carry on!
+</p>
 
-</body>
-</html>
+To make pages show up in the sidebar, add `sidebar_link: true` to the front
+matter.
