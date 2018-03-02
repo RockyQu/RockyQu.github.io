@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AndroidStudio NDK 开发简单实例教程"
+title: "Android Studio NDK 开发简单实例教程"
 excerpt: "简单实现了Java与C之间的互相调用实例"
 date: 2018-1-18
 categories:
