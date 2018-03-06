@@ -221,8 +221,8 @@ Java_qu_androidndk_MainActivity_stringFromJNI
 ```
 
 可以看出 NDK 生成的方法名是以 Java_包名_类名_方法名的形式，最后可以把已经生成的动态链接库，即 .so 文件拿出来共其他项目调用就可以了，生成目录在 <项目目录>\app\build\intermediates\cmake\debug\obj\...
-
-
+  
+参考[NDK开发初探](http://blog.csdn.net/bingjianit/article/details/75567410)
 
 -------------------
 
