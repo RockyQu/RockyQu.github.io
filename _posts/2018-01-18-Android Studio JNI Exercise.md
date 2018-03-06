@@ -68,6 +68,9 @@ tags:
 1、新建项目，请勾选Include C++ support
 ![3](/assets/image/2018-01-18-Android Studio JNI Exercise 3.png)  
 
+2、其他配置项
+![4](/assets/image/2018-01-18-Android Studio JNI Exercise 4.png)  
+
 - C++ Standard是让我们选择C++标准
 - Exceptions Support是添加C++中对于异常的处理，如选中，Android Studio会 
 将 -fexceptions标志添加到模块级build.gradle文件的cppFlags中，Gradle会将其传递到CMake
@@ -78,7 +81,13 @@ typeid()，可以判断类型信息，判断指针指向位置，在多态中，
 如选中，Android Studio会将-frtti标志添加到模块级build.gradle文件的cppFlags中，Gradle会将其传递到 CMake。
 上面这段摘自网络，意思还不是很理解，等后面学习C++时再继续研究。
 
-![4](/assets/image/2018-01-18-Android Studio JNI Exercise 4.png)  
+点击完成，等待一会，项目可立即运行，屏幕会显示“Hello from C++”
+
+完整目录结构
+![5](/assets/image/2018-01-18-Android Studio JNI Exercise 5.png)  
+
+3、默认配置文件说明
+
 
 -------------------
 
