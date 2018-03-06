@@ -75,6 +75,7 @@ tags:
 通过运行时(runtime)确定使用的类型，执行不同的函数，复用(reuse)接口.
 dynamic_cast<>可以使基类指针转换为派生类的指针，通过判断指针的类型，可以决定使用的函数。
 typeid()，可以判断类型信息，判断指针指向位置，在多态中，可以判断基类还是派生类。
+如选中，Android Studio会将-frtti标志添加到模块级build.gradle文件的cppFlags中，Gradle会将其传递到 CMake。
 上面这段摘自网络，意思还不是很理解，等后面学习C++时再继续研究。
 
 ![4](/assets/image/2018-01-18-Android Studio JNI Exercise 4.png)  
