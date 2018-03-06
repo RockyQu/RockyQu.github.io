@@ -171,11 +171,14 @@ externalNativeBuild {
 ```   
 - cppFlags 在前面有提到，如果选择了 Exceptions Support 、 Runtime Type Information Support 里面就会添加这两个参数
   
+```
 externalNativeBuild {
     cmake {
         path "CMakeLists.txt"
     }
 }
+```
+
 - 指定 CMakeLists.txt 文件的路径，由于build.gradle文件和 CMakeLists.txt 文件在同一目录下，所以此处就直接写文件名即可
   
 - 最终在MainActivity.java 文件中我们看到了函数的调用过程如下
