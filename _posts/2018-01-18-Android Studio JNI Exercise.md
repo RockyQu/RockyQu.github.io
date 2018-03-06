@@ -64,7 +64,7 @@ tags:
 主要是 NDK、CMake必须安装
 ![2](/assets/image/2018-01-18-Android Studio JNI Exercise 2.png)  
 
-## 四、项目结构
+## 四、项目结构说明
 ### 1、新建项目，请勾选Include C++ support
 ![3](/assets/image/2018-01-18-Android Studio JNI Exercise 3.png)  
 
@@ -81,12 +81,12 @@ typeid()，可以判断类型信息，判断指针指向位置，在多态中，
 如选中，Android Studio会将-frtti标志添加到模块级build.gradle文件的cppFlags中，Gradle会将其传递到 CMake。
 上面这段摘自网络，意思还不是很理解，等后面学习C++时再继续研究。
 
-点击完成，等待一会，项目可立即运行，屏幕会显示“Hello from C++”
+> 点击完成，等待一会，项目可立即运行，屏幕会显示“Hello from C++”
 
-- 完整目录结构
+- 以下为完整目录结构
 ![5](/assets/image/2018-01-18-Android Studio JNI Exercise 5.png)  
 
-### 3、默认配置文件说明
+### 3、默认代码讲解
 - 在 app 模块中新建了一个 cpp 文件夹放置 C/C++ 文件，此处默认的文件为native-lib.cpp
 
 ```
@@ -104,7 +104,8 @@ Java_qu_androidndk_MainActivity_stringFromJNI(
 ```
 > extern "C" 是告诉编译器按照C语言的规则来编译我们下面的代码
   
-- 在app 模块下建了一个 CMakeLists.txt 文件用于定义一些构建行为
+
+- 在app 模块下建了一个 CMakeLists.txt 文件用于定义一些构建行为，代码如下
 
 ```
 # For more information about using CMake with Android Studio, read the
@@ -159,6 +160,7 @@ target_link_libraries( # Specifies the target library.
 - find_library 是用来添加一些我们在编译我们的本地库的时候需要依赖的一些库，由于cmake已经知道系统库的路径，所以我们这里只是指定使用log库，然后给log库起别名为log-lib便于我们后面引用，此处的log库是我们后面调试时需要用来打log日志的库，是NDK为我们提供的。
 - target_link_libraries 是为了关联我们自己的库和一些第三方库或者系统库，这里把我们把自己的库native-lib库和log库关联起来。
   
+### 4、build.gradle 文件讲解
 - 在 app 模块对应的build.gradle文件中增加了一些配置
 ```
 externalNativeBuild {
@@ -167,16 +169,41 @@ externalNativeBuild {
     }
 }
 ```   
-cppFlags 在前面有提到，如果选择了 Exceptions Support 、 Runtime Type Information Support 里面就会添加这两个参数
+- cppFlags 在前面有提到，如果选择了 Exceptions Support 、 Runtime Type Information Support 里面就会添加这两个参数
   
 externalNativeBuild {
     cmake {
         path "CMakeLists.txt"
     }
 }
-指定 CMakeLists.txt 文件的路径，由于build.gradle文件和 CMakeLists.txt 文件在同一目录下，所以此处就直接写文件名即可
+- 指定 CMakeLists.txt 文件的路径，由于build.gradle文件和 CMakeLists.txt 文件在同一目录下，所以此处就直接写文件名即可
   
+- 最终在MainActivity.java 文件中我们看到了函数的调用过程如下
+```
+public class MainActivity extends AppCompatActivity {
 
+    // Used to load the 'native-lib' library on application startup.
+    static {
+        System.loadLibrary("native-lib");
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Example of a call to a native method
+        TextView tv = (TextView) findViewById(R.id.sample_text);
+        tv.setText(stringFromJNI());
+    }
+
+    /**
+     * A native method that is implemented by the 'native-lib' native library,
+     * which is packaged with this application.
+     */
+    public native String stringFromJNI();
+}
+```
 
 
 -------------------
