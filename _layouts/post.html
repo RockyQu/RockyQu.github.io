@@ -21,11 +21,11 @@ layout: default
 	    <script>
 	    var gitment = new Gitment({
 	        id: '<%= page.date %>',
-	        owner: 'RockyQu',
-	        repo: 'RockyQu.github.io',
+	        owner: 'site.owner',
+	        repo: 'site.repo',
 	        oauth: {
-	            client_id: '04ac49f449da4aeb88be',
-	            client_secret: '0534d4a2359d843b61ff7bcb4c7728c222044881',
+	            client_id: 'site.client_id',
+	            client_secret: 'site.client_secret',
 	        },
 	    })
 	    gitment.render('gitment_container')
