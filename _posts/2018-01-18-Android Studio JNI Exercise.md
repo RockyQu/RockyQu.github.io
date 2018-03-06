@@ -65,10 +65,10 @@ tags:
 ![2](/assets/image/2018-01-18-Android Studio JNI Exercise 2.png)  
 
 ## 四、项目结构
-1、新建项目，请勾选Include C++ support
+### 1、新建项目，请勾选Include C++ support
 ![3](/assets/image/2018-01-18-Android Studio JNI Exercise 3.png)  
 
-2、其他配置项
+### 2、其他配置项
 ![4](/assets/image/2018-01-18-Android Studio JNI Exercise 4.png)  
 
 - C++ Standard是让我们选择C++标准
@@ -83,10 +83,26 @@ typeid()，可以判断类型信息，判断指针指向位置，在多态中，
 
 点击完成，等待一会，项目可立即运行，屏幕会显示“Hello from C++”
 
-完整目录结构
+- 完整目录结构
 ![5](/assets/image/2018-01-18-Android Studio JNI Exercise 5.png)  
 
-3、默认配置文件说明
+### 3、默认配置文件说明
+- 在 app 模块中新建了一个 cpp 文件夹放置 C/C++ 文件，此处默认的文件为native-lib.cpp
+
+```
+#include <jni.h>
+#include <string>
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_qu_androidndk_MainActivity_stringFromJNI(
+        JNIEnv *env,
+        jobject /* this */) {
+    std::string hello = "Hello from C++";
+    return env->NewStringUTF(hello.c_str());
+}
+```
+- extern "C" 是告诉编译器按照C语言的规则来编译我们下面的代码
 
 
 -------------------
