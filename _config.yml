@@ -2,12 +2,22 @@
 markdown:         kramdown
 highlighter:      rouge
 
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
 # Setup
 title:            Qu
 tagline:          'Android Engineer'
 description:      'Android Engineer'
-baseurl:          ""
+baseurl:          /
 url:              https://rockyqu.github.io
+
+
+author:
+  name:           'Qu'
+  url:            https://github.com/RockyQu
 
 paginate:         10
 
@@ -19,5 +29,5 @@ plugins:
 # Custom vars
 version:            3.4.1
 sidebar_home_link:  true
-github:							https://github.com/RockyQu
+github:							
 repo:               https://github.com/RockyQu
