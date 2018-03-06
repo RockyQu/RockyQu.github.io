@@ -12,7 +12,7 @@ tags:
   - Build Blog
 ---
 
-## 先了解一下一些相关概念说明
+## 一、先了解一下一些相关概念说明
 
 - **What is GitHub Pages?**
 > Github Pages可以认为是用户编写的、托管在github上的静态网页，支持自带主题，并且可以使用Jekyll或者Hexo等静态博客框架进行管理。    —— [GithubPages](https://pages.github.com/)
@@ -25,7 +25,7 @@ tags:
 
 -------------------
 
-## 开始搭建（Windows）
+## 二、开始搭建（Windows）
 
 **1、安装Git**  
 [Git Download](https://git-scm.com/downloads)
@@ -65,7 +65,7 @@ tags:
 
 -------------------
 
-## Jekyll基本教程
+## 三、Jekyll基本教程
 > 网上教程大部份只是讲了上面的如何建立博客，当你完成后你会发现不知道如何编辑一个博客，下面介绍关于`Jekyll`如果编辑博客的简单教程。
 有些教程让你安装Jekyll环境，目的就是为了可以在本地生成页面，实时浏览，方便调试，如果嫌麻烦，也可以用以下方法，Jekyll编辑一篇博客使用Markdown，有很多在线Markdown编辑，推荐[Markdown在线编辑](https://maxiang.io/)，效果实时预览的，很方便。
 
@@ -83,10 +83,6 @@ tags:
 **3、其他更多教程**   
 [Jekyll教程](http://jekyll.com.cn/docs/home/)  
 [Markdown教程](http://www.appinn.com/markdown/)
-
-## 反馈与建议
-- [Issues](https://github.com/DesignQu/DesignQu.github.io/issues)
-- <quhaifeng2017@gmail.com>
 
 -------------------
 
