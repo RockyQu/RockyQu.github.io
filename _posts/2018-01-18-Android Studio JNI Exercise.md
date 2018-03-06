@@ -64,7 +64,7 @@ tags:
 主要是 NDK、CMake必须安装
 ![2](/assets/image/2018-01-18-Android Studio JNI Exercise 2.png)  
 
-## 四、项目结构说明
+## 四、配置文件和代码讲解
 ### 1、新建项目，请勾选Include C++ support
 ![3](/assets/image/2018-01-18-Android Studio JNI Exercise 3.png)  
 
@@ -104,7 +104,6 @@ Java_qu_androidndk_MainActivity_stringFromJNI(
 ```
 > extern "C" 是告诉编译器按照C语言的规则来编译我们下面的代码
   
-
 - 在app 模块下建了一个 CMakeLists.txt 文件用于定义一些构建行为，代码如下
 
 ```
@@ -155,12 +154,11 @@ target_link_libraries( # Specifies the target library.
 ```
 上面大部分为注释内容，最核心的就那么几句
 
-- cmake_minimum_required(VERSION 3.4.1) 用来设置在编译本地库时我们需要的最小的cmake版本，AndroidStudio自动生成
-- add_library用来设置编译生成的本地库的名字为native-lib，SHARED表示编译生成的是动态链接库，src/main/cpp/native-lib.cpp表示参与编译的文件的路径，这里面可以写多个文件的路径。
-- find_library 是用来添加一些我们在编译我们的本地库的时候需要依赖的一些库，由于cmake已经知道系统库的路径，所以我们这里只是指定使用log库，然后给log库起别名为log-lib便于我们后面引用，此处的log库是我们后面调试时需要用来打log日志的库，是NDK为我们提供的。
-- target_link_libraries 是为了关联我们自己的库和一些第三方库或者系统库，这里把我们把自己的库native-lib库和log库关联起来。
+(a) cmake_minimum_required(VERSION 3.4.1) 用来设置在编译本地库时我们需要的最小的cmake版本，AndroidStudio自动生成
+(b) add_library用来设置编译生成的本地库的名字为native-lib，SHARED表示编译生成的是动态链接库，src/main/cpp/native-lib.cpp表示参与编译的文件的路径，这里面可以写多个文件的路径。
+(c) find_library 是用来添加一些我们在编译我们的本地库的时候需要依赖的一些库，由于cmake已经知道系统库的路径，所以我们这里只是指定使用log库，然后给log库起别名为log-lib便于我们后面引用，此处的log库是我们后面调试时需要用来打log日志的库，是NDK为我们提供的。
+(d) target_link_libraries 是为了关联我们自己的库和一些第三方库或者系统库，这里把我们把自己的库native-lib库和log库关联起来。
   
-### 4、build.gradle 文件讲解
 - 在 app 模块对应的build.gradle文件中增加了一些配置
 ```
 externalNativeBuild {
@@ -207,6 +205,23 @@ public class MainActivity extends AppCompatActivity {
     public native String stringFromJNI();
 }
 ```
+
+这里主要做了三步操作: 
+(a)使用 native 关键字声明了一个本地方法 stringFromJNI()
+(b)使用 loadLibrary() 方法载入我们编译生成的动态链接库，这里要注意，虽然我们生成的动态链接库名称为 libnative-lib.so，但是此处我们只需要写 native-lib，即就是我们在 CMakeLists.txt 文件中指定的名称，其中的lib前缀和 .so 后缀是系统为我们添加的。
+(c)我们在布局文件中放了一个TextView，然后将函数返回的字符串放到了TextView中。
+我们对比一下我们声明的native方法和最终我们的ndk帮我们生成的c++代码的函数名:
+
+```
+// 我们声明的 native 方法名
+public native String stringFromJNI();
+
+// NDK自动生成的方法名
+Java_qu_androidndk_MainActivity_stringFromJNI
+```
+
+可以看出 NDK 生成的方法名是以 Java_包名_类名_方法名的形式，最后可以把已经生成的动态链接库，即 .so 文件拿出来共其他项目调用就可以了，生成目录在 <项目目录>\app\build\intermediates\cmake\debug\obj\...
+
 
 
 -------------------
