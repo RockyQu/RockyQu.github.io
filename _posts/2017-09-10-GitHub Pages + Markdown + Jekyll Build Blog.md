@@ -60,7 +60,6 @@ tags:
 
 - 去[Jekyll模板](http://jekyllthemes.org/)找一套你喜欢的模板下载，解压后将根目录所有文件复制到项目的根目录
 
-
 - 使用Github Desktop Push到Github，此时你的博客已经建立完毕了！
 
 -------------------
