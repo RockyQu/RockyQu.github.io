@@ -13,7 +13,7 @@ author:
   name:           'Andrew Fong'
   url:            https://twitter.com/fongandrewc
 
-paginate:         5
+paginate:         10
 
 plugins:
   - jekyll-feed

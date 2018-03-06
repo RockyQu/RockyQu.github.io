@@ -11,11 +11,11 @@
     <script>
     var gitment = new Gitment({
         id: '<%= page.date %>',
-        owner: '<%= theme.gitment.owner %>',
-        repo: '<%= theme.gitment.repo %>',
+        owner: '<%= site.gitment.owner %>',
+        repo: '<%= site.gitment.repo %>',
         oauth: {
-            client_id: '<%= theme.gitment.client_id %>',
-            client_secret: '<%= theme.gitment.client_secret %>',
+            client_id: '<%= site.gitment.client_id %>',
+            client_secret: '<%= site.gitment.client_secret %>',
         },
     })
     gitment.render('gitment_container')
