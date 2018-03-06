@@ -103,7 +103,7 @@ Java_qu_androidndk_MainActivity_stringFromJNI(
 }
 ```
 > extern "C" 是告诉编译器按照C语言的规则来编译我们下面的代码
-
+  
 - 在app 模块下建了一个 CMakeLists.txt 文件用于定义一些构建行为
 
 ```
@@ -154,6 +154,28 @@ target_link_libraries( # Specifies the target library.
 ```
 上面大部分为注释内容，最核心的就那么几句
 
+- cmake_minimum_required(VERSION 3.4.1) 用来设置在编译本地库时我们需要的最小的cmake版本，AndroidStudio自动生成
+- add_library用来设置编译生成的本地库的名字为native-lib，SHARED表示编译生成的是动态链接库，src/main/cpp/native-lib.cpp表示参与编译的文件的路径，这里面可以写多个文件的路径。
+- find_library 是用来添加一些我们在编译我们的本地库的时候需要依赖的一些库，由于cmake已经知道系统库的路径，所以我们这里只是指定使用log库，然后给log库起别名为log-lib便于我们后面引用，此处的log库是我们后面调试时需要用来打log日志的库，是NDK为我们提供的。
+- target_link_libraries 是为了关联我们自己的库和一些第三方库或者系统库，这里把我们把自己的库native-lib库和log库关联起来。
+  
+- 在 app 模块对应的build.gradle文件中增加了一些配置
+```
+externalNativeBuild {
+    cmake {
+        cppFlags "-frtti -fexceptions"
+    }
+}
+```   
+cppFlags 在前面有提到，如果选择了 Exceptions Support 、 Runtime Type Information Support 里面就会添加这两个参数
+  
+externalNativeBuild {
+    cmake {
+        path "CMakeLists.txt"
+    }
+}
+指定 CMakeLists.txt 文件的路径，由于build.gradle文件和 CMakeLists.txt 文件在同一目录下，所以此处就直接写文件名即可
+  
 
 
 
