@@ -156,9 +156,9 @@ target_link_libraries( # Specifies the target library.
 ```
 上面大部分为注释内容，最核心的就那么几句
 
-(a) cmake_minimum_required(VERSION 3.4.1) 用来设置在编译本地库时我们需要的最小的cmake版本，AndroidStudio自动生成
-(b) add_library用来设置编译生成的本地库的名字为native-lib，SHARED表示编译生成的是动态链接库，src/main/cpp/native-lib.cpp表示参与编译的文件的路径，这里面可以写多个文件的路径。
-(c) find_library 是用来添加一些我们在编译我们的本地库的时候需要依赖的一些库，由于cmake已经知道系统库的路径，所以我们这里只是指定使用log库，然后给log库起别名为log-lib便于我们后面引用，此处的log库是我们后面调试时需要用来打log日志的库，是NDK为我们提供的。
+(a) cmake_minimum_required(VERSION 3.4.1) 用来设置在编译本地库时我们需要的最小的cmake版本，AndroidStudio自动生成  
+(b) add_library用来设置编译生成的本地库的名字为native-lib，SHARED表示编译生成的是动态链接库，src/main/cpp/native-lib.cpp表示参与编译的文件的路径，这里面可以写多个文件的路径。  
+(c) find_library 是用来添加一些我们在编译我们的本地库的时候需要依赖的一些库，由于cmake已经知道系统库的路径，所以我们这里只是指定使用log库，然后给log库起别名为log-lib便于我们后面引用，此处的log库是我们后面调试时需要用来打log日志的库，是NDK为我们提供的。  
 (d) target_link_libraries 是为了关联我们自己的库和一些第三方库或者系统库，这里把我们把自己的库native-lib库和log库关联起来。
   
 - 在 app 模块对应的build.gradle文件中增加了一些配置
@@ -208,12 +208,12 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-这里主要做了三步操作: 
-(a)使用 native 关键字声明了一个本地方法 stringFromJNI()
-(b)使用 loadLibrary() 方法载入我们编译生成的动态链接库，这里要注意，虽然我们生成的动态链接库名称为 libnative-lib.so，但是此处我们只需要写 native-lib，即就是我们在 CMakeLists.txt 文件中指定的名称，其中的lib前缀和 .so 后缀是系统为我们添加的。
+这里主要做了三步操作:   
+(a)使用 native 关键字声明了一个本地方法 stringFromJNI()  
+(b)使用 loadLibrary()   方法载入我们编译生成的动态链接库，这里要注意，虽然我们生成的动态链接库名称为 libnative-lib.so，但是此处我们只需要写 native-lib，即就是我们在 CMakeLists.txt 文件中指定的名称，其中的lib前缀和 .so 后缀是系统为我们添加的。
 (c)我们在布局文件中放了一个TextView，然后将函数返回的字符串放到了TextView中。
 我们对比一下我们声明的native方法和最终我们的ndk帮我们生成的c++代码的函数名:
-
+  
 ```
 // 我们声明的 native 方法名
 public native String stringFromJNI();
