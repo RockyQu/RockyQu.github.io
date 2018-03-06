@@ -64,7 +64,9 @@ tags:
 主要是 NDK、CMake必须安装
 ![2](/assets/image/2018-01-18-Android Studio JNI Exercise 2.png)  
 
-## 四、配置文件和代码讲解
+-------------------
+
+## 四、配置文件与代码讲解
 ### 1、新建项目，请勾选Include C++ support
 ![3](/assets/image/2018-01-18-Android Studio JNI Exercise 3.png)  
 
@@ -86,7 +88,7 @@ typeid()，可以判断类型信息，判断指针指向位置，在多态中，
 - 以下为完整目录结构
 ![5](/assets/image/2018-01-18-Android Studio JNI Exercise 5.png)  
 
-### 3、默认代码讲解
+### 3、代码讲解
 - 在 app 模块中新建了一个 cpp 文件夹放置 C/C++ 文件，此处默认的文件为native-lib.cpp
 
 ```
