@@ -21,10 +21,3 @@ version:            3.4.1
 sidebar_home_link:  true
 github:							https://github.com/RockyQu
 repo:               RockyQu.github.io
-
-# gitment
-enable: true
-id: '' #页面 ID, 可选。默认为 location.href
-owner: RockyQu
-client_id: '04ac49f449da4aeb88be' # Client ID
-client_secret: '0534d4a2359d843b61ff7bcb4c7728c222044881' # Client secret
