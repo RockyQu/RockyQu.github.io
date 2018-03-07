@@ -10,12 +10,12 @@
     <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     var gitment = new Gitment({
-        id: new Date().getTime(),
-        owner: '<%= site.owner %>',
-        repo: '<%= site.repo %>',
+        id: '' // new Date().getTime(),
+        owner: 'RockyQu',
+        repo: 'RockyQu.github.io',
         oauth: {
-            client_id: '<%= site.client_id %>',
-            client_secret: '<%= site.client_secret %>',
+            client_id: '04ac49f449da4aeb88be',
+            client_secret: '0534d4a2359d843b61ff7bcb4c7728c222044881',
         },
     })
     gitment.render('gitment_container')
