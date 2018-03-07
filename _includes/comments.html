@@ -1,6 +1,22 @@
-{% if page.comments != false %}
+<!-- {% if page.comments != false %}
   <section class="comments">
     
     {% include disqus.html %}
   </section>
-{% endif %}
+{% endif %} -->
+
+<div id="gitment_container"></div>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: new Date().getTime(),
+        owner: '<%= site.owner %>',
+        repo: '<%= site.repo %>',
+        oauth: {
+            client_id: '<%= site.client_id %>',
+            client_secret: '<%= site.client_secret %>',
+        },
+    })
+    gitment.render('gitment_container')
+</script>
