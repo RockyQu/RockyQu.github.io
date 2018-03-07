@@ -231,3 +231,5 @@ Java_qu_androidndk_MainActivity_stringFromJNI
 
 ## 五、后记
 整理了一下最简单 NDK 入门教程，以后有时间会继续学习。 
+
+-------------------

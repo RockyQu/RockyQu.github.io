@@ -38,3 +38,5 @@ tags:
 ![img7](/assets/image/2017-09-18-Android Studio SVN Config 7.png) 
 
 > 配置忽略文件必须在Share到SVN之前进行，忽略文件只需初次Share Project之前配置一次，其他人Check后不需要配置
+
+-------------------

@@ -82,3 +82,5 @@ tags:
 **3、其他更多教程**   
 [Jekyll教程](http://jekyll.com.cn/docs/home/)  
 [Markdown教程](http://www.appinn.com/markdown/)
+
+-------------------
