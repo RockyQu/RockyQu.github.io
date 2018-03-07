@@ -3,6 +3,19 @@
     test1
   </a>
 
+  {% if site.github.repo %}
+    <!-- <a id="github-link"
+       class="icon" title="Github Project" aria-label="Github Project"
+       href="{{ site.github }}">
+      {% include svg/github.svg %}
+    </a>
+    <a id="github-download-link"
+       class="icon" title="Download" aria-label="Download"
+       href="{{ site.github }}/archive/v{{ site.version }}.zip">
+      {% include svg/download.svg %}
+    </a> -->
+  {% endif %}
+
   <a id="subscribe-link"
      class="icon" title="Subscribe" aria-label="Subscribe"
      href="{{ site.baseurl }}/feed.xml">
