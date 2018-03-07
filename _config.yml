@@ -23,5 +23,4 @@ plugins:
 # Custom vars
 version:            3.4.1
 sidebar_home_link:  true
-github:							
-repo:               https://github.com/RockyQu
+github:							https://github.com/RockyQu

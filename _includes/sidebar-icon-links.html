@@ -1,19 +1,8 @@
 <nav id="sidebar-icon-links">
- 
-    <a>
-    test2
-    </a>
-     <a>
-      {{site.github.repo}}
-    {{site.version}}
-    </a>
-  {% if site.version %}
-    <a>
-    test1
-    </a>
+  {% if site.github %}
     <a id="github-link"
        class="icon" title="Github Project" aria-label="Github Project"
-       href="{{ site.github.repo }}">
+       href="{{ site.github }}">
       {% include svg/github.svg %}
     </a>
     <a id="github-download-link"
