@@ -10,7 +10,7 @@ baseurl:
 url:              https://rockyqu.github.io
 
 author:
-  name:           'Qu'
+  name:           'RockyQu'
   url:            https://github.com/RockyQu
 
 paginate:         10
