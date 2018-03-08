@@ -3,8 +3,8 @@ layout: page
 title: About
 sidebar_link: true
 ---
-
-##曲海峰
+  
+## 曲海峰
 
 - 6 年 Android 开发经验
 - 基本信息：男 1987年生 定居苏州
@@ -12,17 +12,17 @@ sidebar_link: true
 - 邮箱：250533855@qq.com
 - GitHub：https://github.com/RockyQu
 
-##教育经历
+## 教育经历
 
 -  2008/9 — 2012/7 黑龙江科技大学 计算机科学与技术 本科 
 
-##工作经历 
+## 工作经历 
 
 - 2012/7 — 至今 苏州龙的信息系统股份有限公司  Android 开发工程师
 
 ##项目经历
 
-**XX APP**
+** APP**
 
 - 简介：XX软件
 - 主要技术：RxJava, okhttp, Picasso, EventBus, Hybrid
@@ -31,7 +31,7 @@ sidebar_link: true
  - XX
  - XX
 
-**XX APP**
+** APP**
 
 - 简介：下单分发，客户管理软件
 - 主要技术：Retrofit, Greendao
@@ -39,7 +39,7 @@ sidebar_link: true
  - XX
  - XX
 
-##专业技能
+## 专业技能
 
 - 熟悉使用Android Studio、Eclipse开发工具，SVN，了解Git。
 - 熟练Dagger2用法，核心思想及基本工作原理。
