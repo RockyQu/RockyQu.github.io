@@ -300,14 +300,11 @@ $ git stash pop
 $ git archive
 ```
 
-[以上参考](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
+[参考](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
 
 -------------------
 
-## 三、	Git 多人协同开发
-> 主要介绍这三种Token、Timestamp和Sign，保证接口的数据不会被篡改和重复调用
-
-### 1、Token授权机制  
-用户使用用户名密码登录后服务器给客户端返回一个唯一的Token值，并将Token-UserId以键值对的形式存放在缓存服务器中。服务端接收到请求后进行Token验证，如果Token不存在，说明请求无效。Token是客户端访问服务端的凭证。
+## 三、	多人协同开发
+[参考](https://www.cnblogs.com/onelikeone/p/6857910.html)
 
 -------------------
