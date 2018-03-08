@@ -18,38 +18,288 @@ tags:
 -------------------
 
 ## 二、常用命令
+### 1、新建代码库
+```
+# 在当前目录新建一个Git代码库
+$ git init
 
+# 新建一个目录，将其初始化为Git代码库
+$ git init [project-name]
 
-| :------:| :------------------  |
-| Number  |  整数或浮点数        |
-| String  |  字符串              |
-| Boolean | true 或 false        |
-| Array   | 数组包含在方括号[]中 |
-| Object  | 对象包含在大括号{}中 |
-| Null    | 空类型               |
+# 下载一个项目和它的整个代码历史
+$ git clone [url]
+```
+
+### 2、配置
+> Git的设置文件为.gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。
+```
+# 显示当前的Git配置
+$ git config --list
+
+# 编辑Git配置文件
+$ git config -e [--global]
+
+# 设置提交代码时的用户信息
+$ git config [--global] user.name "[name]"
+$ git config [--global] user.email "[email address]"
+```
+
+### 3、增加/删除文件
+```
+# 添加指定文件到暂存区
+$ git add [file1] [file2] ...
+
+# 添加指定目录到暂存区，包括子目录
+$ git add [dir]
+
+# 添加当前目录的所有文件到暂存区
+$ git add .
+
+# 添加每个变化前，都会要求确认
+# 对于同一个文件的多处变化，可以实现分次提交
+$ git add -p
+
+# 删除工作区文件，并且将这次删除放入暂存区
+$ git rm [file1] [file2] ...
+
+# 停止追踪指定文件，但该文件会保留在工作区
+$ git rm --cached [file]
+
+# 改名文件，并且将这个改名放入暂存区
+$ git mv [file-original] [file-renamed]
+```
+
+### 4、代码提交
+```
+# 提交暂存区到仓库区
+$ git commit -m [message]
+
+# 提交暂存区的指定文件到仓库区
+$ git commit [file1] [file2] ... -m [message]
+
+# 提交工作区自上次commit之后的变化，直接到仓库区
+$ git commit -a
+
+# 提交时显示所有diff信息
+$ git commit -v
+
+# 使用一次新的commit，替代上一次提交
+# 如果代码没有任何新变化，则用来改写上一次commit的提交信息
+$ git commit --amend -m [message]
+
+# 重做上一次commit，并包括指定文件的新变化
+$ git commit --amend [file1] [file2] ...
+```
   
-#### 数据结构类型
+### 5、分支
 ```
-{
-    "code": 1,
-    "message": "no message",
-    "data": {}
-}
+# 列出所有本地分支
+$ git branch
+
+# 列出所有远程分支
+$ git branch -r
+
+# 列出所有本地分支和远程分支
+$ git branch -a
+
+# 新建一个分支，但依然停留在当前分支
+$ git branch [branch-name]
+
+# 新建一个分支，并切换到该分支
+$ git checkout -b [branch]
+
+# 新建一个分支，指向指定commit
+$ git branch [branch] [commit]
+
+# 新建一个分支，与指定的远程分支建立追踪关系
+$ git branch --track [branch] [remote-branch]
+
+# 切换到指定分支，并更新工作区
+$ git checkout [branch-name]
+
+# 切换到上一个分支
+$ git checkout -
+
+# 建立追踪关系，在现有分支与指定的远程分支之间
+$ git branch --set-upstream [branch] [remote-branch]
+
+# 合并指定分支到当前分支
+$ git merge [branch]
+
+# 选择一个commit，合并进当前分支
+$ git cherry-pick [commit]
+
+# 删除分支
+$ git branch -d [branch-name]
+
+# 删除远程分支
+$ git push origin --delete [branch-name]
+$ git branch -dr [remote/branch]
 ```
-以上为常用字段，根据实际需求进行修改。
 
-1、状态码  
-应该全局定义统一状态码（code），而不应该每个接口单独去定义。如code=1时表示登录成功，那么其他接口code=1的状态就不能再使用，如此定义后，前端可以进行全局的统一处理。
-常见错误状态码类型
-- 普通异常
-- token不合法，需要重新登录
-- 重复登录
-- 需要完善个人信息
-- 第三方账号登陆，需要绑定官方账号
-- 数据解密错误
+### 6、标签
+```
+# 列出所有tag
+$ git tag
 
-2、data字段  
-Data字段可包含JsonArray或JsonObject，这里只关心想要获取的数据，如果出现空的字段，该字段应不必包含在数据包里，或者赋值为“”或null。
+# 新建一个tag在当前commit
+$ git tag [tag]
+
+# 新建一个tag在指定commit
+$ git tag [tag] [commit]
+
+# 删除本地tag
+$ git tag -d [tag]
+
+# 删除远程tag
+$ git push origin :refs/tags/[tagName]
+
+# 查看tag信息
+$ git show [tag]
+
+# 提交指定tag
+$ git push [remote] [tag]
+
+# 提交所有tag
+$ git push [remote] --tags
+
+# 新建一个分支，指向某个tag
+$ git checkout -b [branch] [tag]
+```
+
+### 7、查看信息
+```
+# 显示有变更的文件
+$ git status
+
+# 显示当前分支的版本历史
+$ git log
+
+# 显示commit历史，以及每次commit发生变更的文件
+$ git log --stat
+
+# 搜索提交历史，根据关键词
+$ git log -S [keyword]
+
+# 显示某个commit之后的所有变动，每个commit占据一行
+$ git log [tag] HEAD --pretty=format:%s
+
+# 显示某个commit之后的所有变动，其"提交说明"必须符合搜索条件
+$ git log [tag] HEAD --grep feature
+
+# 显示某个文件的版本历史，包括文件改名
+$ git log --follow [file]
+$ git whatchanged [file]
+
+# 显示指定文件相关的每一次diff
+$ git log -p [file]
+
+# 显示过去5次提交
+$ git log -5 --pretty --oneline
+
+# 显示所有提交过的用户，按提交次数排序
+$ git shortlog -sn
+
+# 显示指定文件是什么人在什么时间修改过
+$ git blame [file]
+
+# 显示暂存区和工作区的差异
+$ git diff
+
+# 显示暂存区和上一个commit的差异
+$ git diff --cached [file]
+
+# 显示工作区与当前分支最新commit之间的差异
+$ git diff HEAD
+
+# 显示两次提交之间的差异
+$ git diff [first-branch]...[second-branch]
+
+# 显示今天你写了多少行代码
+$ git diff --shortstat "@{0 day ago}"
+
+# 显示某次提交的元数据和内容变化
+$ git show [commit]
+
+# 显示某次提交发生变化的文件
+$ git show --name-only [commit]
+
+# 显示某次提交时，某个文件的内容
+$ git show [commit]:[filename]
+
+# 显示当前分支的最近几次提交
+$ git reflog
+```
+
+### 8、远程同步
+```
+# 下载远程仓库的所有变动
+$ git fetch [remote]
+
+# 显示所有远程仓库
+$ git remote -v
+
+# 显示某个远程仓库的信息
+$ git remote show [remote]
+
+# 增加一个新的远程仓库，并命名
+$ git remote add [shortname] [url]
+
+# 取回远程仓库的变化，并与本地分支合并
+$ git pull [remote] [branch]
+
+# 上传本地指定分支到远程仓库
+$ git push [remote] [branch]
+
+# 强行推送当前分支到远程仓库，即使有冲突
+$ git push [remote] --force
+
+# 推送所有分支到远程仓库
+$ git push [remote] --all
+```
+
+### 9、撤销
+```
+# 恢复暂存区的指定文件到工作区
+$ git checkout [file]
+
+# 恢复某个commit的指定文件到暂存区和工作区
+$ git checkout [commit] [file]
+
+# 恢复暂存区的所有文件到工作区
+$ git checkout .
+
+# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
+$ git reset [file]
+
+# 重置暂存区与工作区，与上一次commit保持一致
+$ git reset --hard
+
+# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
+$ git reset [commit]
+
+# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
+$ git reset --hard [commit]
+
+# 重置当前HEAD为指定commit，但保持暂存区和工作区不变
+$ git reset --keep [commit]
+
+# 新建一个commit，用来撤销指定commit
+# 后者的所有变化都将被前者抵消，并且应用到当前分支
+$ git revert [commit]
+
+# 暂时将未提交的变化移除，稍后再移入
+$ git stash
+$ git stash pop
+```
+
+### 10、其他
+```
+# 生成一个可供发布的压缩包
+$ git archive
+```
+
+[以上参考](www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
 
 -------------------
 
@@ -58,46 +308,5 @@ Data字段可包含JsonArray或JsonObject，这里只关心想要获取的数据
 
 ### 1、Token授权机制  
 用户使用用户名密码登录后服务器给客户端返回一个唯一的Token值，并将Token-UserId以键值对的形式存放在缓存服务器中。服务端接收到请求后进行Token验证，如果Token不存在，说明请求无效。Token是客户端访问服务端的凭证。
-
-### 2、时间戳超时机制  
-用户每次请求都带上当前时间的时间戳timestamp，服务端接收到timestamp后跟当前时间进行比对，如果时间差大于一定时间（比如5分钟），则认为该请求失效。时间戳超时机制是防御DOS攻击的有效手段。
-
-### 3、签名机制  
-将 Token 和 Timestamp 或其他请求参数再用MD5或其他加密算法加密，加密后的数据就是本次请求的签名sign，服务端接收到请求后以同样的算法得到签名，并跟当前的签名进行比对，如果不一样，说明参数被更改过，直接返回错误标识。签名机制保证了数据不会被篡改。
-
-### 4、拒绝重复调用（非必须）  
-客户端第一次访问时，将签名sign存放到缓存服务器中，超时时间设定为跟时间戳的超时时间一致，二者时间一致可以保证无论在timestamp限定时间内还是外 URL都只能访问一次。如果有人使用同一个URL再次访问，如果发现缓存服务器中已经存在了本次签名，则拒绝服务。如果在缓存中的签名失效的情况下，有人使用同一个URL再次访问，则会被时间戳超时机制拦截。这就是为什么要求时间戳的超时时间要设定为跟时间戳的超时时间一致。拒绝重复调用机制确保URL被别人截获了也无法使用（如抓取数据）。
-
-#### 整个流程
-1、客户端通过用户名密码登录服务器并获取Token  
-2、客户端生成时间戳timestamp，并将timestamp作为其中一个参数  
-3、客户端将所有的参数，包括Token和timestamp按照自己的算法进行排序加密得到签名sign  
-4、将token、timestamp和sign作为请求时必须携带的参数加在每个请求的URL后边（http://url/request?token=123&timestamp=123&sign=123123123）
-5、服务端写一个过滤器对token、timestamp和sign进行验证，只有在token有效、timestamp未超时、缓存服务器中不存在sign三种情况同时满足，本次请求才有效
-  
-在以上三中机制的保护下，如果有人劫持了你的请求，并对请求中的参数进行了修改，签名就无法通过；
-如果有人使用已经劫持的URL进行DOS攻击，服务器则会因为缓存服务器中已经存在签名或时间戳超时而拒绝服务，所以DOS攻击也是不可能的；
-
-### 5、HTTPS
-HTTPS能够有效防止中间人攻击，有效保证接口不被劫持，对数据窃取篡改做了安全防范。但HTTP升级HTTPS会带来更多的握手，而握手中的运算会带来更多的性能消耗。这也是不得不考虑的问题。
-总得来说，我们非常有必要在设计接口的同时考虑安全性的问题，根据业务特点，采用的安全策略也不全相同。当然大多数安全策略更多的都是提高安全门槛，并不能保证100%的安全，但该做的还是不能少。
-
-参考[API接口安全性设计](https://www.jianshu.com/p/c6518a8f4040)
-
-## 四、	其他
-### 1、接口应该按模块化划分还是页面划分？  
-按页面的接口尽可能让前端一个页面只请求一次，一次返回所需要的全部信息；按模块的接口在后端定义自己的业务模块如用户、标签、搜索等，并尽量避免模块间的耦合。
-
-从后端角度来说，按模块当然是更好的（只需要划分地够细就好），到时候需求有什么变更，让前端自己去改变接口的组合就好。但从前端的角度来说，接口的组合涉及到异步之间的关系，尽管RxJava这样的响应式编程框架让异步简单了很多，但仍然希望可以避免，更严重的是，多次接口请求会让前端的体验变差，并行接口的影响稍小，而一些有前置后置关系的接口则麻烦比较大，一个接着一个请求，会让用户等很久。即便是并行接口，有时候页面的渲染仍然需要所有接口数据返回后才可以进行。
-但如果让后端按照页面去套，这样在后端其实一样有性能的损耗，需要一个页面接口去单独调用各个模块的接口，然后进行组合。
-那么折中办法是在服务器性能足够的前提下，后端应该尽量减少页面请求次数，尤其是有依赖关系的串行请求。
-另外，一个好的设计师，也应该会贯彻一个地方只应该以一样东西为主体，而不应该去把乱七八糟的东西拼凑在一起。
-
-### 2、过滤逻辑应该写到前端还是后端？
-客户端设备用户可能root、越狱，甚至可以反编译客户端或者直接模拟请求。
-那么良好的配置检查应该前后端都需要，后端收到请求自行检查过滤，如果出错则返回错误信息给前端显示。
-  
-### 3、空字段  
-空字段，如果没有，服务端在返回的在数据集里应该不包含此字段，或返回一个空的默认字段 比如 String用””，int用0，Object用{}，Array用[]。
 
 -------------------
