@@ -300,7 +300,7 @@ $ git stash pop
 $ git archive
 ```
 
-[以上参考](www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
+[以上参考](https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
 
 -------------------
 
