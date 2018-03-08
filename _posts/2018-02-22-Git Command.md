@@ -300,11 +300,11 @@ $ git stash pop
 $ git archive
 ```
 
-[以上参考](https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
+[以上参考](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
 
 -------------------
 
-## 三、	实际应用
+## 三、	Git 多人协同开发
 > 主要介绍这三种Token、Timestamp和Sign，保证接口的数据不会被篡改和重复调用
 
 ### 1、Token授权机制  
