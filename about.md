@@ -7,44 +7,28 @@ sidebar_link: true
 ## 曲海峰
 
 - 6 年 Android 开发经验
-- 基本信息：男 1987年生 定居苏州
+- 基本信息：男 1987年生 定居苏州市
 - 电话：173********
 - 邮箱：250533855@qq.com
 - GitHub：https://github.com/RockyQu
 
 ## 教育经历
 
--  2008/9 — 2012/7 黑龙江科技大学 计算机科学与技术 本科 
+-  2008/9 — 2012/7 黑龙江科技大学利民校区 计算机科学与技术 本科 
 
 ## 工作经历 
 
 - 2012/7 — 至今 苏州龙的信息系统股份有限公司  Android 开发工程师
 
-## 项目经历
-
-** APP **
-
-- 简介：XX软件
-- 主要技术：RxJava, okhttp, Picasso, EventBus, Hybrid
-- 承担任务：
- - XX
- - XX
- - XX
-
-** APP **
-
-- 简介：下单分发，客户管理软件
-- 主要技术：Retrofit, Greendao
-- 承担任务：
- - XX
- - XX
-
 ## 专业技能
 
-- 熟悉使用Android Studio、Eclipse开发工具，SVN，了解Git。
-- 熟练Dagger2用法，核心思想及基本工作原理。
-- 合理运用第三方组件ButterKnife、AndroidEventBus、Okhttp3、Retrofit2、Glide、Gson、LeakCanary应用到实际项目中。
-- 熟悉常用调试工具，Bugly、CheckStyle、FindBugs、Android Studio Monitor
-- 理解MVP模式，结合Handler思想融入到框架中。
-- 有代码洁癖，对代码质量要求高、实现功能的同时代码美观、简洁、易懂。
-- 
+- 熟悉 Git 版本控制，多人协同分支开发
+- 有代码洁癖，能按照规范编写清晰直观且易于协作、可阅读、可维护的代码
+- 熟悉 Dagger2 用法，核心思想及基本工作原理
+- 熟悉面向对象，理解封装、继承、和接口设计
+- 熟悉运用 ButterKnife、AndroidEventBus、Okhttp3、Retrofit2、Glide、Gson、LeakCanary 等第三方组件，合理应用到项目中
+- 熟悉常用调试工具 Bugly、CheckStyle、FindBugs、Android Studio Monitor
+- 熟悉 MVC、MVP 结构的开发模式，并了解各自特点
+- 熟悉代码混淆、资源混淆，APK瘦身
+- 熟悉 RESTful API，具备设计 RESTful API 服务端经验
+- 熟练使用 Google、stackoverflow，具备一定问题解决能力
