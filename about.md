@@ -20,9 +20,9 @@ sidebar_link: true
 
 - 2012/7 — 至今 苏州龙的信息系统股份有限公司  Android 开发工程师
 
-##项目经历
+## 项目经历
 
-** APP**
+** APP **
 
 - 简介：XX软件
 - 主要技术：RxJava, okhttp, Picasso, EventBus, Hybrid
@@ -31,7 +31,7 @@ sidebar_link: true
  - XX
  - XX
 
-** APP**
+** APP **
 
 - 简介：下单分发，客户管理软件
 - 主要技术：Retrofit, Greendao
