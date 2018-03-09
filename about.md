@@ -26,10 +26,10 @@ sidebar_link: true
 - 有代码洁癖，能按照规范编写清晰直观且易于协作、可阅读、可维护的代码
 - 熟悉 Dagger2 用法，核心思想及基本工作原理
 - 熟悉面向对象，理解封装、继承、和接口设计
-- 熟悉运用 ButterKnife、Okhttp3、Retrofit2、Glide、Gson、LeakCanary 等第三方组件，合理应用到项目中
+- 熟悉运用 ButterKnife、Okhttp3、Retrofit2、Glide、Gson、GreenDao3、LeakCanary 等第三方组件，合理应用到项目中
 - 熟悉常用调试工具 CheckStyle、FindBugs、Android Studio Monitor
 - 熟悉使用 pgyer、fir.im、Bugly、umeng 常用平台
-- 熟悉 MVC、MVP 结构的开发模式，并了解各自特点
+- 熟悉 MVC、MVP 结构的开发模式，并了解各自特点结合 Handler 思想融入到框架中
 - 熟悉代码混淆、资源混淆，APK瘦身
 - 理解常用 Java 设计模式
 - 熟悉 RESTful API，具备设计 RESTful API 服务端经验
