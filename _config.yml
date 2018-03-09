@@ -12,6 +12,8 @@ url:              https://rockyqu.github.io
 author:
   name:           'RockyQu'
   url:            https://github.com/RockyQu
+  email:          250533855@qq.com
+  home:           http://rockycoder.cn
 
 paginate:         10
 
@@ -24,6 +26,7 @@ plugins:
 version:            3.4.1
 sidebar_home_link:  true
 github:							https://github.com/RockyQu
+
 
 # gitment
 # enable: true
