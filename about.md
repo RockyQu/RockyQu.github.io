@@ -28,7 +28,7 @@ sidebar_link: true
 - 熟悉面向对象，理解封装、继承、和接口设计
 - 熟悉运用 ButterKnife、Okhttp3、Retrofit2、Glide、Gson、LeakCanary 等第三方组件，合理应用到项目中
 - 熟悉常用调试工具 CheckStyle、FindBugs、Android Studio Monitor
-- 熟练使用 fir.im、Bugly、umeng 常用平台
+- 熟悉使用 fir.im、Bugly、umeng 常用平台
 - 熟悉 MVC、MVP 结构的开发模式，并了解各自特点
 - 熟悉代码混淆、资源混淆，APK瘦身
 - 理解常用 Java 设计模式
