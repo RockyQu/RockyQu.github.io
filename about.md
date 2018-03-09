@@ -8,7 +8,7 @@ sidebar_link: true
 
 - 6 年 Android 开发经验
 - 基本信息：男 1987年生 定居苏州市
-- 电话：173————————
+- 电话：173 * * * * * *
 - 邮箱：250533855@qq.com
 - GitHub：https://github.com/RockyQu
 
