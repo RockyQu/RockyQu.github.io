@@ -23,7 +23,7 @@ tags:
 
 -------------------
 
-## 二、接口数据传输格式
+## 二、数据传输
 
 > 接口的数据一般都采用Json格式进行传输，Json的值只有六种数据类型
 
@@ -112,4 +112,29 @@ HTTPS能够有效防止中间人攻击，有效保证接口不被劫持，对数
 ### 3、空字段  
 空字段，如果没有，服务端在返回的在数据集里应该不包含此字段，或返回一个空的默认字段 比如 String用””，int用0，Object用{}，Array用[]。
 
+### 4、RESTful API 遵循原则
+- 使用https协议
+- 版本号放入URL
+- 只提供json返回格式
+- post,put上使用json作为输入
+- 使用http状态码作为错误提示
+- Path（路径）尽量使用名词，不使用动词，把每个URL看成一个资源
+- 使用HTTP动词（GET,POST,PUT,DELETE）作为action操作URL资源
+- 过滤信息
+  - limit：指定返回记录数量
+  - offset：记录开始位置
+  - direction：请求数据的方向，取值prev-上一页数据；next-下一页数据
+  - page：第几页
+  - per_page：每页条数
+  - total_count：总记录数
+  - total_pages：总页数，等于page时，表示当前是最后一页
+  - sort：column1,column2排序字段
+  - orderby：排序规则，desc或asc
+  - q：搜索关键字（uri encode之后的）
+- 返回结果
+  - GET：返回资源对象
+  - POST：返回新生成的资源对象
+  - PUT：返回完整的资源对象
+  - DELETE：返回一个空文档
+  
 -------------------
