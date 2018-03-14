@@ -30,6 +30,9 @@ sidebar_link: true
 - 熟悉常用调试工具 CheckStyle、FindBugs、Android Studio Monitor
 - 熟悉使用 pgyer、fir.im、Bugly、umeng 常用平台
 - 熟悉 MVC、MVP 结构的开发模式，并了解各自特点结合 Handler 思想融入到框架中
+- 熟悉 WebView 与 JavaScript 交互方式
+- 熟悉 Bluetooth Beacon 开发
+- 熟悉 微信支付 开发
 - 熟悉代码混淆、资源混淆，APK瘦身
 - 理解常用 Java 设计模式
 - 熟悉 RESTful API，具备设计 RESTful API 服务端经验
