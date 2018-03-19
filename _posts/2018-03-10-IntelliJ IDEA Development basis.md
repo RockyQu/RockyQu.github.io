@@ -42,7 +42,7 @@ tags:
 
 -------------------
 
-## 四、 Hello World
+## 四、 初始化项目
 
 ![6](/assets/image/2018-03-10-IntelliJ IDEA Development basis 6.png)  
 
@@ -50,9 +50,15 @@ tags:
 
 ![8](/assets/image/2018-03-10-IntelliJ IDEA Development basis 8.png)  
 
+-------------------
 
+## 五、 项目结构
+> src 目录存放的插件对应的 Java 源码，resources/META-INF/plugin.xml 配置 Action 的文件，可以看成是插件的配置文件
 
-[参考](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
+![9](/assets/image/2018-03-10-IntelliJ IDEA Development basis 9.png) 
+
+配置文件 plugin.xml，如下图
+![10](/assets/image/2018-03-10-IntelliJ IDEA Development basis 10.png) 
 
 -------------------
 
