@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "基于 IntelliJ IDEA 开发一款适用 Android Studio 的代码生成插件（入门基础）"
+title: "基于 IntelliJ IDEA 开发一款代码生成插件（入门基础）"
 excerpt: "IntelliJ IDEA 教程"
 date: 2018-3-10
 categories:
@@ -35,7 +35,7 @@ tags:
 
 -------------------
 
-## 三、	多人协同开发
-[参考](https://www.cnblogs.com/onelikeone/p/6857910.html)
+## 三、	附录
+[官方教程](http://www.jetbrains.org/intellij/sdk/docs/welcome.html)
 
 -------------------
