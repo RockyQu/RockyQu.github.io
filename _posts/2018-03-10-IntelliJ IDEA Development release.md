@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "使用 IntelliJ IDEA 开发一款插件（插件发布）"
+title: "基于 IntelliJ IDEA 开发一款适用 Android Studio 的代码生成插件（插件发布）"
 excerpt: "IntelliJ IDEA 教程"
 date: 2018-3-22
 categories:
