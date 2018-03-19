@@ -32,11 +32,14 @@ tags:
 选择右下角 Configure | Project Defaults | Project Structure 打开配置窗口
 ![2](/assets/image/2018-03-10-IntelliJ IDEA Development basis 2.png)  
 
+选择 IntelliJ Platform Plugin SDK
+![4](/assets/image/2018-03-10-IntelliJ IDEA Development basis 4.png)  
+
 选择默认的 IntelliJ IDEA 文件夹
 ![3](/assets/image/2018-03-10-IntelliJ IDEA Development basis 3.png)  
 
 
-![4](/assets/image/2018-03-10-IntelliJ IDEA Development basis 4.png)  
+
 
 ![5](/assets/image/2018-03-10-IntelliJ IDEA Development basis 5.png)  
 
