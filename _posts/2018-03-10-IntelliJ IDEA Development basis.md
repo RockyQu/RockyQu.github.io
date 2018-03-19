@@ -35,13 +35,16 @@ tags:
 选择 IntelliJ Platform Plugin SDK
 ![4](/assets/image/2018-03-10-IntelliJ IDEA Development basis 4.png)  
 
-选择默认的 IntelliJ IDEA 文件夹
+选择默认的 IntelliJ IDEA 文件夹即可配置完毕
 ![3](/assets/image/2018-03-10-IntelliJ IDEA Development basis 3.png)  
 
+## 四、 Hello World
 
+![6](/assets/image/2018-03-10-IntelliJ IDEA Development basis 6.png)  
 
+![7](/assets/image/2018-03-10-IntelliJ IDEA Development basis 7.png)  
 
-![5](/assets/image/2018-03-10-IntelliJ IDEA Development basis 5.png)  
+![8](/assets/image/2018-03-10-IntelliJ IDEA Development basis 8.png)  
 
 
 
