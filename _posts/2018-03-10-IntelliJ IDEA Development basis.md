@@ -26,7 +26,7 @@ tags:
 > 注意：Idea要基于jdk1.8，若本地没有1.8的环境会在此步骤多出勾选框，勾选Download and install JRE x86 by JetBrains（会自动下载安装JetBrains版的jre环境）
 
 ![1](/assets/image/2018-03-10-IntelliJ IDEA Development basis 1.png)  
-
+  
 ## 三、配置 IntelliJ Platform Plugin SDK
 
 选择右下角 Configure | Project Defaults | Project Structure 打开配置窗口
