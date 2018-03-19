@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "用 IntelliJ IDEA 开发一款自己的插件（发布）"
-excerpt: "IntelliJ IDEA教程"
-date: 2018-3-10
+title: "使用 IntelliJ IDEA 开发一款插件（插件发布）"
+excerpt: "IntelliJ IDEA 教程"
+date: 2018-3-22
 categories:
   - Git
 tags:

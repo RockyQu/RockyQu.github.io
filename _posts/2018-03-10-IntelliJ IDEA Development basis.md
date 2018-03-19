@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "用 IntelliJ IDEA 开发一款自己的插件（入门基础）"
-excerpt: "IntelliJ IDEA教程"
+title: "使用 IntelliJ IDEA 开发一款插件（入门基础）"
+excerpt: "IntelliJ IDEA 教程"
 date: 2018-3-10
 categories:
   - Git
@@ -12,15 +12,17 @@ tags:
   - 插件
 ---
 
-## 一、Git
-> Git 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。
+## 一、简介
+> IDEA 全称 IntelliJ IDEA，是java语言开发的集成环境，IntelliJ在业界被公认为最好的java开发工具之一，尤其在智能代码助手、代码自动提示、重构、J2EE支持、各类版本工具(git、svn、github等)、JUnit、CVS整合、代码分析、 创新的GUI设计等方面的功能可以说是超常的。IDEA是JetBrains公司的产品，这家公司总部位于捷克共和国的首都布拉格，开发人员以严谨著称的东欧程序员为主。它的旗舰版本还支持HTML，CSS，PHP，MySQL，Python等。免费版只支持Java等少数语言。
 
-[下载地址](https://git-scm.com/downloads)
+[百度百科](https://baike.baidu.com/item/IntelliJ%20IDEA/9548353?fr=aladdin)
 
 -------------------
 
-## 二、常用命令
-### 1、新建代码库
+## 二、下载安装
+
+[下载地址](https://www.jetbrains.com/idea/download/#section=windows)
+
 ```
 # 在当前目录新建一个Git代码库
 $ git init
