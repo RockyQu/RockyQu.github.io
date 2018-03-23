@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "基于 IntelliJ IDEA 开发一款代码生成插件（入门基础）"
+title: "基于 Android Studio Template 开发一款 MVP 代码生成模板"
 excerpt: "适用于 Android Studio 代码自动生成插件"
 date: 2018-3-10
 categories:
-  - Git
+  - Template
 tags:
-  - IntelliJ IDEA
-  - IntelliJ
-  - IDEA
+  - Android Studio Template
+  - Template
+  - 模板
   - 插件
 ---
 
