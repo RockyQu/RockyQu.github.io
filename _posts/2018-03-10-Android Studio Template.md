@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "基于 Android Studio Template 开发一款 MVP 代码生成模板"
-excerpt: "适用于 Android Studio 代码自动生成插件"
+title: "基于 Android Studio Template 开发一款 MVP 代码自动生成模板"
+excerpt: "适用于 MVPFrames 框架的代码自动生成模板"
 date: 2018-3-10
 categories:
   - Template
@@ -12,10 +12,12 @@ tags:
   - 插件
 ---
 
-## 一、简介
-> IDEA 全称 IntelliJ IDEA，是java语言开发的集成环境，IntelliJ在业界被公认为最好的java开发工具之一，尤其在智能代码助手、代码自动提示、重构、J2EE支持、各类版本工具(git、svn、github等)、JUnit、CVS整合、代码分析、 创新的GUI设计等方面的功能可以说是超常的。IDEA是JetBrains公司的产品，这家公司总部位于捷克共和国的首都布拉格，开发人员以严谨著称的东欧程序员为主。它的旗舰版本还支持HTML，CSS，PHP，MySQL，Python等。免费版只支持Java等少数语言。
+## 一、概述
+> Android Studio 已经预设一些常用 Template，如下图，这些模板包括图片、XML、类都可以用自定义形式方便添加各种效果，减少了模板式代码编写，提高工作效率
 
-[百度百科](https://baike.baidu.com/item/IntelliJ%20IDEA/9548353?fr=aladdin)
+![1](/assets/image/2018-03-10-Android Studio Template 1.png)  
+
+
 
 -------------------
 
