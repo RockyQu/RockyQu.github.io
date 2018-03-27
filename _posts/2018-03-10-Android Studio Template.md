@@ -34,7 +34,119 @@ tags:
 
 ### 2、template.xml
 页面文件，模板配置文件
-![5](/assets/image/2018-03-10-Android Studio Template 4.png)  
+
+```
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="1" 
+    name="MVPFrames" 
+    minApi="9"
+    minBuildApi="15"
+    description="快速一键生成 MVP 模板，适用于 MVPFrames 开发框架">
+
+    <!-- 主分类 -->
+    <category value="Frames" />
+    <!-- 设备 -->
+    <formfactor value="Mobile" />
+
+    <!-- 模板类型 -->
+    <parameter
+        id="templateType"
+        name="Template Type"
+        type="enum"
+        default="templateTypeActivity"
+        help="模板类型 Activity、Fragment" >
+        <option id="templateTypeActivity">Activity</option>
+        <option id="templateTypeFragment">Fragment</option>
+    </parameter>
+
+    <!-- 模块名称 -->
+    <parameter
+        id="moduleName"
+        name="Module Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        help="模块名称 例：UserActivity 填写 User 即可" />
+
+    <!-- 模块子目录名称 -->
+    <parameter
+        id="moduleFolder"
+        type="string"
+        suggest="${classToResource(moduleName)}"
+        visibility="false" />
+
+    <!-- 是否创建布局 -->
+    <parameter
+        id="generateLayout"
+        name="Generate Layout File"
+        type="boolean"
+        default="true"
+        help="此选项将创建一个对应的布局文件" />
+
+    <!-- 布局文件名称，如果选择是才会显示出来 -->
+    <parameter
+        id="layoutName"
+        name="Layout Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        suggest="_${classToResource(moduleName)}"
+        visibility="generateLayout"
+        help="创建一个与模块对应的布局文件" />
+
+    <!-- 引入 R 文件时所用的包名 -->
+    <parameter
+        id="package"
+        name="Package Name"
+        type="string"
+        default="com." 
+        help="引入 R 文件，以及创建 Entity 时所用的包名，例：com.mycompany.myapp"/>
+
+    <!-- Presenter -->
+    <parameter
+        id="presenterName"
+        name="Presenter Name"
+        type="string"
+        suggest="${moduleName}Presenter"
+        help="Presenter 名称"/>
+
+    <!-- Repository -->
+    <parameter
+        id="repositoryName"
+        name="Repository Name"
+        type="string"
+        suggest="${moduleName}Repository"
+        help="Repository 名称"/>
+
+    <!-- 是否创建 Entity -->
+    <parameter
+        id="isEntity"
+        name="Generate Entity File"
+        type="boolean"
+        default="false"
+        help="此选项将创建一个对应的 Entity 文件" />
+
+    <!-- Entity -->
+    <parameter
+        id="entityName"
+        name="Entity Name"
+        type="string"
+        visibility="isEntity"
+        suggest="${moduleName}"
+        help="Entity 名称"/>
+
+    <parameter
+        id="packageName"
+        name="Directory"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp" />
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
+```
 
 ### 3、recipe.xml.ftl
 指定资源文件的路径并相应生成到我们的项目目录
