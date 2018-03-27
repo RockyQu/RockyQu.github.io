@@ -89,7 +89,7 @@ tags:
         type="string"
         constraints="layout|unique|nonempty"
         suggest="_${classToResource(moduleName)}" // 自动提示信息，classToResource 在下面会介绍
-        visibility="generateLayout" # 是否显示这个控件
+        visibility="generateLayout" // 是否显示这个控件
         help="创建一个与模块对应的布局文件" />
 
     <!-- 引入 R 文件时所用的包名 -->
@@ -146,26 +146,50 @@ tags:
 </template>
 ```
 
-关于 suggest 字段
-（1）suggest="_${classToResource(moduleName)}"
-classToResource 的作用是 moduleName 输入 User 的值 转换为 user
-（2）suggest="_${underscoreToCamelCase(moduleName)}"
-underscoreToCamelCase 的作用和 classToResource 正好相反，当 moduleName 输入 user 的值会转换为 User 即驼峰命名方法
+关于 suggest 字段  
+（1）suggest="_${classToResource(moduleName)}"  
+classToResource 的作用是 moduleName 输入 User 的值 转换为 user  
+（2）suggest="_${underscoreToCamelCase(moduleName)}"  
+underscoreToCamelCase 的作用和 classToResource 正好相反，当 moduleName 输入 user 的值会转换为 User 即驼峰命名方法  
 
 ### 3、recipe.xml.ftl
+有几个重要参数  
+copy：复制，将 from 中的文件复制到 to 路径下。
+merge：合并，将 from 中的文件合并到 to 路径下的文件中。
+instantiate：和 copy 类似，也是将from中的文件复制到to路径下，它会将 ftl 文件中的类似为 ${moduleName} 会转换为我们需要的类名。
+open：模板代码生成后，打开 file 中指定的文件。
+  
+示例代码
+```
+<instantiate from="root/src/app_package/BaseSimpleActivity.java.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/${moduleName}Activity.java" />
+<open file="${escapeXmlAttribute(srcOut)}/${moduleName}Activity.java" />
+```
 
+关于 escapeXmlAttribute 字段  
+（1）${escapeXmlAttribute(srcOut)} 当前包名路径  
+（2）${escapeXmlAttribute(resOut)} res 根目录  
 
 ### 4、globals.xml.ftl
-定义一些全局变量，并引用了一个内置的通用 globals.xml.ftl
-![7](/assets/image/2018-03-10-Android Studio Template 4.png)  
+添加全局常量用的，这里我没有用到，只是引入了一个共通的文件
+```
+<?xml version="1.0"?>
+<globals>
+    <#include "../common/common_globals.xml.ftl" />
+</globals>
+```
 
 ### 5、root 文件夹
-里面存放后缀为ftl的java文件和XML文件
-![8](/assets/image/2018-03-10-Android Studio Template 4.png)  
+存放后缀为 ftl 的 java 文件和 XML 文件用来生成最终的模板文件
 
 -------------------
 
 ## 三、使用模板
 
+
+-------------------
+
+## 总结
+已上模板代码已全部开源到 [GitHub](https://github.com/RockyQu/FramesTemplate) 欢迎共同学习
 
 -------------------
