@@ -29,35 +29,33 @@ tags:
 
 ![4](/assets/image/2018-03-10-Android Studio Template 4.png)  
 
-目录结构如下图
+### 2、目录结构
 ![3](/assets/image/2018-03-10-Android Studio Template 3.png)  
 
-### 2、template.xml
-页面文件，模板配置文件
+### 3、template.xml
+页面文件，模板配置文件，这是我自己已经写好的模板代码如下
 
 ```
 <?xml version="1.0"?>
 <template
     format="5"
-    revision="1" 
-    name="MVPFrames" 
-    minApi="9"
-    minBuildApi="15"
-    description="快速一键生成 MVP 模板，适用于 MVPFrames 开发框架">
+    revision="1" # 版本号，当你对已经发布的模板进行更新时版本号应该有所变化
+    name="MVPFrames" # 模板显示的名称
+    minApi="9" # 模板所需的最小API值，IDE将确保在实例化模板之前，目标工程的 minSdkVersion 不低于这个值
+    minBuildApi="15" # 模板所需的最小编译API，IDE将确保在实例化模板之前，项目工程的 API 等级大于或等于这个值
+    description="快速一键生成 MVP 模板，适用于 MVPFrames 开发框架"> # 模板描述信息
 
-    <!-- 主分类 -->
-    <category value="Frames" />
-    <!-- 设备 -->
-    <formfactor value="Mobile" />
+    <category value="Frames" /> # 模板类型，用于在菜单栏 File-New 下显示
+    <formfactor value="Mobile" /> # 如同我们在创建 module 时所显示的类型
 
     <!-- 模板类型 -->
     <parameter
-        id="templateType"
-        name="Template Type"
-        type="enum"
-        default="templateTypeActivity"
-        help="模板类型 Activity、Fragment" >
-        <option id="templateTypeActivity">Activity</option>
+        id="templateType" # 唯一Id，在ftl文件中可以用 ${templateType} 获取参数值
+        name="Template Type" # 创建模板时在文本框左边或上边显示的该文本框名称
+        type="enum" # 类型，enum 代表是一个下拉选择框
+        default="templateTypeActivity" # 默认值
+        help="模板类型 Activity、Fragment" > # 显示在窗口最下面的帮助提示信息
+        <option id="templateTypeActivity">Activity</option> # 选项
         <option id="templateTypeFragment">Fragment</option>
     </parameter>
 
@@ -66,14 +64,14 @@ tags:
         id="moduleName"
         name="Module Name"
         type="string"
-        constraints="class|unique|nonempty"
+        constraints="class|unique|nonempty"  # 约束类型，可用 | 符号联合使用
         help="模块名称 例：UserActivity 填写 User 即可" />
 
     <!-- 模块子目录名称 -->
     <parameter
         id="moduleFolder"
         type="string"
-        suggest="${classToResource(moduleName)}"
+        suggest="${classToResource(moduleName)}"  
         visibility="false" />
 
     <!-- 是否创建布局 -->
@@ -90,8 +88,8 @@ tags:
         name="Layout Name"
         type="string"
         constraints="layout|unique|nonempty"
-        suggest="_${classToResource(moduleName)}"
-        visibility="generateLayout"
+        suggest="_${classToResource(moduleName)}" # 自动提示信息，比如 classToResource 的作用是在 moduleName 输入 User 的值可以自动生成 user
+        visibility="generateLayout" # 是否显示这个控件
         help="创建一个与模块对应的布局文件" />
 
     <!-- 引入 R 文件时所用的包名 -->
@@ -142,8 +140,8 @@ tags:
         constraints="package"
         default="com.mycompany.myapp" />
 
-    <globals file="globals.xml.ftl" />
-    <execute file="recipe.xml.ftl" />
+    <globals file="globals.xml.ftl" /> # 定义全局变量和引入一些共通的包
+    <execute file="recipe.xml.ftl" /> # 开始执行生成模板
 
 </template>
 ```
