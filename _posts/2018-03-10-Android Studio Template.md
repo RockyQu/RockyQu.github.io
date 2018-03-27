@@ -24,7 +24,8 @@ tags:
 -------------------
 
 ## 二、模板的创建与制作  
-> 模板的创建很简单，你可以直接复制一份已经存在的模板，在 activities 目录下有个叫 EmptyActivity 的模板，里面只有一个类，是最简单的模板
+1、模板的创建很简单，你可以直接复制一份已经存在的模板，在 activities 目录下有个叫 EmptyActivity 的模板，里面只有一个类，是最简单的模板，目录结构如下图
+
 ![3](/assets/image/2018-03-10-Android Studio Template 3.png)  
 
 
