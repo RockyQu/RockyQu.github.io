@@ -194,6 +194,6 @@ underscoreToCamelCase 的作用和 classToResource 正好相反，当 moduleName
 -------------------
 
 ## 总结
-已上模板代码已全部开源到 [GitHub](https://github.com/RockyQu/FramesTemplate) 欢迎共同学习
+已上模板代码已全部开源到 [GitHub](https://github.com/RockyQu/FramesTemplate) 欢迎共同学习交流(゜▽゜)つロ
 
 -------------------
