@@ -18,7 +18,7 @@ tags:
 ![1](/assets/image/2018-03-10-Android Studio Template 1.png)  
 
 这些模板文件被存放在 Android Studio 安装目录 \plugins\android\lib\templates 文件夹下，本教程以 Activity Template 为核心来讲解
-![2](/assets/image/2018-03-10-IntelliJ IDEA Development basis 2.png)  
+![2](/assets/image/2018-03-10-Android Studio Template 2.png)  
 
 -------------------
 
