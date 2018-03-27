@@ -147,9 +147,9 @@ tags:
 ```
 
 关于 suggest 字段  
-1）suggest="_${classToResource(moduleName)}"  
+ - suggest="_${classToResource(moduleName)}"  
 classToResource 的作用是 moduleName 输入 User 的值 转换为 user。    
-2）suggest="_${underscoreToCamelCase(moduleName)}"  
+ - suggest="_${underscoreToCamelCase(moduleName)}"  
 underscoreToCamelCase 的作用和 classToResource 正好相反，当 moduleName 输入 user 的值会转换为 User 即驼峰命名方法。    
 
 ### 3、recipe.xml.ftl
@@ -167,8 +167,8 @@ open：模板代码生成后，打开 file 中指定的文件。
 ```
 
 关于 escapeXmlAttribute 字段  
-1）${escapeXmlAttribute(srcOut)} 当前包名路径  
-2）${escapeXmlAttribute(resOut)} res 根目录  
+ - ${escapeXmlAttribute(srcOut)} 当前包名路径  
+ - ${escapeXmlAttribute(resOut)} res 根目录  
 
 ### 4、globals.xml.ftl
 添加全局常量用的，这里我没有用到，只是引入了一个共通的文件
