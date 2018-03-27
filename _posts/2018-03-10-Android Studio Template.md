@@ -24,52 +24,33 @@ tags:
 -------------------
 
 ## 二、模板的创建与制作  
-1、模板的创建很简单，你可以直接复制一份已经存在的模板，在 activities 目录下有个叫 EmptyActivity 的模板，里面只有一个类，是最简单的模板，目录结构如下图
+### 1、模板的创建
+创建模板很简单，你可以直接复制一份已经存在的模板，在 activities 目录下有个叫 EmptyActivity 的模板，里面只有一个类，是最简单的模板，可以以此模板做为基础
 
+![4](/assets/image/2018-03-10-Android Studio Template 4.png)  
+
+目录结构如下图
 ![3](/assets/image/2018-03-10-Android Studio Template 3.png)  
 
+### 2、template.xml
+页面文件，模板配置文件
+![5](/assets/image/2018-03-10-Android Studio Template 4.png)  
 
+### 3、recipe.xml.ftl
+指定资源文件的路径并相应生成到我们的项目目录
+![6](/assets/image/2018-03-10-Android Studio Template 4.png)  
 
-![1](/assets/image/2018-03-10-IntelliJ IDEA Development basis 1.png)  
+### 4、globals.xml.ftl
+定义一些全局变量，并引用了一个内置的通用 globals.xml.ftl
+![7](/assets/image/2018-03-10-Android Studio Template 4.png)  
 
-
-
--------------------
-
-## 三、配置 IntelliJ Platform Plugin SDK
-
-选择右下角 Configure | Project Defaults | Project Structure 打开配置窗口
-![2](/assets/image/2018-03-10-IntelliJ IDEA Development basis 2.png)  
-
-选择 IntelliJ Platform Plugin SDK
-![4](/assets/image/2018-03-10-IntelliJ IDEA Development basis 4.png)  
-
-选择默认的 IntelliJ IDEA 文件夹即可配置完毕
-![3](/assets/image/2018-03-10-IntelliJ IDEA Development basis 3.png)  
+### 5、root 文件夹
+里面存放后缀为ftl的java文件和XML文件
+![8](/assets/image/2018-03-10-Android Studio Template 4.png)  
 
 -------------------
 
-## 四、 初始化项目
+## 三、使用模板
 
-![6](/assets/image/2018-03-10-IntelliJ IDEA Development basis 6.png)  
-
-![7](/assets/image/2018-03-10-IntelliJ IDEA Development basis 7.png)  
-
-![8](/assets/image/2018-03-10-IntelliJ IDEA Development basis 8.png)  
-
--------------------
-
-## 五、 项目结构
-> src 目录存放的插件对应的 Java 源码，resources/META-INF/plugin.xml 配置 Action 的文件，可以看成是插件的配置文件
-
-![9](/assets/image/2018-03-10-IntelliJ IDEA Development basis 9.png) 
-
-配置文件 plugin.xml，如下图
-![10](/assets/image/2018-03-10-IntelliJ IDEA Development basis 10.png) 
-
--------------------
-
-## 附录
-[官方教程](http://www.jetbrains.org/intellij/sdk/docs/welcome.html)
 
 -------------------
