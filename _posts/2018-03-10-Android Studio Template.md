@@ -185,7 +185,11 @@ open：模板代码生成后，打开 file 中指定的文件。
 -------------------
 
 ## 三、使用模板
+模板制作完成后，将整个文件夹放到 activities 文件夹下
+![2](/assets/image/2018-03-10-Android Studio Template 2.png)  
 
+重启 Android Studio，即可看到模板了
+![6](/assets/image/2018-03-10-Android Studio Template 6.png)  
 
 -------------------
 
