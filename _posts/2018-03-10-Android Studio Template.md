@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "基于 Android Studio Template 开发一款 MVP 代码自动生成模板"
-excerpt: "适用于 MVPFrames 框架的代码自动生成模板"
+excerpt: "适用于 MVPFrames 开发框架的代码自动生成模板"
 date: 2018-3-10
 categories:
   - Template
