@@ -148,13 +148,13 @@ tags:
 
 关于 suggest 字段  
 1）suggest="_${classToResource(moduleName)}"  
-classToResource 的作用是 moduleName 输入 User 的值 转换为 user  
+classToResource 的作用是 moduleName 输入 User 的值 转换为 user。    
 2）suggest="_${underscoreToCamelCase(moduleName)}"  
-underscoreToCamelCase 的作用和 classToResource 正好相反，当 moduleName 输入 user 的值会转换为 User 即驼峰命名方法  
+underscoreToCamelCase 的作用和 classToResource 正好相反，当 moduleName 输入 user 的值会转换为 User 即驼峰命名方法。    
 
 ### 3、recipe.xml.ftl
 涉及的几个重要参数  
-copy：复制，将 from 中的文件复制到 to 路径下。  
+** copy：** 复制，将 from 中的文件复制到 to 路径下。  
 merge：合并，将 from 中的文件合并到 to 路径下的文件中。  
 instantiate：和 copy 类似，也是将from中的文件复制到to路径下，它会将 ftl 文件中的类似为 ${moduleName} 会转换为我们需要的类名。  
 open：模板代码生成后，打开 file 中指定的文件。  
