@@ -32,7 +32,6 @@ ProGuard由shrink、optimize、obfuscate 和 preverify 四个步骤组成，每�
 
 ![1](/assets/image/2018-03-15-Android proguard rules 1.png)  
 
-提示  
 * proguard-android.txt 这个文件是系统默认混淆文件一般不需要做修改
 * 在 debug 版下也可以开启混淆做为测试
 * Gradle 2.2 之后，defaultProguardFile 没有使用 SDK 目录下的 proguard-android.txt，而是使用了 gradle 自带的 proguard-android.txt，不同的 gradle 版本带有不同的默认混淆文件，比如在项目根目录的 build/intermediates/proguard-files/proguard-android.txt-2.3.3，即为 gradle 自带的混淆文件。在 proguard-android.txt-2.3.3 文件中也写有说明，gradle 2.2 之后自带混淆文件  [参考](https://mp.weixin.qq.com/s/WmJyiA3fDNriw5qXuoA9MA)  
