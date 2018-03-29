@@ -10,8 +10,11 @@ tags:
   - 代码混淆
 ---
 
-## 一、概述
-> Android Studio Template 是基于 [FreeMarker](https://baike.baidu.com/item/freemarker/9489366?fr=aladdin) 来开发的，Android Studio 已经预设一些常用 Template，如下图，这些模板包括图片、XML、类都可以用自定义形式方便添加各种效果，减少了模板式代码编写，提高工作效率
+## 一、为什么需要混淆
+> 在你完成项目打包发布之前，很有必要加上代码混淆来避免一些用户恶意对你的 APK 进行反编译，通过反编译非加密的 dex 文件就可以得到和源码几乎一模一样的工程。
+dex基本概念：Java 源文件通过 Java 编译器生成 CLASS 文件，再通过 dx 工具转换为 classes.dex 文件。 
+DEX文件从整体上来看是一个索引的结构，类名、方法名、字段名等信息都存储在常量池中，这样能够充分减少存储空间，相较于 Java 字节码文件更适合手机设备。
+
 
 ![1](/assets/image/2018-03-10-Android Studio Template 1.png)  
 
