@@ -18,7 +18,7 @@ tags:
 * 可以自动移除未被使用的类、方法、属性，可以在一定程度上避免64K方法数  
 * 减少 APK 体积，也是 APK 瘦身的一种方法
 
-混淆的原理 [参考](https://mp.weixin.qq.com/s/WmJyiA3fDNriw5qXuoA9MA)
+混淆的原理 [参考](https://mp.weixin.qq.com/s/WmJyiA3fDNriw5qXuoA9MA)  
 Java 是一种跨平台、解释型语言，Java 源代码编译成的class文件中有大量包含语义的变量名、方法名的信息，很容易被反编译为Java 源代码。为了防止这种现象，我们可以对Java字节码进行混淆。混淆不仅能将代码中的类名、字段、方法名变为无意义的名称，保护代码，也由于移除无用的类、方法，并使用简短名称对类、字段、方法进行重命名缩小了程序的size。
 ProGuard由shrink、optimize、obfuscate和preverify四个步骤组成，每个步骤都是可选的，需要哪些步骤都可以在脚本中配置。
 * 压缩(Shrink): 侦测并移除代码中无用的类、字段、方法、和特性(Attribute)。  
