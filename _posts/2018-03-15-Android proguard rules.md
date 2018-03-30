@@ -174,6 +174,19 @@ ProGuard由shrink、optimize、obfuscate 和 preverify 四个步骤组成，每�
 ```
 
 ### 5、自定义混淆规则
+1) JavaBean 实体类不能混淆，一般会将实体类统一放到一个包下，keep public class 后面请改成你自己项目的路径
+
+```
+-keep public class com.ljd.example.entity.** {
+    public void set*(***);
+    public *** get*();
+    public *** is*();
+}
+```
+
+
+
+
 
 -------------------
 
