@@ -37,11 +37,26 @@ ProGuard由shrink、optimize、obfuscate 和 preverify 四个步骤组成，每�
 * Gradle 2.2 之后，defaultProguardFile 没有使用 SDK 目录下的 proguard-android.txt，而是使用了 gradle 自带的 proguard-android.txt，不同的 gradle 版本带有不同的默认混淆文件，比如在项目根目录的 build/intermediates/proguard-files/proguard-android.txt-2.3.3，即为 gradle 自带的混淆文件。在 proguard-android.txt-2.3.3 文件中也写有说明，Gradle 2.2 之后自带混淆文件  [参考](https://mp.weixin.qq.com/s/WmJyiA3fDNriw5qXuoA9MA)  
 
 ## 三、混淆规则
-### 1、哪些是不需要混淆的
+### 1、哪些是不需要混淆的？
+* Android 四大组件
+* native方法
+* Java 反射用到的类
+* 自定义控件
+* 枚举类
+* JavaBean
+* Parcelable、Serializable 序列化类
+* WebView 与 JS 交互所用到的类和方法
+* 引入的第三方库
+
+### 2、混淆共通部份
+
+### 3、自定义混淆规则
+
+
 
 -------------------
 
 ## 总结
-已上模板代码已全部开源到 [GitHub](https://github.com/RockyQu/FramesTemplate) 欢迎共同学习交流(゜▽゜)つロ
+
 
 -------------------
