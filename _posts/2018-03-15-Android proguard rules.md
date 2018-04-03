@@ -50,7 +50,7 @@ ProGuard由shrink、optimize、obfuscate 和 preverify 四个步骤组成，每�
 ### 2、基本混淆指令
 
 ```
-# 代码混淆压缩比，在0~7之间
+# 代码混淆压缩比，在 0~7 之间
 -optimizationpasses 5
 
 # 混合时不使用大小写混合，混合后的类名为小写
@@ -79,19 +79,31 @@ ProGuard由shrink、optimize、obfuscate 和 preverify 四个步骤组成，每�
 # 指定混淆是采用的算法，后面的参数是一个过滤器
 # 这个过滤器是 Google 推荐的算法，一般不做修改
 -optimizations !code/simplification/arithmetic,!code/simplification/cast,!field/*,!class/merging/*
+
+# 是否允许改变作用域的，可以提高优化效果
+# 但是，如果你的代码是一个库的话，最好不要配置这个选项，因为它可能会导致一些 private 变量被改成 public，谨慎使用
+#-allowaccessmodification
+
+# 指定一些接口可能会被合并，即使一些子类没有同时实现两个接口的方法。这种情况在java源码中是不允许存在的，但是在java字节码中是允许存在的。
+# 它的作用是通过合并接口减少类的数量，从而达到减少输出文件体积的效果。仅在 optimize 阶段有效。
+# 如果在开启后没有任何影响可以使用，这项配置对于一些虚拟机的65535方法数限制是有一定效果的，谨慎使用
+#-mergeinterfacesaggressively
+
+# 输出所有找不到引用和一些其它错误的警告，但是继续执行处理过程。不处理警告有些危险，所以在清楚配置的具体作用的时候再使用
+-ignorewarnings
 ```
 
 ### 3、混淆日志
 
 ```
 # APK 包内所有 class 的内部结构
--dump proguard/classstructure.txt
+-dump proguard/class_files.txt
 # 未混淆的类和成员
--printseeds proguard/unconfused.txt
+-printseeds proguard/seeds.txt
 # 列出从 APK 中删除的代码
--printusage proguard/deletecode.txt
-# 混淆前后的映射
--printmapping proguard/confusedmapping.txt
+-printusage proguard/unused.txt
+# 混淆前后的映射，这个文件在追踪异常的时候是有用的
+-printmapping proguard/mapping.txt
 ```
 
 ### 4、Android 开发不需要混淆的部份
@@ -108,18 +120,27 @@ ProGuard由shrink、optimize、obfuscate 和 preverify 四个步骤组成，每�
 -keep public class * extends android.view.View
 -keep public class com.android.vending.licensing.ILicensingService
 
+# Fragment
+-keep public class * extends android.support.v4.app.Fragment
+-keep public class * extends android.app.Fragment
+
 # 保留support下的所有类及其内部类
--keep class android.support.** {*;}
+-keep class android.support.** { *; }
+-keep interface android.support.** { *; }
+-dontwarn android.support.**
 
 # 保留 R 下面的资源
 -keep class **.R$* {*;}
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
 
 # 保留本地 native 方法不被混淆
 -keepclasseswithmembernames class * {
     native <methods>;
 }
 
-# 保留在 Activity 中的方法参数是 vie w的方法，
+# 保留在 Activity 中的方法参数是 view 的方法，
 # 这样以来我们在 layout 中写的 onClick 就不会被影响
 -keepclassmembers class * extends android.app.Activity{
     public void *(android.view.View);
@@ -171,26 +192,242 @@ ProGuard由shrink、optimize、obfuscate 和 preverify 四个步骤组成，每�
 -keepclassmembers class * extends android.webkit.webViewClient {
     public void *(android.webkit.webView, jav.lang.String);
 }
+
+# 不混淆使用了 @Keep 注解相关的类
+-keep class android.support.annotation.Keep
+
+-keep @android.support.annotation.Keep class * {*;}
+
+-keepclasseswithmembers class * {
+    @android.support.annotation.Keep <methods>;
+}
+
+-keepclasseswithmembers class * {
+    @android.support.annotation.Keep <fields>;
+}
+
+-keepclasseswithmembers class * {
+    @android.support.annotation.Keep <init>(...);
+}
+
+# 删除代码中 Log 相关的代码，如果删除了一些预料之外的代码，很容易就会导致代码崩溃，谨慎使用
+#-assumenosideeffects class android.util.Log {
+#    public static boolean isLoggable(java.lang.String, int);
+#    public static int v(...);
+#    public static int i(...);
+#    public static int w(...);
+#    public static int d(...);
+#    public static int e(...);
+#}
 ```
 
-### 5、自定义混淆规则
-1) JavaBean 实体类不能混淆，一般会将实体类统一放到一个包下，keep public class 后面请改成你自己项目的路径
+### 5、常用第三方依赖库
 
 ```
--keep public class com.ljd.example.entity.** {
+# Support
+-keep class android.support.** { *; }
+-keep interface android.support.** { *; }
+-dontwarn android.support.**
+
+# OkHttp3
+-dontwarn okhttp3.**
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+-dontwarn org.conscrypt.**
+-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+
+# Retrofit2
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keepattributes Exceptions
+
+# Butterknife
+-keep public class * implements butterknife.Unbinder { public <init>(**, android.view.View); }
+-keep class butterknife.*
+-keepclasseswithmembernames class * { @butterknife.* <methods>; }
+-keepclasseswithmembernames class * { @butterknife.* <fields>; }
+
+# Gson
+-keep class sun.misc.Unsafe { *; }
+-keep class com.google.gson.stream.** { *; }
+-keep class com.sunloto.shandong.bean.** { *; }
+
+# Glide
+-keep public class * implements com.bumptech.glide.module.GlideModule
+-keep public class * extends com.bumptech.glide.module.AppGlideModule
+-keep public enum com.bumptech.glide.load.ImageHeaderParser$** {
+  **[] $VALUES;
+  public *;
+}
+#-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
+
+# AndroidEventBus
+-keep class org.simple.** { *; }
+-keep interface org.simple.** { *; }
+-keepclassmembers class * {
+    @org.simple.eventbus.Subscriber <methods>;
+}
+
+# Rxjava and RxAndroid
+-dontwarn org.mockito.**
+-dontwarn org.junit.**
+-dontwarn org.robolectric.**
+
+-keep class io.reactivex.** { *; }
+-keep interface io.reactivex.** { *; }
+
+-keep class com.squareup.okhttp.** { *; }
+-dontwarn okio.**
+-keep interface com.squareup.okhttp.** { *; }
+-dontwarn com.squareup.okhttp.**
+
+-dontwarn io.reactivex.**
+-dontwarn retrofit.**
+-keep class retrofit.** { *; }
+-keepclasseswithmembers class * {
+    @retrofit.http.* <methods>;
+}
+
+-keep class sun.misc.Unsafe { *; }
+
+-dontwarn java.lang.invoke.*
+
+-keep class io.reactivex.schedulers.Schedulers {
+    public static <methods>;
+}
+-keep class io.reactivex.schedulers.ImmediateScheduler {
+    public <methods>;
+}
+-keep class io.reactivex.schedulers.TestScheduler {
+    public <methods>;
+}
+-keep class io.reactivex.schedulers.Schedulers {
+    public static ** test();
+}
+-keepclassmembers class io.reactivex.internal.util.unsafe.*ArrayQueue*Field* {
+    long producerIndex;
+    long consumerIndex;
+}
+-keepclassmembers class io.reactivex.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    long producerNode;
+    long consumerNode;
+}
+
+-keepclassmembers class io.reactivex.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    io.reactivex.internal.util.atomic.LinkedQueueNode producerNode;
+}
+-keepclassmembers class io.reactivex.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+    io.reactivex.internal.util.atomic.LinkedQueueNode consumerNode;
+}
+
+-dontwarn io.reactivex.internal.util.unsafe.**
+
+# Espresso
+-keep class android.support.test.espresso.** { *; }
+-keep interface android.support.test.espresso.** { *; }
+
+# Annotation
+-keep class android.support.annotation.** { *; }
+-keep interface android.support.annotation.** { *; }
+
+# RxLifeCycle
+-keep class com.trello.rxlifecycle2.** { *; }
+-keep interface com.trello.rxlifecycle2.** { *; }
+
+# RxPermissions
+-keep class com.tbruyelle.rxpermissions2.** { *; }
+-keep interface com.tbruyelle.rxpermissions2.** { *; }
+
+# RxCache
+-dontwarn io.rx_cache2.internal.**
+-keep class io.rx_cache2.internal.Record { *; }
+-keep class io.rx_cache2.Source { *; }
+
+-keep class io.victoralbertos.jolyglot.** { *; }
+-keep interface io.victoralbertos.jolyglot.** { *; }
+
+# Canary
+-dontwarn com.squareup.haha.guava.**
+-dontwarn com.squareup.haha.perflib.**
+-dontwarn com.squareup.haha.trove.**
+-dontwarn com.squareup.leakcanary.**
+-keep class com.squareup.haha.** { *; }
+-keep class com.squareup.leakcanary.** { *; }
+
+# Marshmallow removed Notification.setLatestEventInfo()
+-dontwarn android.app.Notification
+
+# Greendao
+-keepclassmembers class * extends org.greenrobot.greendao.AbstractDao {
+public static java.lang.String TABLENAME;
+}
+-keep class **$Properties
+-dontwarn org.greenrobot.greendao.database.**
+
+# If you do not use Rx:
+#-dontwarn rx.**
+
+# ARouter
+-keep public class com.alibaba.android.arouter.routes.**{*;}
+-keep class * implements com.alibaba.android.arouter.facade.template.ISyringe{*;}
+-keep interface * implements com.alibaba.android.arouter.facade.template.IProvider
+-keep class * implements com.alibaba.android.arouter.facade.template.IProvider
+
+# Bugly
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
+
+# BaseRecyclerViewAdapterHelper
+-keep class com.chad.library.adapter.** {
+*;
+}
+-keep public class * extends com.chad.library.adapter.base.BaseQuickAdapter
+-keep public class * extends com.chad.library.adapter.base.BaseViewHolder
+-keepclassmembers  class **$** extends com.chad.library.adapter.base.BaseViewHolder {
+     <init>(...);
+}
+```
+
+### 6、其他自定义混淆规则
+
+```
+# JavaBean 实体类不能混淆，一般会将实体类统一放到一个包下，you.package.path 请改成你自己的项目路径
+-keep public class com.frame.mvp.entity.** {
     public void set*(***);
     public *** get*();
     public *** is*();
 }
+
+# 网页中的 JavaScript 进行交互，you.package.path 请改成你自己的项目路径
+#-keepclassmembers class you.package.path.JSInterface {
+#    <methods>;
+#}
+
+# 需要通过反射来调用的类，没有可忽略，you.package.path 请改成你自己的项目路径
+#-keep class you.package.path.** { *; }
+
+# 百度地图
+-keep class com.baidu.** {*;}
+-keep class vi.com.** {*;}
+-dontwarn com.baidu.**
+
+# 高德地图
+-keep class com.amap.api.maps.**{*;}
+-keep class com.autonavi.**{*;}
+-keep class com.amap.api.trace.**{*;}
+-keep class com.amap.api.location.**{*;}
+-keep class com.amap.api.fence.**{*;}
+-keep class com.autonavi.aps.amapapi.model.**{*;}
+-keep class com.amap.api.services.**{*;}
+-keep class com.amap.api.maps2d.**{*;}
+-keep class com.amap.api.mapcore2d.**{*;}
+-keep class com.amap.api.navi.**{*;}
+-keep class com.autonavi.**{*;}
 ```
-
-
-
-
 
 -------------------
 
 ## 总结
-
+感觉阅读这篇教程，本人水平有限，如有错漏请及时联系我，以上都为常用配置和常用第三方库的整理，可以根据需求自行增删。下一篇介绍[《Android Studio 代码高级混淆》](http://rockycoder.cn/混淆/2018/03/20/Android-proguard-rules-high.html)
 
 -------------------
