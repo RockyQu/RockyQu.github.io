@@ -94,7 +94,7 @@ Data字段可包含JsonArray或JsonObject，这里只关心想要获取的数据
 HTTPS能够有效防止中间人攻击，有效保证接口不被劫持，对数据窃取篡改做了安全防范。但HTTP升级HTTPS会带来更多的握手，而握手中的运算会带来更多的性能消耗。这也是不得不考虑的问题。
 总得来说，我们非常有必要在设计接口的同时考虑安全性的问题，根据业务特点，采用的安全策略也不全相同。当然大多数安全策略更多的都是提高安全门槛，并不能保证100%的安全，但该做的还是不能少。
 
-参考[API接口安全性设计](https://www.jianshu.com/p/c6518a8f4040)
+参考[API接口安全性设计](https://www.jianshu.com/p/c6518a8f4040)  
 参考[Android 密钥保护和 C/S 网络传输安全理论指南](http://drakeet.me/android-security-guide/)
 
 ## 四、	其他
@@ -141,6 +141,6 @@ HTTPS能够有效防止中间人攻击，有效保证接口不被劫持，对数
 -------------------
 
 ## 相关链接
-[Android 密钥保护和 C/S 网络传输安全理论指南](http://drakeet.me/android-security-guide/) 这篇写的非常好，讲解了整套关于 Android 密钥、Http 安全方面的原理及思想，干货
+- [Android 密钥保护和 C/S 网络传输安全理论指南](http://drakeet.me/android-security-guide/) 这篇写的非常好，讲解了整套关于 Android 密钥、Http 安全方面的原理及思想，干货
 
 -------------------
