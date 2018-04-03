@@ -428,6 +428,6 @@ public static java.lang.String TABLENAME;
 -------------------
 
 ## 总结
-感觉阅读这篇教程，本人水平有限，如有错漏请及时联系我，以上都为常用配置和常用第三方库的整理，可以根据需求自行增删。下一篇介绍[《Android Studio 代码高级混淆》](http://rockycoder.cn/混淆/2018/03/20/Android-proguard-rules-high.html)
+感谢阅读这篇教程，本人水平有限，如有错漏请及时联系我，以上都为常用配置和常用第三方库的整理，混淆配置文件已放在 [proguard-rules.pro](https://github.com/RockyQu/MVPFrames/blob/rx/Common/proguard-rules.pro) 可以根据需求自行增删。下一篇介绍[《Android Studio 代码高级混淆》](http://rockycoder.cn/混淆/2018/03/20/Android-proguard-rules-high.html)
 
 -------------------
