@@ -11,8 +11,8 @@ tags:
   - 高级代码混淆
 ---
 
-## 一、概述
-> Android Studio Template 是基于 [FreeMarker](https://baike.baidu.com/item/freemarker/9489366?fr=aladdin) 来开发的，Android Studio 已经预设一些常用 Template，如下图，这些模板包括图片、XML、类都可以用自定义形式方便添加各种效果，减少了模板式代码编写，提高工作效率
+## 一、前言
+> 上一篇介绍了 [代码基本混淆](http://rockycoder.cn/混淆/2018/03/15/Android-proguard-rules.html) 的原理、使用方法和常用配置属性等，
 
 
 
