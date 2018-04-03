@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Android Studio 代码基本混淆"
-excerpt: "Android 基础代码混淆教程整理"
+title: "Android Studio 混淆全面整理"
+excerpt: "Android 代码混淆、资源混淆、高级混淆相关资料整理，附 Demo"
 date: 2018-3-15
 categories:
   - 混淆
@@ -425,9 +425,14 @@ public static java.lang.String TABLENAME;
 -keep class com.autonavi.**{*;}
 ```
 
+## 四、资源混淆
+
+
+## 五、资源混淆
+
 -------------------
 
 ## 总结
-感谢阅读这篇教程，本人水平有限，如有错漏请及时联系我，以上都为常用配置和常用第三方库的整理，混淆配置文件已放在 [proguard-rules.pro](https://github.com/RockyQu/MVPFrames/blob/rx/Common/proguard-rules.pro) 可以根据需求自行增删。下一篇介绍[《Android Studio 代码高级混淆》](http://rockycoder.cn/混淆/2018/03/20/Android-proguard-rules-high.html)
+感谢阅读这篇教程，本人水平有限，如有错漏请及时联系我，以上都为常用配置和常用第三方库的整理，混淆配置文件已放在 [proguard-rules.pro](https://github.com/RockyQu/MVPFrames/blob/rx/Common/proguard-rules.pro) 可以根据需求自行增删。
 
 -------------------
