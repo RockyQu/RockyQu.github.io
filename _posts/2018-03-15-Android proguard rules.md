@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Android Studio 混淆全面整理"
+title: "Android 混淆技术全面整理"
 excerpt: "Android 代码混淆、资源混淆、高级混淆相关资料整理，附 Demo"
 date: 2018-3-15
 categories:
@@ -446,8 +446,8 @@ public static java.lang.String TABLENAME;
 ```
 
 ## 四、资源混淆
-
-
+> 关于资源混淆微信团队提供了一个很好的工具 [AndResGuard](https://github.com/shwenzhang/AndResGuard) ，它能帮你混淆资源文件、还能缩小这些文件的体积
+开源地址：[https://github.com/shwenzhang/AndResGuard](https://github.com/shwenzhang/AndResGuard)
 
 -------------------
 
