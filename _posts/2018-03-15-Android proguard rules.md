@@ -405,34 +405,27 @@ public static java.lang.String TABLENAME;
 
 # 需要通过反射来调用的类，没有可忽略，you.package.path 请改成你自己的项目路径
 #-keep class you.package.path.** { *; }
-
-# 百度地图
--keep class com.baidu.** {*;}
--keep class vi.com.** {*;}
--dontwarn com.baidu.**
-
-# 高德地图
--keep class com.amap.api.maps.**{*;}
--keep class com.autonavi.**{*;}
--keep class com.amap.api.trace.**{*;}
--keep class com.amap.api.location.**{*;}
--keep class com.amap.api.fence.**{*;}
--keep class com.autonavi.aps.amapapi.model.**{*;}
--keep class com.amap.api.services.**{*;}
--keep class com.amap.api.maps2d.**{*;}
--keep class com.amap.api.mapcore2d.**{*;}
--keep class com.amap.api.navi.**{*;}
--keep class com.autonavi.**{*;}
 ```
+
+### 7、一些不是很常用 但很实用的配置
+
+```
+
+```
+
 
 ## 四、资源混淆
 
 
-## 五、资源混淆
 
 -------------------
 
 ## 总结
-感谢阅读这篇教程，本人水平有限，如有错漏请及时联系我，以上都为常用配置和常用第三方库的整理，混淆配置文件已放在 [proguard-rules.pro](https://github.com/RockyQu/MVPFrames/blob/rx/Common/proguard-rules.pro) 可以根据需求自行增删。
+感谢阅读这篇教程，本人水平有限，如有错漏请及时联系我，以上都是常用混淆配置的整理，混淆配置文件已放在 [proguard-rules.pro](https://github.com/RockyQu/MVPFrames/blob/rx/Common/proguard-rules.pro) 可以根据需求自行增删。
+
+-------------------
+
+## 相关链接
+- [Android 密钥保护和 C/S 网络传输安全理论指南](http://drakeet.me/android-security-guide/) 这篇写的非常好，讲解了整套关于 Android 密钥、Http 安全方面的原理及思想，干货
 
 -------------------
