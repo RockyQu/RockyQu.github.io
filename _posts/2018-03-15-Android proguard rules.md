@@ -407,12 +407,43 @@ public static java.lang.String TABLENAME;
 #-keep class you.package.path.** { *; }
 ```
 
-### 7、一些不是很常用 但很实用的配置
+### 7、一些不是很常用但比较实用的混淆命令
 
 ```
+# 所有重新命名的包都重新打包，并把所有的类移动到所给定的包下面。如果没有指定 packagename，那么所有的类都会被移动到根目录下
+# 如果需要从目录中读取资源文件，移动包的位置可能会导致异常，谨慎使用
+# you.package.path 请改成你自己的项目路径
+-flatternpackagehierarchy
 
+# 所有重新命名过的类都重新打包，并把他们移动到指定的packagename目录下。如果没有指定 packagename，同样把他们放到根目录下面。
+# 这项配置会覆盖-flatternpackagehierarchy的配置。它可以代码体积更小，并且更加难以理解。
+# you.package.path 请改成你自己的项目路径
+-repackageclasses you.package.path
+
+# 指定一个文本文件用来生成混淆后的名字。默认情况下，混淆后的名字一般为 a、b、c 这种。
+# 通过使用配置的字典文件，可以使用一些非英文字符做为类名。成员变量名、方法名。字典文件中的空格，标点符号，重复的词，还有以'#'开头的行都会被忽略。
+# 需要注意的是添加了字典并不会显著提高混淆的效果，只不过是更不利与人类的阅读。正常的编译器会自动处理他们，并且输出出来的jar包也可以轻易的换个字典再重新混淆一次。
+# 最有用的做法一般是选择已经在类文件中存在的字符串做字典，这样可以稍微压缩包的体积。
+# 查找了字典文件的格式：一行一个单词，空行忽略，重复忽略
+-obfuscationdictionary
+
+# 指定一个混淆类名的字典，字典格式与 -obfuscationdictionary 相同
+#-classobfuscationdictionary
+# 指定一个混淆包名的字典，字典格式与 -obfuscationdictionary 相同
+-packageobfuscationdictionary
+
+# 混淆的时候大量使用重载，多个方法名使用同一个混淆名，但是他们的方法签名不同。这可以使包的体积减小一部分，也可以加大理解的难度。仅在混淆阶段有效。
+# 这个参数在 JDK 版本上有一定的限制，可能会导致一些未知的错误，谨慎使用
+-overloadaggressively
+
+# 方法同名混淆后亦同名，方法不同名混淆后亦不同名。不使用该选项时，类成员可被映射到相同的名称。因此该选项会增加些许输出文件的大小。
+-useuniqueclassmembernames
+
+# 指定在混淆的时候不使用大小写混用的类名。默认情况下，混淆后的类名可能同时包含大写字母和小写字母。
+# 这样生成jar包并没有什么问题。只有在大小写不敏感的系统（例如windows）上解压时，才会涉及到这个问题。
+# 因为大小写不区分，可能会导致部分文件在解压的时候相互覆盖。如果有在windows系统上解压输出包的需求的话，可以加上这个配置。
+-dontusemixedcaseclassnames
 ```
-
 
 ## 四、资源混淆
 
@@ -426,6 +457,9 @@ public static java.lang.String TABLENAME;
 -------------------
 
 ## 相关链接
-- [Android 密钥保护和 C/S 网络传输安全理论指南](http://drakeet.me/android-security-guide/) 这篇写的非常好，讲解了整套关于 Android 密钥、Http 安全方面的原理及思想，干货
+- [Android Proguard 混淆](https://www.jianshu.com/p/60e82aafcfd0) 介绍了大部份混淆配置参数，说明写的很详细，很全面
+- [Android 高级混淆和代码保护技术](http://drakeet.me/android-advanced-proguard-and-security) 介绍高级混淆思想原理和一些特别实用的混淆参数
+
+
 
 -------------------
