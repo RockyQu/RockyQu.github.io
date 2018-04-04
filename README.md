@@ -1,4 +1,2 @@
-# Hydeout
-
-Hydeout updates the original [Hyde](https://github.com/poole/hyde)
-theme for [Jekyll](http://jekyllrb.com) 3.x and adds new functionality.
+# Blog
+[使用GitHub Pages + Markdown + Jekyll搭建自己的博客](http://rockycoder.cn/笔记/2017/09/10/GitHub-Pages-+-Markdown-+-Jekyll-Build-Blog.html)
