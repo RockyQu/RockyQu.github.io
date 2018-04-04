@@ -446,8 +446,7 @@ public static java.lang.String TABLENAME;
 ```
 
 ## 四、资源混淆
-> 关于资源混淆微信团队提供了一个很好的工具 [AndResGuard](https://github.com/shwenzhang/AndResGuard) ，它能帮你混淆资源文件、还能缩小这些文件的体积
-开源地址：[https://github.com/shwenzhang/AndResGuard](https://github.com/shwenzhang/AndResGuard)
+> 关于资源混淆微信团队提供了一个很好的工具 [AndResGuard](https://github.com/shwenzhang/AndResGuard) ，它能帮你混淆资源文件、还能缩小这些文件的体积。开源地址：[https://github.com/shwenzhang/AndResGuard](https://github.com/shwenzhang/AndResGuard)
 
 -------------------
 
