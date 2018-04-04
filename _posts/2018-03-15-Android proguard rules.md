@@ -452,14 +452,12 @@ public static java.lang.String TABLENAME;
 -------------------
 
 ## 总结
-感谢阅读这篇教程，本人水平有限，如有错漏请及时联系我，以上都是常用混淆配置的整理，混淆配置文件已放在 [proguard-rules.pro](https://github.com/RockyQu/MVPFrames/blob/rx/Common/proguard-rules.pro) 可以根据需求自行增删。
+感谢阅读这篇教程，本人水平有限，如有错漏请及时联系我，以上都是常用混淆配置的整理，混淆配置文件已放在 [proguard-rules.pro](https://github.com/RockyQu/ProguardDictionary) 可以根据需求自行增删。
 
 -------------------
 
 ## 相关链接
 - [Android Proguard 混淆](https://www.jianshu.com/p/60e82aafcfd0) 介绍了大部份混淆配置参数，说明写的很详细，很全面
 - [Android 高级混淆和代码保护技术](http://drakeet.me/android-advanced-proguard-and-security) 介绍高级混淆思想原理和一些特别实用的混淆参数
-
-
 
 -------------------
