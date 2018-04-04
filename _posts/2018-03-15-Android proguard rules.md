@@ -424,7 +424,7 @@ public static java.lang.String TABLENAME;
 # 通过使用配置的字典文件，可以使用一些非英文字符做为类名。成员变量名、方法名。字典文件中的空格，标点符号，重复的词，还有以'#'开头的行都会被忽略。
 # 需要注意的是添加了字典并不会显著提高混淆的效果，只不过是更不利与人类的阅读。正常的编译器会自动处理他们，并且输出出来的jar包也可以轻易的换个字典再重新混淆一次。
 # 最有用的做法一般是选择已经在类文件中存在的字符串做字典，这样可以稍微压缩包的体积。
-# 查找了字典文件的格式：一行一个单词，空行忽略，重复忽略
+# 字典文件的格式：一行一个单词，空行忽略，重复忽略
 -obfuscationdictionary
 
 # 指定一个混淆类名的字典，字典格式与 -obfuscationdictionary 相同
@@ -452,7 +452,7 @@ public static java.lang.String TABLENAME;
 -------------------
 
 ## 总结
-感谢阅读这篇教程，本人水平有限，如有错漏请及时联系我，以上都是常用混淆配置的整理，混淆配置文件已放在 [proguard-rules.pro](https://github.com/RockyQu/ProguardDictionary) 可以根据需求自行增删。
+感谢阅读这篇教程，本人水平有限，如有错漏请及时联系我，以上都是常用混淆配置的整理，混淆配置文件已放在 [ProguardDictionary](https://github.com/RockyQu/ProguardDictionary) 可以根据需求自行增删。
 
 -------------------
 
