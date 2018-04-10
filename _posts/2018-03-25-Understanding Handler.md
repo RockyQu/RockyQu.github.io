@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "从源码角度深入理解 Android 中的 Handler 机制"
-excerpt: "从源码角度分析 Handler、Message、MessageQueue、Looper 的作用与关系"
+title: "结合源码理解 Android 中的 Handler 消息处理机制"
+excerpt: "结合源码分析 Handler、Message、MessageQueue、Looper 的作用与关系"
 date: 2018-3-25
 categories:
   - Android Source
