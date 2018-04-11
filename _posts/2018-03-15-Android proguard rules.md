@@ -397,9 +397,7 @@ public static java.lang.String TABLENAME;
 ```
 # JavaBean 实体类不能混淆，一般会将实体类统一放到一个包下，you.package.path 请改成你自己的项目路径
 -keep public class com.frame.mvp.entity.** {
-    public void set*(***);
-    public *** get*();
-    public *** is*();
+    *;
 }
 
 # 网页中的 JavaScript 进行交互，you.package.path 请改成你自己的项目路径
