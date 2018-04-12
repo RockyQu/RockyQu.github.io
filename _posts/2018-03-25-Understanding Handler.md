@@ -1237,137 +1237,6 @@ public final class Message implements Parcelable {
     public Message() {
     }
 
-    @Override
-    public String toString() {
-        return toString(SystemClock.uptimeMillis());
-    }
-
-    String toString(long now) {
-        StringBuilder b = new StringBuilder();
-        b.append("{ when=");
-        TimeUtils.formatDuration(when - now, b);
-
-        if (target != null) {
-            if (callback != null) {
-                b.append(" callback=");
-                b.append(callback.getClass().getName());
-            } else {
-                b.append(" what=");
-                b.append(what);
-            }
-
-            if (arg1 != 0) {
-                b.append(" arg1=");
-                b.append(arg1);
-            }
-
-            if (arg2 != 0) {
-                b.append(" arg2=");
-                b.append(arg2);
-            }
-
-            if (obj != null) {
-                b.append(" obj=");
-                b.append(obj);
-            }
-
-            b.append(" target=");
-            b.append(target.getClass().getName());
-        } else {
-            b.append(" barrier=");
-            b.append(arg1);
-        }
-
-        b.append(" }");
-        return b.toString();
-    }
-
-    void writeToProto(ProtoOutputStream proto, long fieldId) {
-        final long messageToken = proto.start(fieldId);
-        proto.write(MessageProto.WHEN, when);
-
-        if (target != null) {
-            if (callback != null) {
-                proto.write(MessageProto.CALLBACK, callback.getClass().getName());
-            } else {
-                proto.write(MessageProto.WHAT, what);
-            }
-
-            if (arg1 != 0) {
-                proto.write(MessageProto.ARG1, arg1);
-            }
-
-            if (arg2 != 0) {
-                proto.write(MessageProto.ARG2, arg2);
-            }
-
-            if (obj != null) {
-                proto.write(MessageProto.OBJ, obj.toString());
-            }
-
-            proto.write(MessageProto.TARGET, target.getClass().getName());
-        } else {
-            proto.write(MessageProto.BARRIER, arg1);
-        }
-
-        proto.end(messageToken);
-    }
-
-    public static final Parcelable.Creator<Message> CREATOR
-            = new Parcelable.Creator<Message>() {
-        public Message createFromParcel(Parcel source) {
-            Message msg = Message.obtain();
-            msg.readFromParcel(source);
-            return msg;
-        }
-
-        public Message[] newArray(int size) {
-            return new Message[size];
-        }
-    };
-
-    public int describeContents() {
-        return 0;
-    }
-
-    public void writeToParcel(Parcel dest, int flags) {
-        if (callback != null) {
-            throw new RuntimeException(
-                "Can't marshal callbacks across processes.");
-        }
-        dest.writeInt(what);
-        dest.writeInt(arg1);
-        dest.writeInt(arg2);
-        if (obj != null) {
-            try {
-                Parcelable p = (Parcelable)obj;
-                dest.writeInt(1);
-                dest.writeParcelable(p, flags);
-            } catch (ClassCastException e) {
-                throw new RuntimeException(
-                    "Can't marshal non-Parcelable objects across processes.");
-            }
-        } else {
-            dest.writeInt(0);
-        }
-        dest.writeLong(when);
-        dest.writeBundle(data);
-        Messenger.writeMessengerOrNullToParcel(replyTo, dest);
-        dest.writeInt(sendingUid);
-    }
-
-    private void readFromParcel(Parcel source) {
-        what = source.readInt();
-        arg1 = source.readInt();
-        arg2 = source.readInt();
-        if (source.readInt() != 0) {
-            obj = source.readParcelable(getClass().getClassLoader());
-        }
-        when = source.readLong();
-        data = source.readBundle();
-        replyTo = Messenger.readMessengerOrNullFromParcel(source);
-        sendingUid = source.readInt();
-    }
 }
 ```
 
@@ -2130,18 +1999,6 @@ public final class MessageQueue {
         }
     }
 
-    void writeToProto(ProtoOutputStream proto, long fieldId) {
-        final long messageQueueToken = proto.start(fieldId);
-        synchronized (this) {
-            for (Message msg = mMessages; msg != null; msg = msg.next) {
-                msg.writeToProto(proto, MessageQueueProto.MESSAGES);
-            }
-            proto.write(MessageQueueProto.IS_POLLING_LOCKED, isPollingLocked());
-            proto.write(MessageQueueProto.IS_QUITTING, mQuitting);
-        }
-        proto.end(messageQueueToken);
-    }
-
     /**
      * Callback interface for discovering when a thread is going to block
      * waiting for more messages.
@@ -2473,16 +2330,6 @@ public final class Looper {
     public void dump(@NonNull Printer pw, @NonNull String prefix, Handler handler) {
         pw.println(prefix + toString());
         mQueue.dump(pw, prefix + "  ", handler);
-    }
-
-    /** @hide */
-    public void writeToProto(ProtoOutputStream proto, long fieldId) {
-        final long looperToken = proto.start(fieldId);
-        proto.write(LooperProto.THREAD_NAME, mThread.getName());
-        proto.write(LooperProto.THREAD_ID, mThread.getId());
-        proto.write(LooperProto.IDENTITY_HASH_CODE, System.identityHashCode(this));
-        mQueue.writeToProto(proto, LooperProto.QUEUE);
-        proto.end(looperToken);
     }
 }
 ```
