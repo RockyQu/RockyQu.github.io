@@ -27,20 +27,13 @@ tags:
 > 下面是 Android Open Source 中的 Handler 源码，去掉了一些注释和非核心代码
 
 ### 1、Handler
+> Handler 发送 Message 和处理 Message
 
 ```
 public class Handler {
-
-    /**
-     * Callback interface you can use when instantiating a Handler to avoid
-     * having to implement your own subclass of Handler.
-     */
-    public interface Callback {
-        public boolean handleMessage(Message msg);
-    }
     
     /**
-     * Subclasses must implement this to receive messages.
+     * 子类里实现这个方法用来接收消息
      */
     public void handleMessage(Message msg) {
     }
@@ -62,28 +55,22 @@ public class Handler {
     }
 
     /**
-     * Default constructor associates this handler with the {@link Looper} for the
-     * current thread.
-     *
-     * If this thread does not have a looper, this handler won't be able to receive messages
-     * so an exception is thrown.
+     * 默认构造方法如果不带任务参数，此 Handler 将与当前线程的 {@link Looper} 相关联。
+     * 
+     * 这里有两种情况
+     * 1、非 UI 线程，如果你的 Handler 是要来刷新 UI 的，那么就需要在主线程下运行。
+     * 2、在非 UI 线程，只用来处理消息的话，需要如下写法
+     * 
+     *      Looper.prepare(); 
+     *           Handler handler = new Handler();
+     *      Looper.loop();
+     * 
+     *      或
+     * 
+     *      Handler handler = new Handler(Looper.getMainLooper());
      */
     public Handler() {
         this(null, false);
-    }
-
-    /**
-     * Constructor associates this handler with the {@link Looper} for the
-     * current thread and takes a callback interface in which you can handle
-     * messages.
-     *
-     * If this thread does not have a looper, this handler won't be able to receive messages
-     * so an exception is thrown.
-     *
-     * @param callback The callback interface in which to handle messages, or null.
-     */
-    public Handler(Callback callback) {
-        this(callback, false);
     }
 
     /**
@@ -93,17 +80,6 @@ public class Handler {
      */
     public Handler(Looper looper) {
         this(looper, null, false);
-    }
-
-    /**
-     * Use the provided {@link Looper} instead of the default one and take a callback
-     * interface in which to handle messages.
-     *
-     * @param looper The looper, must not be null.
-     * @param callback The callback interface in which to handle messages, or null.
-     */
-    public Handler(Looper looper, Callback callback) {
-        this(looper, callback, false);
     }
 
     /**
@@ -187,33 +163,6 @@ public class Handler {
         mQueue = looper.mQueue;
         mCallback = callback;
         mAsynchronous = async;
-    }
-
-    /** @hide */
-    @NonNull
-    public static Handler getMain() {
-        if (MAIN_THREAD_HANDLER == null) {
-            MAIN_THREAD_HANDLER = new Handler(Looper.getMainLooper());
-        }
-        return MAIN_THREAD_HANDLER;
-    }
-
-    /** @hide */
-    @NonNull
-    public static Handler mainIfNull(@Nullable Handler handler) {
-        return handler == null ? getMain() : handler;
-    }
-
-    /** {@hide} */
-    public String getTraceName(Message message) {
-        final StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getName()).append(": ");
-        if (message.callback != null) {
-            sb.append(message.callback.getClass().getName());
-        } else {
-            sb.append("#").append(message.what);
-        }
-        return sb.toString();
     }
 
     /**
