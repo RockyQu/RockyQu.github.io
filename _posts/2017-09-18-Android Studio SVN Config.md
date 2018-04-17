@@ -42,4 +42,4 @@ tags:
 -------------------
 
 ### 附件
-[clean-svn-folders](https://baike.baidu.com/item/NDK/5967464?fr=aladdin) 批量删除项目下的 .svn 文件的脚本
+[clean-svn-folders](https://github.com/RockyQu/RockyQu.github.io/tree/master/assets/file) 批量删除项目下的 .svn 文件的脚本
