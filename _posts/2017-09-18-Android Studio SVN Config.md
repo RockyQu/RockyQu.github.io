@@ -40,3 +40,6 @@ tags:
 > 配置忽略文件必须在Share到SVN之前进行，忽略文件只需初次Share Project之前配置一次，其他人Check后不需要配置
 
 -------------------
+
+### 附件
+[clean-svn-folders](https://baike.baidu.com/item/NDK/5967464?fr=aladdin) 批量删除项目下的 .svn 文件的脚本
