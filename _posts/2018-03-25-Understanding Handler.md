@@ -100,18 +100,6 @@ public class Handler {
 
     /**
      * 默认构造方法如果不带任务参数，此 Handler 将与当前线程的 {@link Looper} 相关联。
-     * 
-     * 这里有两种情况
-     * 1、非 UI 线程，如果你的 Handler 是要来刷新 UI 的，那么就需要在主线程下运行。
-     * 2、在非 UI 线程，只用来处理消息的话，需要如下写法，prepare()、loop()方法下面会分析。
-     * 
-     *      Looper.prepare(); 
-     *      Handler handler = new Handler();
-     *      Looper.loop();
-     * 
-     *      或
-     * 
-     *      Handler handler = new Handler(Looper.getMainLooper());
      */
     public Handler() {
         this(null, false);
@@ -179,7 +167,134 @@ public class Handler {
 
 -------------------
 
-## 四、MessageQueue
+### 3、Looper
+Looper 持有一个 MessageQueue，MessageQueue 作为线程的消息存储仓库
+
+```
+public final class Looper {
+
+    // sThreadLocal.get() will return null unless you've called prepare().
+    static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
+    private static Looper sMainLooper;
+
+    final MessageQueue mQueue;
+    final Thread mThread;
+
+    private long mTraceTag;
+
+    /* If set, the looper will show a warning log if a message dispatch takes longer than time. */
+    private long mSlowDispatchThresholdMs;
+
+     /** Initialize the current thread as a looper.
+      * This gives you a chance to create handlers that then reference
+      * this looper, before actually starting the loop. Be sure to call
+      * {@link #loop()} after calling this method, and end it by calling
+      * {@link #quit()}.
+      */
+    public static void prepare() {
+        prepare(true);
+    }
+
+    private static void prepare(boolean quitAllowed) {
+        if (sThreadLocal.get() != null) {
+            throw new RuntimeException("Only one Looper may be created per thread");
+        }
+        sThreadLocal.set(new Looper(quitAllowed));
+    }
+
+    /**
+     * Run the message queue in this thread. Be sure to call
+     * {@link #quit()} to end the loop.
+     */
+    public static void loop() {
+        final Looper me = myLooper();
+        if (me == null) {
+            throw new RuntimeException("No Looper; Looper.prepare() wasn't called on this thread.");
+        }
+        final MessageQueue queue = me.mQueue;
+
+        // Make sure the identity of this thread is that of the local process,
+        // and keep track of what that identity token actually is.
+        Binder.clearCallingIdentity();
+        final long ident = Binder.clearCallingIdentity();
+
+        for (;;) {
+            Message msg = queue.next(); // might block
+            if (msg == null) {
+                // No message indicates that the message queue is quitting.
+                return;
+            }
+
+            // This must be in a local variable, in case a UI event sets the logger
+            final Printer logging = me.mLogging;
+            if (logging != null) {
+                logging.println(">>>>> Dispatching to " + msg.target + " " +
+                        msg.callback + ": " + msg.what);
+            }
+
+            final long slowDispatchThresholdMs = me.mSlowDispatchThresholdMs;
+
+            final long traceTag = me.mTraceTag;
+            if (traceTag != 0 && Trace.isTagEnabled(traceTag)) {
+                Trace.traceBegin(traceTag, msg.target.getTraceName(msg));
+            }
+            final long start = (slowDispatchThresholdMs == 0) ? 0 : SystemClock.uptimeMillis();
+            final long end;
+            try {
+                msg.target.dispatchMessage(msg);
+                end = (slowDispatchThresholdMs == 0) ? 0 : SystemClock.uptimeMillis();
+            } finally {
+                if (traceTag != 0) {
+                    Trace.traceEnd(traceTag);
+                }
+            }
+            if (slowDispatchThresholdMs > 0) {
+                final long time = end - start;
+                if (time > slowDispatchThresholdMs) {
+                    Slog.w(TAG, "Dispatch took " + time + "ms on "
+                            + Thread.currentThread().getName() + ", h=" +
+                            msg.target + " cb=" + msg.callback + " msg=" + msg.what);
+                }
+            }
+
+            if (logging != null) {
+                logging.println("<<<<< Finished to " + msg.target + " " + msg.callback);
+            }
+
+            // Make sure that during the course of dispatching the
+            // identity of the thread wasn't corrupted.
+            final long newIdent = Binder.clearCallingIdentity();
+            if (ident != newIdent) {
+                Log.wtf(TAG, "Thread identity changed from 0x"
+                        + Long.toHexString(ident) + " to 0x"
+                        + Long.toHexString(newIdent) + " while dispatching to "
+                        + msg.target.getClass().getName() + " "
+                        + msg.callback + " what=" + msg.what);
+            }
+
+            msg.recycleUnchecked();
+        }
+    }
+
+    /**
+     * Return the Looper object associated with the current thread.  Returns
+     * null if the calling thread is not associated with a Looper.
+     */
+    public static @Nullable Looper myLooper() {
+        return sThreadLocal.get();
+    }
+
+    private Looper(boolean quitAllowed) {
+        mQueue = new MessageQueue(quitAllowed);
+        mThread = Thread.currentThread();
+    }
+}
+```
+
+-------------------
+
+### 3、MessageQueue
+MessageQueue 用来存放消息的消息队列，具有队列的一些常规操作
 
 ```
 public final class MessageQueue {
@@ -557,6 +672,10 @@ public final class MessageQueue {
         }
     }
 
+当我们调用Looper的quit方法时，实际上执行了MessageQueue中的removeAllMessagesLocked方法，该方法的作用是把MessageQueue消息池中所有的消息全部清空，无论是延迟消息（延迟消息是指通过sendMessageDelayed或通过postDelayed等方法发送的需要延迟执行的消息）还是非延迟消息。
+当我们调用Looper的quitSafely方法时，实际上执行了MessageQueue中的removeAllFutureMessagesLocked方法，通过名字就可以看出，该方法只会清空MessageQueue消息池中所有的延迟消息，并将消息池中所有的非延迟消息派发出去让Handler去处理，quitSafely相比于quit方法安全之处在于清空消息之前会派发所有的非延迟消息。
+无论是调用了quit方法还是quitSafely方法只会，Looper就不再接收新的消息。即在调用了Looper的quit或quitSafely方法之后，消息循环就终结了，这时候再通过Handler调用sendMessage或post等方法发送消息时均返回false，表示消息没有成功放入消息队列MessageQueue中，因为消息队列已经退出了。
+需要注意的是Looper的quit方法从API Level 1就存在了，但是Looper的quitSafely方法从API Level 18才添加进来。
     void quit(boolean safe) {
         if (!mQuitAllowed) {
             throw new IllegalStateException("Main thread not allowed to quit.");
@@ -730,409 +849,11 @@ public final class MessageQueue {
         }
         return true;
     }
-
-    boolean hasMessages(Handler h, int what, Object object) {
-        if (h == null) {
-            return false;
-        }
-
-        synchronized (this) {
-            Message p = mMessages;
-            while (p != null) {
-                if (p.target == h && p.what == what && (object == null || p.obj == object)) {
-                    return true;
-                }
-                p = p.next;
-            }
-            return false;
-        }
-    }
-
-    boolean hasMessages(Handler h, Runnable r, Object object) {
-        if (h == null) {
-            return false;
-        }
-
-        synchronized (this) {
-            Message p = mMessages;
-            while (p != null) {
-                if (p.target == h && p.callback == r && (object == null || p.obj == object)) {
-                    return true;
-                }
-                p = p.next;
-            }
-            return false;
-        }
-    }
-
-    boolean hasMessages(Handler h) {
-        if (h == null) {
-            return false;
-        }
-
-        synchronized (this) {
-            Message p = mMessages;
-            while (p != null) {
-                if (p.target == h) {
-                    return true;
-                }
-                p = p.next;
-            }
-            return false;
-        }
-    }
-
-    void removeMessages(Handler h, int what, Object object) {
-        if (h == null) {
-            return;
-        }
-
-        synchronized (this) {
-            Message p = mMessages;
-
-            // Remove all messages at front.
-            while (p != null && p.target == h && p.what == what
-                   && (object == null || p.obj == object)) {
-                Message n = p.next;
-                mMessages = n;
-                p.recycleUnchecked();
-                p = n;
-            }
-
-            // Remove all messages after front.
-            while (p != null) {
-                Message n = p.next;
-                if (n != null) {
-                    if (n.target == h && n.what == what
-                        && (object == null || n.obj == object)) {
-                        Message nn = n.next;
-                        n.recycleUnchecked();
-                        p.next = nn;
-                        continue;
-                    }
-                }
-                p = n;
-            }
-        }
-    }
-
-    void removeMessages(Handler h, Runnable r, Object object) {
-        if (h == null || r == null) {
-            return;
-        }
-
-        synchronized (this) {
-            Message p = mMessages;
-
-            // Remove all messages at front.
-            while (p != null && p.target == h && p.callback == r
-                   && (object == null || p.obj == object)) {
-                Message n = p.next;
-                mMessages = n;
-                p.recycleUnchecked();
-                p = n;
-            }
-
-            // Remove all messages after front.
-            while (p != null) {
-                Message n = p.next;
-                if (n != null) {
-                    if (n.target == h && n.callback == r
-                        && (object == null || n.obj == object)) {
-                        Message nn = n.next;
-                        n.recycleUnchecked();
-                        p.next = nn;
-                        continue;
-                    }
-                }
-                p = n;
-            }
-        }
-    }
-
-    void removeCallbacksAndMessages(Handler h, Object object) {
-        if (h == null) {
-            return;
-        }
-
-        synchronized (this) {
-            Message p = mMessages;
-
-            // Remove all messages at front.
-            while (p != null && p.target == h
-                    && (object == null || p.obj == object)) {
-                Message n = p.next;
-                mMessages = n;
-                p.recycleUnchecked();
-                p = n;
-            }
-
-            // Remove all messages after front.
-            while (p != null) {
-                Message n = p.next;
-                if (n != null) {
-                    if (n.target == h && (object == null || n.obj == object)) {
-                        Message nn = n.next;
-                        n.recycleUnchecked();
-                        p.next = nn;
-                        continue;
-                    }
-                }
-                p = n;
-            }
-        }
-    }
-
-    private static final class FileDescriptorRecord {
-        public final FileDescriptor mDescriptor;
-        public int mEvents;
-        public OnFileDescriptorEventListener mListener;
-        public int mSeq;
-
-        public FileDescriptorRecord(FileDescriptor descriptor,
-                int events, OnFileDescriptorEventListener listener) {
-            mDescriptor = descriptor;
-            mEvents = events;
-            mListener = listener;
-        }
-    }
 }
 ```
 
 -------------------
 
-## 五、Looper
-
-```
-public final class Looper {
-
-    // sThreadLocal.get() will return null unless you've called prepare().
-    static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
-    private static Looper sMainLooper;  // guarded by Looper.class
-
-    final MessageQueue mQueue;
-    final Thread mThread;
-
-    private Printer mLogging;
-    private long mTraceTag;
-
-    /* If set, the looper will show a warning log if a message dispatch takes longer than time. */
-    private long mSlowDispatchThresholdMs;
-
-     /** Initialize the current thread as a looper.
-      * This gives you a chance to create handlers that then reference
-      * this looper, before actually starting the loop. Be sure to call
-      * {@link #loop()} after calling this method, and end it by calling
-      * {@link #quit()}.
-      */
-    public static void prepare() {
-        prepare(true);
-    }
-
-    private static void prepare(boolean quitAllowed) {
-        if (sThreadLocal.get() != null) {
-            throw new RuntimeException("Only one Looper may be created per thread");
-        }
-        sThreadLocal.set(new Looper(quitAllowed));
-    }
-
-    /**
-     * Initialize the current thread as a looper, marking it as an
-     * application's main looper. The main looper for your application
-     * is created by the Android environment, so you should never need
-     * to call this function yourself.  See also: {@link #prepare()}
-     */
-    public static void prepareMainLooper() {
-        prepare(false);
-        synchronized (Looper.class) {
-            if (sMainLooper != null) {
-                throw new IllegalStateException("The main Looper has already been prepared.");
-            }
-            sMainLooper = myLooper();
-        }
-    }
-
-    /**
-     * Returns the application's main looper, which lives in the main thread of the application.
-     */
-    public static Looper getMainLooper() {
-        synchronized (Looper.class) {
-            return sMainLooper;
-        }
-    }
-
-    /**
-     * Run the message queue in this thread. Be sure to call
-     * {@link #quit()} to end the loop.
-     */
-    public static void loop() {
-        final Looper me = myLooper();
-        if (me == null) {
-            throw new RuntimeException("No Looper; Looper.prepare() wasn't called on this thread.");
-        }
-        final MessageQueue queue = me.mQueue;
-
-        // Make sure the identity of this thread is that of the local process,
-        // and keep track of what that identity token actually is.
-        Binder.clearCallingIdentity();
-        final long ident = Binder.clearCallingIdentity();
-
-        for (;;) {
-            Message msg = queue.next(); // might block
-            if (msg == null) {
-                // No message indicates that the message queue is quitting.
-                return;
-            }
-
-            // This must be in a local variable, in case a UI event sets the logger
-            final Printer logging = me.mLogging;
-            if (logging != null) {
-                logging.println(">>>>> Dispatching to " + msg.target + " " +
-                        msg.callback + ": " + msg.what);
-            }
-
-            final long slowDispatchThresholdMs = me.mSlowDispatchThresholdMs;
-
-            final long traceTag = me.mTraceTag;
-            if (traceTag != 0 && Trace.isTagEnabled(traceTag)) {
-                Trace.traceBegin(traceTag, msg.target.getTraceName(msg));
-            }
-            final long start = (slowDispatchThresholdMs == 0) ? 0 : SystemClock.uptimeMillis();
-            final long end;
-            try {
-                msg.target.dispatchMessage(msg);
-                end = (slowDispatchThresholdMs == 0) ? 0 : SystemClock.uptimeMillis();
-            } finally {
-                if (traceTag != 0) {
-                    Trace.traceEnd(traceTag);
-                }
-            }
-            if (slowDispatchThresholdMs > 0) {
-                final long time = end - start;
-                if (time > slowDispatchThresholdMs) {
-                    Slog.w(TAG, "Dispatch took " + time + "ms on "
-                            + Thread.currentThread().getName() + ", h=" +
-                            msg.target + " cb=" + msg.callback + " msg=" + msg.what);
-                }
-            }
-
-            if (logging != null) {
-                logging.println("<<<<< Finished to " + msg.target + " " + msg.callback);
-            }
-
-            // Make sure that during the course of dispatching the
-            // identity of the thread wasn't corrupted.
-            final long newIdent = Binder.clearCallingIdentity();
-            if (ident != newIdent) {
-                Log.wtf(TAG, "Thread identity changed from 0x"
-                        + Long.toHexString(ident) + " to 0x"
-                        + Long.toHexString(newIdent) + " while dispatching to "
-                        + msg.target.getClass().getName() + " "
-                        + msg.callback + " what=" + msg.what);
-            }
-
-            msg.recycleUnchecked();
-        }
-    }
-
-    /**
-     * Return the Looper object associated with the current thread.  Returns
-     * null if the calling thread is not associated with a Looper.
-     */
-    public static @Nullable Looper myLooper() {
-        return sThreadLocal.get();
-    }
-
-    /**
-     * Return the {@link MessageQueue} object associated with the current
-     * thread.  This must be called from a thread running a Looper, or a
-     * NullPointerException will be thrown.
-     */
-    public static @NonNull MessageQueue myQueue() {
-        return myLooper().mQueue;
-    }
-
-    private Looper(boolean quitAllowed) {
-        mQueue = new MessageQueue(quitAllowed);
-        mThread = Thread.currentThread();
-    }
-
-    /**
-     * Quits the looper.
-     * <p>
-     * Causes the {@link #loop} method to terminate without processing any
-     * more messages in the message queue.
-     * </p><p>
-     * Any attempt to post messages to the queue after the looper is asked to quit will fail.
-     * For example, the {@link Handler#sendMessage(Message)} method will return false.
-     * </p><p class="note">
-     * Using this method may be unsafe because some messages may not be delivered
-     * before the looper terminates.  Consider using {@link #quitSafely} instead to ensure
-     * that all pending work is completed in an orderly manner.
-     * </p>
-     *
-     * @see #quitSafely
-     */
-    public void quit() {
-        mQueue.quit(false);
-    }
-
-    /**
-     * Quits the looper safely.
-     * <p>
-     * Causes the {@link #loop} method to terminate as soon as all remaining messages
-     * in the message queue that are already due to be delivered have been handled.
-     * However pending delayed messages with due times in the future will not be
-     * delivered before the loop terminates.
-     * </p><p>
-     * Any attempt to post messages to the queue after the looper is asked to quit will fail.
-     * For example, the {@link Handler#sendMessage(Message)} method will return false.
-     * </p>
-     */
-    public void quitSafely() {
-        mQueue.quit(true);
-    }
-
-    /**
-     * Gets the Thread associated with this Looper.
-     *
-     * @return The looper's thread.
-     */
-    public @NonNull Thread getThread() {
-        return mThread;
-    }
-
-    public @NonNull MessageQueue getQueue() {
-        return mQueue;
-    }
-
-    /**
-     * Dumps the state of the looper for debugging purposes.
-     *
-     * @param pw A printer to receive the contents of the dump.
-     * @param prefix A prefix to prepend to each line which is printed.
-     */
-    public void dump(@NonNull Printer pw, @NonNull String prefix) {
-        pw.println(prefix + toString());
-        mQueue.dump(pw, prefix + "  ", null);
-    }
-
-    /**
-     * Dumps the state of the looper for debugging purposes.
-     *
-     * @param pw A printer to receive the contents of the dump.
-     * @param prefix A prefix to prepend to each line which is printed.
-     * @param handler Only dump messages for this Handler.
-     * @hide
-     */
-    public void dump(@NonNull Printer pw, @NonNull String prefix, Handler handler) {
-        pw.println(prefix + toString());
-        mQueue.dump(pw, prefix + "  ", handler);
-    }
-}
-```
-
--------------------
 
 ## 总结
 
