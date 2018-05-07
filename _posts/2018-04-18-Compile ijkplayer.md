@@ -13,11 +13,11 @@ tags:
 > 我用的是 Oracle VM VirtualBox [下载地址](https://www.virtualbox.org/) 虚拟机来安装 Ubuntu [下载地址](https://www.ubuntu.com/download)，不会对已安装的系统造成什么影响。以下是我遇到的一个小坑。
 
 ### 报错：不能为虚拟电脑 XXX 打开一个新任
-此时需要通过安装 “Oracle VM VirtualBox Extension Pack” 扩展包解决此问题 [下载地址](https://www.virtualbox.org/wiki/Downloads)
+* 此时需要通过安装 “Oracle VM VirtualBox Extension Pack” 扩展包解决此问题 [下载地址](https://www.virtualbox.org/wiki/Downloads)
 
 ![1](/assets/image/2018-04-18-Compile ijkplayer 1.png)  
 
-安装菜单 管理 → 全局设定 → 扩展
+* 安装菜单 管理 → 全局设定 → 扩展
 
 ![2](/assets/image/2018-04-18-Compile ijkplayer 2.png)  
 
