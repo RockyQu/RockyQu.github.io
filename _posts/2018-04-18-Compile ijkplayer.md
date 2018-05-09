@@ -54,7 +54,7 @@ sudo apt-get install git
 sudo apt-get install yasm
 ```
 
-Clone ijkplayer
+下载 ijkplayer 项目
 
 ```
 git clone https://github.com/Bilibili/ijkplayer.git ijkplayer-android
@@ -86,7 +86,7 @@ cd ijkplayer-android
 
 ## 总结我遇到的一些问题
 
-* ### 报错：不能为虚拟电脑  XXX 打开一个新任
+* ### 报错：不能为虚拟电脑  XXX 打开一个新任务
 此时需要通过安装 [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) 扩展包解决此问题
 
 ![1](/assets/image/2018-04-18-Compile ijkplayer 1.png)  
