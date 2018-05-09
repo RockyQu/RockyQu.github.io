@@ -10,16 +10,7 @@ tags:
 ---
 
 ## 0x0000 安装 Ubuntu
-> 我用的是 [Oracle VM VirtualBox](https://www.virtualbox.org/) 虚拟机来安装 [Ubuntu 64位](https://www.ubuntu.com/download)，不会对已安装的系统造成什么影响。在新建的虚拟机时配置内存要选用大一点的，第一次我安装全是默认项，卡的要死，建议分配内存 4G，硬盘 20G 以上，还有下面我遇到的一个小坑。
-
-* ### 报错：不能为虚拟电脑  XXX 打开一个新任
-此时需要通过安装 [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) 扩展包解决此问题
-
-![1](/assets/image/2018-04-18-Compile ijkplayer 1.png)  
-
-安装菜单目录 管理 → 全局设定 → 扩展
-
-![2](/assets/image/2018-04-18-Compile ijkplayer 2.png)  
+> 我用的是 [Oracle VM VirtualBox](https://www.virtualbox.org/) 虚拟机来安装 [Ubuntu 64位](https://www.ubuntu.com/download)，不会对已安装的系统造成什么影响。在新建的虚拟机时配置内存要选用大一点的，第一次我安装全是默认项，卡的要死，建议分配内存 4G，硬盘 30G 以上。
 
 -------------------
 
@@ -91,7 +82,18 @@ cd ijkplayer-android
 
 
 
-下面是我遇到的一些问题
+-------------------
+
+## 总结我遇到的一些问题
+
+* ### 报错：不能为虚拟电脑  XXX 打开一个新任
+此时需要通过安装 [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) 扩展包解决此问题
+
+![1](/assets/image/2018-04-18-Compile ijkplayer 1.png)  
+
+安装菜单目录 管理 → 全局设定 → 扩展
+
+![2](/assets/image/2018-04-18-Compile ijkplayer 2.png)  
 
 * ### 请用 ndk r14b 版本
 开始用的版本过低编译失败，又下了个最新的也失败，最后找到 r14b 版本，编译成功了
@@ -101,18 +103,5 @@ cd ijkplayer-android
 
 * ### 提示 ERROR:failed to create tool chain
 通过安装 apt-get install python 解决此问题
-
--------------------
-
-
-
-
-## 总结
-
-
--------------------
-
-## 相关链接
-
 
 -------------------
