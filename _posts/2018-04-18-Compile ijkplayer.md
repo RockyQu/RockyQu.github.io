@@ -115,7 +115,7 @@ cd ..
 
 最后复制出来，用 Android Studio 打开项目即可运行查看效果
 
-![9](/assets/image/2018-04-18-Compile ijkplayer 9.png)  
+![9](/assets/image/2018-04-18-Compile ijkplayer 9.png)
 
 -------------------
 
