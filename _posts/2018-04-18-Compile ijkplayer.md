@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "使用 Ubuntu 编译 ijkplayer 源码"
-excerpt: "使用 Ubuntu 编译 ijkplayer 源码，基于版本 0.8.8"
+excerpt: "基于版本 0.8.8"
 date: 2018-4-18
 categories:
   - ijkplayer
