@@ -44,7 +44,7 @@ export ANDROID_NDK
 adb -version
 ```
 
-到此 NDK 配置结束了
+至此 NDK 配置结束了
 
 ### 2.编译前准备
 
@@ -79,7 +79,7 @@ git checkout -B latest k0.8.8
 ./init-android.sh
 ```
 
-需要支持 Https 协议的需要再执行一遍如下命令
+需要支持 Https 协议的需要执行如下命令
 ```
 ./init-android-openssl.sh
 ```
@@ -89,13 +89,15 @@ git checkout -B latest k0.8.8
 cd android/contrib
 ```
 
-清空一下
+编译各个平台的编译 openssl
 ```
-./compile-ffmpeg.sh clean
+./compile-openssl.sh clean
+./compile-openssl.sh all
 ```
 
 编译 ffmpeg 解码库
 ```
+./compile-ffmpeg.sh clean
 ./compile-ffmpeg.sh all
 ```
 
@@ -109,9 +111,13 @@ cd ..
 ./compile-ijk.sh all
 ```
 
+至此所有编译结束了，你会在这个目录下看到如下文件
 
+![8](/assets/image/2018-04-18-Compile ijkplayer 8.png)  
 
+最后复制出来，用 Android Studio 打开项目即可运行查看效果
 
+![9](/assets/image/2018-04-18-Compile ijkplayer 9.png)  
 
 -------------------
 
@@ -134,5 +140,8 @@ cd ..
 
 * ### 提示 ERROR:failed to create tool chain
 通过安装 apt-get install python 解决此问题
+
+* ### 安装下载时异常缓慢
+推举一个免费 VPN 支持 Ubuntu 版的 [Lantern](https://github.com/getlantern/lantern)
 
 -------------------
