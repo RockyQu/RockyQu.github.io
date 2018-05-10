@@ -4,21 +4,13 @@ title: About
 sidebar_link: true
 ---
   
-## 曲海峰
+## Rocky
 
 - 6 年 Android 开发经验
 - 基本信息：男 1987年生 苏州市
 - 电话：173 * * * * 8895
 - 邮箱：250533855@qq.com
 - GitHub：[https://github.com/RockyQu](https://github.com/RockyQu)
-
-## 教育经历
-
--  2008/9 — 2012/7 黑龙江科技大学利民校区 计算机科学与技术 本科 
-
-## 工作经历 
-
-- 2012/7 — 至今 苏州龙的信息系统股份有限公司  Android 开发工程师
 
 ## 专业技能
 
