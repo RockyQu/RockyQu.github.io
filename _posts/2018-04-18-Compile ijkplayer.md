@@ -10,7 +10,9 @@ tags:
 ---
 
 ## 0x0000 安装 Ubuntu
-> 我用的是 [Oracle VM VirtualBox](https://www.virtualbox.org/) 虚拟机来安装 [Ubuntu 64位](https://www.ubuntu.com/download)，不会对已安装的系统造成什么影响。在新建的虚拟机时配置内存要选用大一点的，第一次我安装全是默认项，卡的要死，建议分配内存 4G，硬盘 30G 以上。
+> 我用的是 [Oracle VM VirtualBox](https://www.virtualbox.org/) 虚拟机来安装 [Ubuntu 64位](https://www.ubuntu.com/download)，不会对已安装的系统造成什么影响。在新建的虚拟机时配置内存要选用大一点的，第一次我安装全是默认项，卡的要死
+![3](/assets/image/2018-04-18-Compile ijkplayer 3.png)  
+所以建议分配内存 4G，硬盘 30G 以上
 
 -------------------
 
@@ -22,7 +24,7 @@ tags:
 
 ![5](/assets/image/2018-04-18-Compile ijkplayer 5.png)  
 
-转到 Home 目录下，类似 Java 配置 JDK
+转到 Home 目录下，配置 NDK 路径，类似 Java 配置 JDK，很多教程 Android SDK 也要配置，其实是不用的
 ![6](/assets/image/2018-04-18-Compile ijkplayer 6.png)  
 
 键盘 Ctrl + H 显示隐藏文件，找到 .bashrc 文件
@@ -63,22 +65,51 @@ git clone https://github.com/Bilibili/ijkplayer.git ijkplayer-android
 ### 3.开始编译
 
 进入 ijkplayer-android 目录
-
 ```
 cd ijkplayer-android
 ```
 
-开始初始化
+如果你的代码不是最新的版本，最新版本号请查看 GitHub
+```
+git checkout -B latest k0.8.8
+```
 
+开始初始化
 ```
 ./init-android.sh
 ```
 
 需要支持 Https 协议的需要再执行一遍如下命令
-
 ```
 ./init-android-openssl.sh
 ```
+
+进入 contrib 目录
+```
+cd android/contrib
+```
+
+清空一下
+```
+./compile-ffmpeg.sh clean
+```
+
+编译 ffmpeg 解码库
+```
+./compile-ffmpeg.sh all
+```
+
+返回上一目录
+```
+cd ..
+```
+
+得到 ijkplayer 的项目
+```
+./compile-ijk.sh all
+```
+
+
 
 
 
