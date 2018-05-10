@@ -119,7 +119,7 @@ cd ..
 
 -------------------
 
-## 总结我遇到的一些问题
+## 0x0002 总结我遇到的一些问题
 
 * ### 报错：不能为虚拟电脑  XXX 打开一个新任务
 此时需要通过安装 [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) 扩展包解决此问题
