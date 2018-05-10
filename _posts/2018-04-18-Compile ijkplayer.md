@@ -60,6 +60,9 @@ sudo apt-get install yasm
 git clone https://github.com/Bilibili/ijkplayer.git ijkplayer-android
 ```
 
+简单了解一下 ijkplayer 目录结构
+![10](/assets/image/2018-04-18-Compile ijkplayer 10.png)  
+
 ### 3.开始编译
 
 进入 ijkplayer-android 目录
