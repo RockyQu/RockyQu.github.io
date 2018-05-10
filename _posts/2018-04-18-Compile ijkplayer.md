@@ -11,7 +11,7 @@ tags:
 
 ## 0x0000 安装 Ubuntu
 > 我用的是 [Oracle VM VirtualBox](https://www.virtualbox.org/) 虚拟机来安装 [Ubuntu 64位](https://www.ubuntu.com/download)，不会对已安装的系统造成什么影响。在新建的虚拟机时配置内存要选用大一点的，第一次我安装全是默认项，卡的要死
-![3](/assets/image/2018-04-18-Compile ijkplayer 3.png)  
+![3](/assets/image/2018-04-18-Compile ijkplayer 3.png)
 所以建议分配内存 4G，硬盘 30G 以上
 
 -------------------
