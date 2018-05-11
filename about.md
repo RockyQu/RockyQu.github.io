@@ -4,10 +4,10 @@ title: About
 sidebar_link: true
 ---
   
-## Rocky
+## Qu Haifeng
 
 - 6 年 Android 开发经验
-- 基本信息：男 1987年生 苏州市
+- 男 1987年生 苏州市
 - 电话：173 * * * * 8895
 - 邮箱：250533855@qq.com
 - GitHub：[https://github.com/RockyQu](https://github.com/RockyQu)
