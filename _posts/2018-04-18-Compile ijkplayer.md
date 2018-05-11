@@ -143,9 +143,8 @@ cd ..
 通过安装 apt-get install python 解决此问题
 
 * ### 安装下载时异常缓慢
-推举一个免费 VPN 支持 Ubuntu 版的 [Lantern](https://github.com/getlantern/lantern)
+推举一个免费 VPN 支持 Ubuntu 版的 [Lantern](https://github.com/getlantern/lantern)，使用如下命令安装
 
-安装命令
 ```
 sudo apt install gdebi-core
 sudo gdebi lantern.deb
