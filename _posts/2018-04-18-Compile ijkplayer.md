@@ -155,3 +155,5 @@ sudo gdebi lantern.deb
 ## 0x0002 编译完成的项目地址
 
 [https://github.com/RockyQu/ijkplayer](https://github.com/RockyQu/ijkplayer)
+
+-------------------
