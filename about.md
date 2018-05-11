@@ -21,7 +21,7 @@ sidebar_link: true
 - 熟悉使用 RxJava、Retrofit2、Okhttp3
 - 熟悉运用 ButterKnife、Glide、Gson、GreenDao3、LeakCanary 等开源组件，并能合理应用到项目中
 - 熟悉常用调试工具 CheckStyle、FindBugs、Android Studio Monitor
-- 熟悉使用 pgyer、fir.im、Bugly、umeng 常用平台
+- 熟悉使用 pgyer、Bugly、umeng 常用平台
 - 熟悉 MVC、MVP 结构的开发模式，并了解各自特点结合 Handler 思想融入到框架中
 - 熟悉 WebView 与 JavaScript 交互方式
 - 熟悉 Bluetooth Beacon 开发
