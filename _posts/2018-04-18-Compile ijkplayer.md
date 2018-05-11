@@ -107,7 +107,7 @@ cd android/contrib
 cd ..
 ```
 
-得到 ijkplayer 的项目
+获取 ijkplayer 的项目
 ```
 ./compile-ijk.sh all
 ```
@@ -144,5 +144,11 @@ cd ..
 
 * ### 安装下载时异常缓慢
 推举一个免费 VPN 支持 Ubuntu 版的 [Lantern](https://github.com/getlantern/lantern)
+
+安装命令
+```
+sudo apt install gdebi-core
+sudo gdebi lantern.deb
+```
 
 -------------------
