@@ -1,11 +1,12 @@
 ---
 layout: post
 title: "Android View 绘制流程总结"
-excerpt: "AIDL"
+excerpt: "结合源码分析 XML 文件到 View 对象的绘制流程"
 date: 2018-5-3
 categories:
-  - AIDL
+  - View
 tags:
-  - AIDL
+  - View
+  - 绘制流程
 ---
 
