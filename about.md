@@ -31,4 +31,4 @@ sidebar_link: true
 - 熟悉 RESTful API，具备设计 RESTful API 服务端经验
 - 熟练使用 Google、stackoverflow，具备一定问题解决能力
 - 熟练使用 Android Studio、MarkDown
-- 熟练使用 Photoshop，具备独立 UX、UI 设计能力 
+- 具备独立 UX、UI 设计能力 
