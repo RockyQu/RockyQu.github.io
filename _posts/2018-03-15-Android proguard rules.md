@@ -4,7 +4,7 @@ title: "Android 混淆技术全面整理"
 excerpt: "Android 代码混淆、高级混淆相关资料整理，附 Demo"
 date: 2018-3-15
 categories:
-  - 混淆
+  - Android
 tags:
   - 混淆
   - 代码混淆

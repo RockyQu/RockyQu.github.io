@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Java Synchronized 用法小结"
-excerpt: "Java 线程同步 Synchronized 即同步锁使用方法总结"
+title: "Java synchronized 用法小结"
+excerpt: "Java 线程同步 synchronized 即同步锁使用方法总结"
 date: 2018-5-11
 categories:
   - Java
 tags:
   - Java
-  - Synchronized
+  - synchronized
   - 线程同步
 ---
 
