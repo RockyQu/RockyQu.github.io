@@ -2,7 +2,7 @@
 layout: post
 title: "Android 5.0 以下版本出现 java.lang.NoClassDefFoundError"
 excerpt: "记一次版本适配遇到的问题"
-date: 2018-5-11
+date: 2018-5-16
 categories:
   - MultiDex
 tags:
