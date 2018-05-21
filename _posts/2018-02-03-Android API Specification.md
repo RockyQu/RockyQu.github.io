@@ -142,5 +142,3 @@ HTTPS能够有效防止中间人攻击，有效保证接口不被劫持，对数
 
 ## 0x0004 相关链接
 - [Android 密钥保护和 C/S 网络传输安全理论指南](http://drakeet.me/android-security-guide/) 这篇写的非常好，讲解了整套关于 Android 密钥、Http 安全方面的原理及思想，干货
-
--------------------
