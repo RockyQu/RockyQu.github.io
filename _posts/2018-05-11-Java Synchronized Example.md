@@ -20,7 +20,7 @@ tags:
 * 修饰静态方法，其作用的范围是整个静态方法，作用的对象是这个类的所有对象
 * 修饰类，其作用的范围是synchronized后面括号括起来的部分，作用主的对象是这个类的所有对象
 
-### 修饰代码块
+## 0x0002 修饰代码块
 ```
 class SyncRunnable implements Runnable {
 
@@ -131,7 +131,7 @@ byte[] lock = new byte[0]
 
 注意创建这种类型锁时可以使用 byte[] lock = new byte[0] 零长度的 byte 数组 Object lock = new Object() 更经济
 
-### 修饰方法
+## 0x0003 修饰方法
 将最开始的 run() 方法改成如下代码，既是修饰一个方法，修饰方法和修饰代码块是等价的，只是作用范围不一样，修饰代码块是大括号括起来的范围，而修饰方法范围是整个函数
 ```
 public synchronized void run() {
@@ -185,7 +185,7 @@ thread4.start();
 
 runnable1 和 runnable2 是两个对象，但在 thread3 和 thread4 并发执行时却保持了线程同步。这是因为 run 中调用了静态方法，而静态方法是属于类的，所以相当于用了同一把锁
 
-### 修饰类
+## 0x0004 修饰类
 把刚才上面的类修改一下如下代码
 ```
 static class SyncStaticRunnable implements Runnable {
@@ -214,7 +214,7 @@ static class SyncStaticRunnable implements Runnable {
 
 -------------------
 
-## 0x0002 总结
+## 0x0005 总结
 * synchronized 关键字加在方法上或对象上，如果它作用的对象是非静态的，则它取得的锁是对象。如果 synchronized 作用的对象是一个静态方法或一个类，则它取得的锁是对类，该类所有的对象同一把锁
 * 每个对象只有一个锁与之相关联，谁拿到这个锁谁就可以运行它所控制的那段代码
 * 实现同步是要很大的系统开销作为代价的，甚至可能造成死锁，所以尽量避免无谓的同步控制
