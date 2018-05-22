@@ -46,11 +46,13 @@ Android 5.0（API 级别 21）及更高版本使用名为 ART 的运行时，后
 > 注：如果将应用的 minSdkVersion 设置为 21 或更高值，使用 Instant Run 时，Android Studio 会自动将应用配置为进行 Dalvik 可执行文件分包。由于 Instant Run 仅适用于调试版本的应用，您仍需配置发布构建进行 Dalvik 可执行文件分包，以规避 64K 限制。
 
 ## 0x0002 声明主 DEX 文件中需要的类
-为 Dalvik 可执行文件分包构建每个 DEX 文件时，构建工具会执行复杂的决策制定来确定主要 DEX 文件中需要的类，以便应用能够成功启动。如果启动期间需要的任何类未在主 DEX 文件中提供，那么您的应用将崩溃并出现错误 java.lang.NoClassDefFoundError。  
-该情况不应出现在直接从应用代码访问的代码上，因为构建工具能识别这些代码路径，但可能在代码路径可见性较低（如使用的库具有复杂的依赖项）时出现。例如，如果代码使用自检机制或从原生代码调用 Java 方法，那么这些类可能不会被识别为主 DEX 文件中的必需项。  
-因此，如果您收到 java.lang.NoClassDefFoundError，则必须使用构建类型中的 multiDexKeepFile 或 multiDexKeepProguard 属性声明它们，以手动将这些其他类指定为主 DEX 文件中的必需项。如果类在 multiDexKeepFile 或 multiDexKeepProguard 文件中匹配，则该类会添加至主 DEX 文件。[参考](https://blog.csdn.net/changsimeng/article/details/70946156)
+正常情况是不应出现此类情况的，因为构建工具能识别这些代码路径，但可能在代码路径可见性较低（如使用的库具有复杂的依赖项）时出现。因此，可以使用 multiDexKeepFile 或 multiDexKeepProguard 属性声明它们，以手动将这些其他类指定为主 DEX 文件中的必需项。如果类在 multiDexKeepFile 或 multiDexKeepProguard 文件中匹配，则该类会添加至主 DEX 文件。[参考](https://blog.csdn.net/changsimeng/article/details/70946156)
+
+* multiDexKeepFile 属性
 
 
+
+* multiDexKeepProguard 属性
 
 
 -------------------
