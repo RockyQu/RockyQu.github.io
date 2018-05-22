@@ -48,11 +48,31 @@ Android 5.0（API 级别 21）及更高版本使用名为 ART 的运行时，后
 ## 0x0002 声明主 DEX 文件中需要的类
 正常情况是不应出现此类情况的，因为构建工具能识别这些代码路径，但可能在代码路径可见性较低（如使用的库具有复杂的依赖项）时出现。因此，可以使用 multiDexKeepFile 或 multiDexKeepProguard 属性声明它们，以手动将这些其他类指定为主 DEX 文件中的必需项。如果类在 multiDexKeepFile 或 multiDexKeepProguard 文件中匹配，则该类会添加至主 DEX 文件。[参考](https://blog.csdn.net/changsimeng/article/details/70946156)
 
-* multiDexKeepFile 属性
+* multiDexKeepFile
+请在主 APP 目录下创建一个名为 multidex-config.txt 的文件，在 multiDexKeepFile 中指定的这个件，该文件应该每行包含一个类，例:com/example/MyClass.class
+```
+android {
+    buildTypes {
+        release {
+            multiDexKeepFile file 'multidex-config.txt'
+            ...
+        }
+    }
+}
+```
 
+* multiDexKeepProguard
+请在主 APP 目录下创建一个名为 multidex-config.pro 的文件，在 multiDexKeepProguard 中指定的这个件，该文件的语法与 Proguard 相同，例:-keep com.example.MyClass.class
+```
+android {
+    buildTypes {
+        release {
+            multiDexKeepProguard 'multidex-config.pro'
+            ...
+        }
+    }
+}
+```
 
+> 注：Gradle 读取相对于 build.gradle 文件的路径，因此 multidex-config.txt、multidex-config.pro 与 build.gradle 文件应在同一目录中
 
-* multiDexKeepProguard 属性
-
-
--------------------
