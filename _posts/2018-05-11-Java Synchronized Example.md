@@ -211,7 +211,6 @@ static class SyncStaticRunnable implements Runnable {
 
 效果是一样的，synchronized 作用于一个类时，类所有对象用的是同一把锁
 
-
 -------------------
 
 ## 0x0005 总结
