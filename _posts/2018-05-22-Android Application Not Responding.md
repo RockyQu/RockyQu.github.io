@@ -10,20 +10,27 @@ tags:
 ---
 
 ## 0x0000 触发 ANR 条件
-> ANR 全称 “Application Not Responding”，即“应用程序无响应“。系统会向用户显示一个对话框，用户可以选择“等待”而让程序继续运行，或“强制关闭”
+> ANR 全称 “Application Not Responding”，即“应用程序无响应“。系统会向用户显示一个对话框，用户可以选择“等待”而让程序继续运行，或“强制关闭”。App 的响应能力是由 Activity Manager 和 Window Manager 系统服务来监控的
 
-* 输入事件(按键和触摸事件)5s内没被处理
-* BroadcastReceiver 的事件(onRecieve方法)在规定时间内没处理完(前台广播为10s，后台广播为60s)
-* Service 前台20s后台 200s未完成启动
-* ContentProvider 的 publish 在10s内没进行完
-
-> 注：后三种情况，以 BroadcastReviever 为例，在 onRecieve() 方法执行10秒内没发生第一种ANR(也就是在这个过程中没有输入事件或输入事件还没到5s)才会发生Receiver timeout，否则将先发生事件无相应ANR，所以onRecieve()是有可能执行不到10s就发生ANR的，所以不要在onRecieve()方法里面干活，service的onCreate()和ContentProvider的onCreate()也一样，他们都是主线程的，不要在这些方法里干活，这个会在本文最后再细说。
-
+* 输入事件5s内没被处理（键盘输入, 触摸屏幕）
+* BroadcastReceiver 在规定时间内没处理完(前台广播为10s，后台广播为60s)
+* Service (前台服务为10s，后台服务为60s)
 
 -------------------
 
+## 0x0001 分析 ANR 问题
+> 发生 ANR 后，系统会收集 ANR trace 日志信息，日志文件会被保存到 /data/anr/traces.txt 中，你可以使用 adb 提取此文件
+
+* 检查是否已经配置 adb，在 Android Studio Terminal 窗口输入 adb 回车，未配置显示如下信息
+![1](/assets/image/2018-05-22-Android Application Not Responding 1.png)
+
+*  配置 adb，新建一个名称为 Android 的系统变量，变量值写入你自己 SDK
+![2](/assets/image/2018-05-22-Android Application Not Responding 2.png)
+
+* 在系统环境变量 Path 下添加 %Android%
+![3](/assets/image/2018-05-22-Android Application Not Responding 3.png)
+
+* 重启 AS 再次在 Terminal 窗口输入 adb 查看，成功后如下图
+![4](/assets/image/2018-05-22-Android Application Not Responding 4.png)
 
 
-
-
--------------------
