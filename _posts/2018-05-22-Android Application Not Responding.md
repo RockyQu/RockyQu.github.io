@@ -33,13 +33,24 @@ tags:
 * 重启 AS 再次在 Terminal 窗口输入 adb 查看，成功后如下图
 ![4](/assets/image/2018-05-22-Android Application Not Responding 4.png)
 
-### 导出 traces.txt 文件，如果设备没有 root 需使用如下命令，先复制到 SDCard，再导出就可以了
+* 查看是否存在 traces.txt 文件
+![7](/assets/image/2018-05-22-Android Application Not Responding 7.png)
+
+* 导出 traces.txt 文件，如果设备没有 root 需使用如下命令，先复制到 SDCard，再导出就可以了
 ![5](/assets/image/2018-05-22-Android Application Not Responding 5.png)
 
 -------------------
 
 ## 0x0002 分析 ANR 问题
-具体问题需要具体分析，这个例子是在主线程中强行 Sleep 的 ANR 日志，如下图，会找到类似 ava.lang.Thread.sleep 的信息
+具体问题需要具体分析，这个例子是在主线程中强行 Sleep 的 ANR 日志，如下图，会找到类似 java.lang.Thread.sleep 的信息
 ![6](/assets/image/2018-05-22-Android Application Not Responding 6.png)
 
-## 0x0002 降低 ANR 概率
+-------------------
+
+## 0x0002 降低 ANR 概率 [参考](https://www.jianshu.com/p/fa962a5fd939)
+* 主线程读取数据：母庸质疑在主线程中不能读取网络数据，但系统是允许主线程从数据库或者其他地方获取数据，但这种操作 ANR 风险很大，也会造成掉帧等，影响用户体验
+1.避免在主线程进行数据库操作，由其是大量比较耗时的查询等操作
+2.慎用 SharedPreference ，避免存储超大的 Value [详细讲解](http://weishu.me/2016/10/13/sharedpreference-advices/)
+* 不要在 BroadcastReciever 的 onRecieve() 方法中干过多的活，尤其应用在后台的时候。一种解决方案是直接开的异步线程执行，但此时应用可能在后台，系统优先级较低，进程很容易被系统杀死，所以可以选择开个 IntentService 去执行相应操作，即使是后台 Service 也会提高进程优先级，降低被杀可能性
+* 各个组件的生命周期函数都不应该有太耗时的操作，即使对于后台 Service 或者 ContentProvider 来讲，应用在后台运行时候其 onCreate()时候不会有用户输入引起事件无响应 ANR，但其执行时间过长也会引起 Service 的 ANR 和 ContentProvider 的 ANR
+* 尽量避免主线程的被锁的情况，在一些同步的操作主线程有可能被锁，需要等待其他线程释放相应锁才能继续执行，这样会有一定的 ANR 风险，对于这种情况有时也可以用异步线程来执行相应的逻辑。如果主线程被死锁了基本就等于要发生 ANR 了
