@@ -49,7 +49,7 @@ tags:
 
 ## 0x0003 降低 ANR 概率 [参考](https://www.jianshu.com/p/fa962a5fd939)
 * 主线程读取数据：母庸质疑在主线程中不能读取网络数据，但系统是允许主线程从数据库或者其他地方获取数据，但这种操作 ANR 风险很大，也会造成掉帧等，影响用户体验  
-  - 避免在主线程进行数据库操作，由其是大量比较耗时的查询等操作  
+  - 避免在主线程进行数据库操作，由其是大量比较耗时的查询等操作，这个我有亲身经历，比如在进入 Activity 的 onCreate 里面读取较大的文件会明显感觉到卡顿，所以请放到异步里执行
   - 慎用 SharedPreference ，避免存储超大的 Value [详细讲解](http://weishu.me/2016/10/13/sharedpreference-advices/)
 * 不要在 BroadcastReciever 的 onRecieve() 方法中干过多的活，尤其应用在后台的时候。一种解决方案是直接开的异步线程执行，但此时应用可能在后台，系统优先级较低，进程很容易被系统杀死，所以可以选择开个 IntentService 去执行相应操作，即使是后台 Service 也会提高进程优先级，降低被杀可能性
 * 各个组件的生命周期函数都不应该有太耗时的操作，即使对于后台 Service 或者 ContentProvider 来讲，应用在后台运行时候其 onCreate()时候不会有用户输入引起事件无响应 ANR，但其执行时间过长也会引起 Service 的 ANR 和 ContentProvider 的 ANR
