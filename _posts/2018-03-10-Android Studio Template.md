@@ -9,7 +9,6 @@ tags:
   - Android Studio Template
   - Template
   - 模板
-  - 插件
 ---
 
 ## 0x0000 概述
@@ -29,11 +28,11 @@ tags:
 
 ![4](/assets/image/2018-03-10-Android Studio Template 4.png)
 
-### 2、目录结构
+### 2、模板的目录结构
 ![3](/assets/image/2018-03-10-Android Studio Template 3.png)  
 
 ### 3、template.xml
-页面文件，模板配置文件，这是我自己已经写好的模板代码如下
+页面文件，模板配置文件，这是我自己已经写好的模板代码如下，注释已非常详细
 
 ```
 <?xml version="1.0"?>
@@ -150,7 +149,7 @@ tags:
 * suggest="_${classToResource(moduleName)}"  
 classToResource 的作用是 moduleName 输入 User 的值 转换为 user。    
 * suggest="_${underscoreToCamelCase(moduleName)}"  
-underscoreToCamelCase 的作用和 classToResource 正好相反，当 moduleName 输入 user 的值会转换为 User 即驼峰命名方法。    
+underscoreToCamelCase 的作用和 classToResource 正好相反，当 moduleName 输入 user 的值会转换为 User 即驼峰命名方法。
 
 ### 3、recipe.xml.ftl
 涉及的几个重要参数  
@@ -195,5 +194,3 @@ underscoreToCamelCase 的作用和 classToResource 正好相反，当 moduleName
 
 ## 0x0003 总结
 已上模板代码已全部开源到 [GitHub](https://github.com/RockyQu/FramesTemplate) 欢迎共同学习交流(゜▽゜)つロ
-
--------------------
