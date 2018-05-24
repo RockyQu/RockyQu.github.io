@@ -47,7 +47,7 @@ tags:
 
 -------------------
 
-## 0x0002 降低 ANR 概率 [参考](https://www.jianshu.com/p/fa962a5fd939)
+## 0x0003 降低 ANR 概率 [参考](https://www.jianshu.com/p/fa962a5fd939)
 * 主线程读取数据：母庸质疑在主线程中不能读取网络数据，但系统是允许主线程从数据库或者其他地方获取数据，但这种操作 ANR 风险很大，也会造成掉帧等，影响用户体验
 1.避免在主线程进行数据库操作，由其是大量比较耗时的查询等操作
 2.慎用 SharedPreference ，避免存储超大的 Value [详细讲解](http://weishu.me/2016/10/13/sharedpreference-advices/)
