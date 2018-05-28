@@ -16,7 +16,7 @@ tags:
 ### 引入 MultiDex 步骤
 * 引入依赖库
 ```
-compile 'com.android.support:multidex:1.0.1'
+compile 'com.android.support:multidex:1.0.3'
 ```
 
 * App build.gradle 开启 Multidex 开关
@@ -33,7 +33,7 @@ MultiDex.install(this);
 
 -------------------
 
-## 0x0001 64K 的由来
+## 0x0001 64K 的由来 [参考](https://developer.android.com/studio/build/multidex)
 > Android 应用 (APK) 文件包含 Dalvik Executable (DEX) 文件形式的可执行字节码文件，其中包含用来运行您的应用的已编译代码。Android 系统安装一个应用的时候，有一步是对 DEX 进行优化，这个过程有一个专门的工具来处理，叫 DexOpt。DexOpt 的执行过程是在第一次加载 DEX 文件的时候执行的。这个过程会生成一个 OptimisedDex 文件。执行 OptimisedDex 的效率会比直接执行 DEX 文件的效率要高很多。但是在早期的 Android 系统中，即 Android 5.0 以下的版本，DexOpt 会把每一个类的方法 id 检索起来，存在一个链表结构里面。但是这个链表的长度是用一个 short 类型来保存的，导致了方法 id 的数目不能够超过 65536 个。当一个项目足够大的时候，显然这个方法数的上限是不够的。尽管在新版本的 Android 系统中，修复了这个问题，但是我们仍然需要对低版本的 Android 系统做兼容。
 为了解决方法数超限的问题，需要将该 DEX 文件拆成两个或多个，为此谷歌官方推出了 MultiDex 兼容包，配合 AndroidStudio 实现了一个 APK 包含多个 DEX 的功能。
 
@@ -46,22 +46,7 @@ Android 5.0（API 级别 21）及更高版本使用名为 ART 的运行时，后
 > 注：如果将应用的 minSdkVersion 设置为 21 或更高值，使用 Instant Run 时，Android Studio 会自动将应用配置为进行 Dalvik 可执行文件分包。由于 Instant Run 仅适用于调试版本的应用，您仍需配置发布构建进行 Dalvik 可执行文件分包，以规避 64K 限制。
 
 ## 0x0002 声明主 DEX 文件中需要的类
-正常情况是不应出现此类情况的，因为构建工具能识别这些代码路径，但可能在代码路径可见性较低（如使用的库具有复杂的依赖项）时出现。因此，可以使用 multiDexKeepFile 或 multiDexKeepProguard 属性声明它们，以手动将这些其他类指定为主 DEX 文件中的必需项。如果类在 multiDexKeepFile 或 multiDexKeepProguard 文件中匹配，则该类会添加至主 DEX 文件。[参考](https://developer.android.com/studio/build/multidex)
-
-* multiDexKeepFile
-请在主 APP 目录下创建一个名为 multidex-config.txt 的文件，在 multiDexKeepFile 中指定的这个件，该文件应该每行包含一个类，例:com/example/MyClass.class
-```
-android {
-    buildTypes {
-        release {
-            multiDexKeepFile file('multidex-config.txt') 
-            ...
-        }
-    }
-}
-```
-
-> 注：Gradle 读取相对于 build.gradle 文件的路径，因此 multidex-config.txt、multidex-config.pro 与 build.gradle 文件应在同一目录中
+正常情况是不应出现此类情况的，因为构建工具能识别这些代码路径，但可能在代码路径可见性较低（如使用的库具有复杂的依赖项）时出现。因此，可以使用 multiDexKeepProguard 属性声明它们，以手动将这些其他类指定为主 DEX 文件中的必需项。如果类multiDexKeepProguard 文件中匹配，则该类会添加至主 DEX 文件。
 
 * multiDexKeepProguard
 请在主 APP 目录下创建一个名为 multidex-config.pro 的文件，在 multiDexKeepProguard 中指定的这个件，该文件的语法与 Proguard 相同，例:-keep com.example.MyClass.class
@@ -70,12 +55,20 @@ android {
     buildTypes {
         release {
             multiDexKeepProguard file('multidex-config.pro')
-            ...
         }
     }
 }
 ```
 
-> 注：官网的这行代码是怎么写的 multiDexKeepProguard 'multidex-config.pro' 怎么写实际是找不到文件的，应改成 multiDexKeepProguard file('multidex-config.pro')
+> 注：官网的这行代码是这样写的 multiDexKeepProguard 'multidex-config.pro' 但是发现找不到文件，改成 multiDexKeepProguard file('multidex-config.pro') 就可以了
 
+## 0x0003 实际项目中的应用
+我的项目在引入 MultiDex 依然报如下错误，可能是这个类使用了反射的原因
+![1](/assets/image/2018-05-16-Android NoClassDefFoundError 1.png)
 
+使用 multiDexKeepProguard 添加 kepp 这个类就行了
+```
+-keep class me.mvp.demo.app.AppConfiguration
+```
+
+文件在这里 [multidex-config.pro](https://github.com/RockyQu/MVPFrames/blob/rx/App/multidex-config.pro)
