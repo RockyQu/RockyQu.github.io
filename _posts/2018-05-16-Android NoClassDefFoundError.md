@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Android 5.0 以下版本出现 java.lang.NoClassDefFoundError"
-excerpt: "记一次由 NoClassDefFoundError 引出的 MultiDex 分包问题解析"
+excerpt: "记一次由 NoClassDefFoundError 引出的 MultiDex 分包问题"
 date: 2018-5-16
 categories:
   - MultiDex
@@ -63,7 +63,7 @@ android {
 > 注：官网的这行代码是这样写的 multiDexKeepProguard 'multidex-config.pro' 但是发现找不到文件，改成 multiDexKeepProguard file('multidex-config.pro') 就可以了
 
 ## 0x0003 实际项目中的应用
-我的项目在引入 MultiDex 依然报如下错误，可能是这个类使用了反射的原因
+我的项目在引入 MultiDex 依然报如下错误，可能是这个类的实例是使用 Java newInstance 来创建对象导致的
 ![1](/assets/image/2018-05-16-Android NoClassDefFoundError 1.png)
 
 使用 multiDexKeepProguard 添加 keep 这个类就行了
