@@ -66,7 +66,7 @@ android {
 我的项目在引入 MultiDex 依然报如下错误，可能是这个类使用了反射的原因
 ![1](/assets/image/2018-05-16-Android NoClassDefFoundError 1.png)
 
-使用 multiDexKeepProguard 添加 kepp 这个类就行了
+使用 multiDexKeepProguard 添加 keep 这个类就行了
 ```
 -keep class me.mvp.demo.app.AppConfiguration
 ```
