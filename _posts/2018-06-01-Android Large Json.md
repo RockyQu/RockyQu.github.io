@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Java 如何高效解析超大 Json 数据"
+title: "移动端安全之如何更好的保存用户信息"
 excerpt: "如何更好的保存用户敏感信息，比如用户登录密码"
-date: 2018-6-1
+date: 2018-5-29
 categories:
   - Mobile Security
 tags:
