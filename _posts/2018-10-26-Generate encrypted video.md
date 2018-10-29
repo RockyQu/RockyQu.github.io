@@ -40,7 +40,7 @@ tags:
 ## 0x0002 使用 OpenSSL 生成密钥
 * 生成密钥文件
 ```
-openssl rand 16 > [你的密钥文件路径]
+openssl rand 16 > [你的密钥文件路径] 例 D:\encrypt.key
 ```
 
 * 生成 IV
@@ -62,22 +62,30 @@ ffmpeg -y -i [原始视频文件路径] -c:v libx264 -c:a copy -f hls -hls_time 
 
 ## 0x0004 相关命令及参数说明
 * FFmpeg 命令参数
-| :------:| :------------------  |
-| Number  |  整数或浮点数        |
-| String  |  字符串              |
-| Boolean | true 或 false        |
-| Array   | 数组包含在方括号[]中 |
-| Object  | 对象包含在大括号{}中 |
-| Null    | 空类型               |
 
-
-| 参数 | 说明 |
 | ------ | ------ |
 | -y | 直接覆盖已经存在的输出文件 |
 | -c | 指定输入输出的解码编码器 |
+| -f | 强制设置输入输出的文件格式，默认情况下ffmpeg会根据文件后缀名判断文件格式 |
+| -hls_time | 指定生成 ts 视频切片的时间长度s |
+| -hls_list_size 0 | 索引播放列表的最大列数 默认5，0 为不限制 |
+| -hls_playlist_type vod | 表示当前的视频流并不是一个直播流，而是点播流 |
+| -hls_segment_filename | 输出 ts m3u8 文件路径 |
 
-* m3u8 字段意义
+* m3u8 部分字段意义
+
 | ------ | ------ |
 | #EXTM3U | 每个M3U文件第一行必须是这个tag |
 | #EXTINF:<duration>,<title> | duration表示持续的时间（秒）必须是整数，如果版本在3以上可以是浮点数 |
 | #EXTINF | 指定每个媒体段(ts)的持续时间，这个仅对其后面的URI有效，每两个媒体段URI间被这个tag分隔开 |
+| #EXT-X-TARGETDURATION | 指定最大的媒体段时间长（秒）。所以#EXTINF中指定的时间长度必须小于或是等于这个最大值。这个tag在整个PlayList文件中只能出现一次（在嵌套的情况下，一般有真正ts url的m3u8才会出现该tag）  格式如下：#EXT-X-TARGETDURATION:<s>：s表示最大的秒数 |
+| #EXT-X-MEDIA-SEQUENCE | 每一个media URI 在 PlayList中只有唯一的序号，相邻之间序号+1 |
+| #EXT-X-KEY | 表示怎么对media segments进行解码。其作用范围是下次该tag出现前的所有media URI  格式如下：#EXT-X-KEY:<attribute-list>：NONE 或者 AES-128。如果是NONE，则URI以及IV属性必须不存在，如果是AES-128(Advanced Encryption Standard)，则URI必须存在，IV可以不存在。对于AES-128的情况，keytag和URI属性共同表示了一个key文件，通过URI可以获得这个key，如果没有IV（Initialization Vector）,则使用序列号作为IV进行编解码，将序列号的高位赋到16个字节的buffer中，左边补0；如果有IV，则将改值当成16个字节的16进制数。 |
+| #EXT-X-ALLOW-CACHE： | 是否允许做cache，这个可以在PlayList文件中任意地方出现，并且最多出现一次，作用效果是所有的媒体段  格式如下：#EXT-X-ALLOW-CACHE:<YES|NO> |
+
+* key.keyinfo 文件规则，该文件内容一共为三行
+
+| ------ | ------ |
+| 第一行 | 解密 decrypt.key 文件路径 |
+| 第二行 | 加密 encrypt.key 文件路径 |
+| 第三行 | IV 非必须 |
