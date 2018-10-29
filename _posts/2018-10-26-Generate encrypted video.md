@@ -51,7 +51,7 @@ openssl rand -hex 16
 -------------------
 
 ## 0x0003 使用 FFmpeg 生成加密文件
-* 一个行命令同时生成 ts 切片，m3u8 索引播放文件并加密
+* 一行命令同时生成 ts 切片，m3u8 索引播放文件并加密
 
 ```
 ffmpeg -y -i [原始视频文件路径] -c:v libx264 -c:a copy -f hls -hls_time 180 -hls_list_size 0 -hls_key_info_file [密钥文件路径] -hls_playlist_type vod -hls_segment_filename [切片文件路径] [索引文件路径]
