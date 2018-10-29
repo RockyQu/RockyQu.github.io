@@ -57,11 +57,6 @@ openssl rand -hex 16
 ffmpeg -y -i [原始视频文件路径] -c:v libx264 -c:a copy -f hls -hls_time 180 -hls_list_size 0 -hls_key_info_file [密钥文件路径] -hls_playlist_type vod -hls_segment_filename [切片文件路径] [索引文件路径]
 ```
 
-* [原始文件路径] 例 D:\test.mp4  
-* [密钥文件路径] 文件后缀名需为 .keyinfo 否则可能会找不到解密文件，例 D:\key.keyinfo
-* [切片文件路径] 例 D:\test_%03d.ts
-* [索引文件路径] 例 D:\test.m3u8 
-
 * 以上命令的部分参数说明
 
 | ------ | ------ |
@@ -72,6 +67,11 @@ ffmpeg -y -i [原始视频文件路径] -c:v libx264 -c:a copy -f hls -hls_time 
 | -hls_list_size 0 | 索引播放列表的最大列数 默认5，0 为不限制 |
 | -hls_playlist_type vod | 表示当前的视频流并不是一个直播流，而是点播流 |
 | -hls_segment_filename | 输出 ts m3u8 文件路径 |
+
+* [原始文件路径] 例 D:\test.mp4  
+* [密钥文件路径] 文件后缀名需为 .keyinfo 否则可能会找不到解密文件，例 D:\key.keyinfo
+* [切片文件路径] 例 D:\test_%03d.ts
+* [索引文件路径] 例 D:\test.m3u8 
 
 ## 0x0004 相关参数与格式说明
 
