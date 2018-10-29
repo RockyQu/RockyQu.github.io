@@ -21,7 +21,7 @@ tags:
 * FFmpeg [GitHub](https://github.com/FFmpeg/FFmpeg) [官网](https://ffmpeg.org)  
 下载地址 [https://ffmpeg.zeranoe.com/builds/](https://ffmpeg.zeranoe.com/builds/) 点击 [Download Build] 下载，也可以选择其他不同的版本
 
-* 版本说明
+* 版本说明  
 1、Dev 是开发版本，里面包含有库文件（.lib）和头文件（.h），但是没有 exe 文件。  
 2、Shared 文件夹里面有 ffmpeg.exe、ffplay.exe、ffprobe.exe，除此之外还有一些dll文件，比如说avcodec-58.dll、avdevice-58.dll等。它的exe文件比较小，运行时需要调用dll的功能。  
 3、Static 文件夹里面只有三个 exe，dll文件被集成在 exe 里面了，所以文件比较大。我们使用这个版本就可以。
@@ -51,6 +51,7 @@ openssl rand -hex 16
 -------------------
 
 ## 0x0003 使用 FFmpeg 生成加密文件
+一个行命令同时生成 ts 切片，m3u8 索引播放文件并加密
 ```
 ffmpeg -y -i [原始视频文件路径] -c:v libx264 -c:a copy -f hls -hls_time 180 -hls_list_size 0 -hls_key_info_file [密钥文件路径] -hls_playlist_type vod -hls_segment_filename [切片文件路径] [索引文件路径]
 ```
@@ -86,6 +87,9 @@ ffmpeg -y -i [原始视频文件路径] -c:v libx264 -c:a copy -f hls -hls_time 
 * key.keyinfo 文件规则，该文件内容一共为三行
 
 | ------ | ------ |
-| 第一行 | 解密 decrypt.key 文件路径 |
+解密与加密 key 文件可以使用同一个| 第一行 | 
+ decrypt.key 文件路径 |
 | 第二行 | 加密 encrypt.key 文件路径 |
 | 第三行 | IV 非必须 |
+
+解密与加密 key 文件可以使用同一个
