@@ -40,7 +40,7 @@ tags:
 ## 0x0002 使用 OpenSSL 生成密钥
 * 生成密钥文件
 ```
-openssl rand 16 > [你的路径]
+openssl rand 16 > [你的密钥文件路径]
 ```
 
 * 生成 IV
@@ -55,13 +55,22 @@ openssl rand -hex 16
 ffmpeg -y -i [原始视频文件路径] -c:v libx264 -c:a copy -f hls -hls_time 180 -hls_list_size 0 -hls_key_info_file [密钥文件路径] -hls_playlist_type vod -hls_segment_filename [切片文件路径] [索引文件路径]
 ```
 
-* [原始视频文件路径] 例 D:\test.mp4  
+* [原始文件路径] 例 D:\test.mp4  
 * [密钥文件路径] 文件后缀名需为 .keyinfo 否则可能会找不到解密文件，例 D:\key.keyinfo
 * [切片文件路径] 例 D:\test_%03d.ts
 * [索引文件路径] 例 D:\test.m3u8 
 
 ## 0x0004 相关命令及参数说明
 * FFmpeg 命令参数
+| :------:| :------------------  |
+| Number  |  整数或浮点数        |
+| String  |  字符串              |
+| Boolean | true 或 false        |
+| Array   | 数组包含在方括号[]中 |
+| Object  | 对象包含在大括号{}中 |
+| Null    | 空类型               |
+
+
 | 参数 | 说明 |
 | ------ | ------ |
 | -y | 直接覆盖已经存在的输出文件 |
