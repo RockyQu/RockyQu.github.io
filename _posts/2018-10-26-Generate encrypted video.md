@@ -89,8 +89,7 @@ ffmpeg -y -i [原始视频文件路径] -c:v libx264 -c:a copy -f hls -hls_time 
 * key.keyinfo 文件规则，该文件内容一共为三行
 
 | ------ | ------ |
-解密与加密 key 文件可以使用同一个| 第一行 | 
- decrypt.key 文件路径 |
+| 第一行 | decrypt.key 文件路径 |
 | 第二行 | 加密 encrypt.key 文件路径 |
 | 第三行 | IV 非必须 |
 
