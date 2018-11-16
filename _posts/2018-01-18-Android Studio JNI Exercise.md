@@ -43,15 +43,15 @@ tags:
 - JNI 是属于 Java 的，与 Android 无直接关系
 
 ### 5、ABI
-> ABI（Application binary interface）应用程序二进制接口。不同的CPU 与指令集的每种组合都有定义的 ABI (应用程序二进制接口)，一段程序只有遵循这个接口规范才能在该 CPU 上运行，所以同样的程序代码为了兼容多个不同的CPU，需要为不同的 ABI 构建不同的库文件。当然对于CPU来说，不同的架构并不意味着一定互不兼容。
+> ABI（Application binary interface）应用程序二进制接口。不同的 CPU 与指令集的每种组合都有定义的 ABI (应用程序二进制接口)，一段程序只有遵循这个接口规范才能在该 CPU 上运行，所以同样的程序代码为了兼容多个不同的CPU，需要为不同的 ABI 构建不同的库文件。当然对于 CPU 来说，不同的架构并不意味着一定互不兼容。
 
-- armeabi设备只兼容armeabi；
-- armeabi-v7a设备兼容armeabi-v7a、armeabi；
-- arm64-v8a设备兼容arm64-v8a、armeabi-v7a、armeabi；
-- X86设备兼容X86、armeabi；
-- X86_64设备兼容X86_64、X86、armeabi；
-- mips64设备兼容mips64、mips；
-- mips只兼容mips；
+- armeabi 设备只兼容 armeabi；
+- armeabi-v7a 设备兼容 armeabi-v7a、armeabi；
+- arm64-v8a 设备兼容 arm64-v8a、armeabi-v7a、armeabi；
+- X86 设备兼容 X86、armeabi；
+- X86_64 设备兼容 X86_64、X86、armeabi；
+- mips64 设备兼容 mips64、mips；
+- mips 只兼容 mips；
 
 ### 6、NDK与JNI的关系
 ![1](/assets/image/2018-01-18-Android Studio JNI Exercise 1.png)  
