@@ -17,3 +17,9 @@ tags:
 -------------------
 
 ## 0x0001 
+NDK 配置看这里 → [Android Studio NDK 开发安装配置](https://rockycoder.cn/android%20ndk/2018/01/18/Android-Studio-JNI-Exercise.html)
+
+
+
+
+-------------------

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Android Studio NDK 开发初级安装配置"
-excerpt: "NDK 开发基本配置说明"
+title: "Android Studio NDK 开发安装配置"
+excerpt: "NDK 开发基本配置与项目结构说明"
 date: 2018-1-18
 categories:
   - Android NDK
