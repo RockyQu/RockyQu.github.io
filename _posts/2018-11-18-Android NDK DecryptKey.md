@@ -147,7 +147,7 @@ externalNativeBuild {
 {项目目录}\JNIKey\build\intermediates\cmake\debug\obj\
 ```
 
-- 你可以对生成的库文件封装一个 Jar 包，这样 .so 就不必放在特定的包下，默认 Jar 包生成目录
+- 你可以对生成的库文件封装一个 Jar 包，这样 .so 就不必放在特定的包下，Jar 包的生成必须要 Module 里，默认 Jar 包生成目录
 
 ```
 {项目目录}\JNIKey\build\intermediates\intermediate-jars\debug\classes.jar
