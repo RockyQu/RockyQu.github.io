@@ -9,12 +9,12 @@ tags:
   - ijkplayer
 ---
 
-## 0x0000 安装 Ubuntu
+## 0x00 安装 Ubuntu
 > 我用的是 [Oracle VM VirtualBox](https://www.virtualbox.org/) 虚拟机来安装 [Ubuntu 64位](https://www.ubuntu.com/download)，不会对已安装的系统造成什么影响。在新建的虚拟机时配置内存要选用大一点的，第一次我安装全是默认项，卡的要死，建议分配内存 4G，硬盘 30G 以上
 
 -------------------
 
-## 0x0001 配置相关工具
+## 0x01 配置相关工具
 
 ### 1.配置 NDK
 
@@ -122,7 +122,7 @@ cd ..
 
 -------------------
 
-## 0x0002 总结我遇到的一些问题
+## 0x02 总结我遇到的一些问题
 
 * ### 报错：不能为虚拟电脑  XXX 打开一个新任务
 此时需要通过安装 [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) 扩展包解决此问题
@@ -152,6 +152,6 @@ sudo gdebi lantern.deb
 
 -------------------
 
-## 0x0002 编译完成的项目地址
+## 0x03 编译完成的项目地址
 
 [https://github.com/RockyQu/ijkplayer](https://github.com/RockyQu/ijkplayer)

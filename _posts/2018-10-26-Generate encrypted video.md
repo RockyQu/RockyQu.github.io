@@ -11,13 +11,13 @@ tags:
   - video
 ---
 
-## 0x0000 基本流程
+## 0x00 基本流程
 * 目的：使用 FFmpeg 将一个 MP4 视频文件切割成多个 ts 切片，并在生成 ts 切片过程中对每一个切片使用 AES-128 加密，最后生成一个包含解密 Key 的 m3u8 视频播放索引文件。这些被加密的 ts 切片无法在其他地方播放，必须使用 m3u8 文件包含的解密 key 才可以。  
 * 工具：需要在 PC 配置 FFmpeg 环境，通过 Dos 命令行生成 ts 切片 + m3u8 配置文件，加密 key 文件需要配置 OpenSSL 来生成加密文件或者直接随便手写一段字符串也可以，区别是手写的是明文加密，使用 OpenSSL 生成的加密 key 文件是看不到明文的。
 
 -------------------
 
-## 0x0001 环境配置
+## 0x01 环境配置
 * FFmpeg [GitHub](https://github.com/FFmpeg/FFmpeg) [官网](https://ffmpeg.org)  
 下载地址 [https://ffmpeg.zeranoe.com/builds/](https://ffmpeg.zeranoe.com/builds/) 点击 [Download Build] 下载，也可以选择其他不同的版本
 
@@ -37,7 +37,7 @@ tags:
 
 -------------------
 
-## 0x0002 使用 OpenSSL 生成密钥
+## 0x02 使用 OpenSSL 生成密钥
 * 生成密钥文件
 ```
 openssl rand 16 > [你的密钥文件路径] 例 D:\encrypt.key
@@ -50,7 +50,7 @@ openssl rand -hex 16
 
 -------------------
 
-## 0x0003 使用 FFmpeg 生成加密文件
+## 0x03 使用 FFmpeg 生成加密文件
 * 一行命令同时生成 ts 切片，m3u8 索引播放文件并加密
 
 ```
@@ -73,7 +73,7 @@ ffmpeg -y -i [原始视频文件路径] -c:v libx264 -c:a copy -f hls -hls_time 
 * [切片文件路径] 例 D:\test_%03d.ts
 * [索引文件路径] 例 D:\test.m3u8 
 
-## 0x0004 相关参数与格式说明
+## 0x04 相关参数与格式说明
 
 * m3u8 部分字段意义
 

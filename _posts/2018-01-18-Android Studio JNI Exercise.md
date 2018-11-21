@@ -11,10 +11,10 @@ tags:
   - JNI
 ---
 
-## 0x0000 所需工具
+## 0x00 所需工具
 > Android Studio 2.3.2、NDK、CMake、LLDB
 
-## 0x0001 概念说明
+## 0x01 概念说明
 ### 1、NDK（WNative Development Kit） 
 > NDK 是一系列工具的集合，帮助开发者快速开发 C/C++ 的动态库。Android程序运行在Dalvik虚拟机中，NDK允许用户使用类似 C/C++ 之类的原生代码语言执行部分程序。NDK包括从 C/C++ 生成原生代码库所需要的工具和build files。
 将一致的原生库嵌入可以在Android设备上部署的应用程序包文件（application packages files ，即.apk文件）中。支持所有未来Android平台的一系列原生系统头文件和库
@@ -60,13 +60,13 @@ tags:
 
 -------------------
 
-## 0x0002 环境安装（Windows）
+## 0x02 环境安装（Windows）
 主要是 NDK、CMake必须安装
 ![2](/assets/image/2018-01-18/2018-01-18-Android Studio JNI Exercise 2.png)  
 
 -------------------
 
-## 0x0003 配置文件与代码讲解
+## 0x03 配置文件与代码讲解
 ### 1、新建项目，请勾选Include C++ support
 ![3](/assets/image/2018-01-18/2018-01-18-Android Studio JNI Exercise 3.png)  
 

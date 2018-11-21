@@ -11,7 +11,7 @@ tags:
   - TortoiseSVN
 ---
 
-## 0x0000 安装SVN
+## 0x00 安装SVN
 
 当安装TortoiseSVN时，command line client tools 这项默认是不会安装的，必须手动选择安装上，否则svn.exe文件不存在，无法在 Android Studio 中进行SVN关联配置
 
@@ -23,13 +23,13 @@ tags:
 
 -------------------
 
-## 0x0001 关联SVN  
+## 0x01 关联SVN  
 
 ![img4](/assets/image/2017-09-18/2017-09-18-Android Studio SVN Config 4.png)  
 
 -------------------
 
-## 0x0002 忽略文件
+## 0x02 忽略文件
 
 ![img5](/assets/image/2017-09-18/2017-09-18-Android Studio SVN Config 5.png) 
 
@@ -41,5 +41,5 @@ tags:
 
 -------------------
 
-## 0x0003 附件
+## 0x03 附件
 [clean-svn-folders](https://github.com/RockyQu/RockyQu.github.io/tree/master/assets/file) 批量删除项目下的 .svn 文件的脚本
