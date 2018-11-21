@@ -135,5 +135,24 @@ externalNativeBuild {
 }
 ```
 
+7、在 cpp 文件夹下新建 Key.cpp 文件里面放 c++ 代码
+> 完整代码 → [Key.cpp](https://github.com/RockyQu/JNIKeyProtection/blob/master/JNIKey/src/main/cpp/Key.cpp)  
+
 -------------------
 
+## 0x03 调用生成的 .so 文件
+- 默认 .so 文件生成目录，复制出来放到 libs 目录下，即可使用
+
+```
+{项目目录}\JNIKey\build\intermediates\cmake\debug\obj\
+```
+
+- 你可以对生成的库文件封装一个 Jar 包，这样 .so 就不必放在特定的包下，默认 Jar 包生成目录
+
+```
+{项目目录}\JNIKey\build\intermediates\intermediate-jars\debug\classes.jar
+```
+
+-------------------
+
+## 0x04 完整开源项目 → [JNIKeyProtection](https://github.com/RockyQu/JNIKeyProtection)
