@@ -20,14 +20,14 @@ tags:
 
 下载好的 NDK 解压 [NDK Download](https://dl.google.com/android/repository/android-ndk-r14b-linux-x86_64.zip)
 
-![5](/assets/image/2018-04-18-Compile ijkplayer 5.png)  
+![5](/assets/image/2018-04-18/2018-04-18-Compile ijkplayer 5.png)  
 
 转到 Home 目录下，配置 NDK 路径，类似 Java 配置 JDK，很多教程 Android SDK 也要配置，其实是不用的
-![6](/assets/image/2018-04-18-Compile ijkplayer 6.png)  
+![6](/assets/image/2018-04-18/2018-04-18-Compile ijkplayer 6.png)  
 
 键盘 Ctrl + H 显示隐藏文件，找到 .bashrc 文件
 
-![7](/assets/image/2018-04-18-Compile ijkplayer 7.png)  
+![7](/assets/image/2018-04-18/2018-04-18-Compile ijkplayer 7.png)  
 
 将如下代码添加到文件末尾，保存并关闭，路径要写你自己的 NDK 路径
 ```
@@ -61,7 +61,7 @@ git clone https://github.com/Bilibili/ijkplayer.git ijkplayer-android
 ```
 
 简单了解一下 ijkplayer 目录结构
-![10](/assets/image/2018-04-18-Compile ijkplayer 10.png)  
+![10](/assets/image/2018-04-18/2018-04-18-Compile ijkplayer 10.png)  
 
 ### 3.开始编译
 
@@ -114,11 +114,11 @@ cd ..
 
 至此所有编译结束了，你会在这个目录下看到如下文件
 
-![8](/assets/image/2018-04-18-Compile ijkplayer 8.png)  
+![8](/assets/image/2018-04-18/2018-04-18-Compile ijkplayer 8.png)  
 
 最后复制出来，用 Android Studio 打开项目即可运行查看效果
 
-![9](/assets/image/2018-04-18-Compile ijkplayer 9.png)
+![9](/assets/image/2018-04-18/2018-04-18-Compile ijkplayer 9.png)
 
 -------------------
 
@@ -127,11 +127,11 @@ cd ..
 * ### 报错：不能为虚拟电脑  XXX 打开一个新任务
 此时需要通过安装 [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads) 扩展包解决此问题
 
-![1](/assets/image/2018-04-18-Compile ijkplayer 1.png)  
+![1](/assets/image/2018-04-18/2018-04-18-Compile ijkplayer 1.png)  
 
 安装菜单目录 管理 → 全局设定 → 扩展
 
-![2](/assets/image/2018-04-18-Compile ijkplayer 2.png)  
+![2](/assets/image/2018-04-18/2018-04-18-Compile ijkplayer 2.png)  
 
 * ### 请用 ndk r14b 版本
 开始用的版本过低编译失败，又下了个最新的也失败，最后找到 r14b 版本，编译成功了

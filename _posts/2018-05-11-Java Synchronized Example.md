@@ -49,7 +49,7 @@ thread2.start();
 ```
 
 运行结果
-![5](/assets/image/2018-05-11-Java synchronized Example 1.png)
+![5](/assets/image/2018-05-11/2018-05-11-Java synchronized Example 1.png)
 
 把上面的调用代码改成如下代码，发现 thread3 和 thread4 同时在执行。这是因为 synchronized 只锁定对象，每个对象只有一个锁（lock）与之相关联这时会有两把锁分别锁定 runnable1 对象和 runnable2 对象，而这两把锁是互不干扰的，不形成互斥，所以两个线程可以同时执行。
 ```

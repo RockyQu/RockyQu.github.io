@@ -14,11 +14,11 @@ tags:
 ## 0x0000 概述
 > Android Studio Template 是基于 [FreeMarker](https://baike.baidu.com/item/freemarker/9489366?fr=aladdin) 来开发的，Android Studio 已经预设一些常用 Template，如下图，这些模板包括图片、XML、类都可以用自定义形式方便添加各种效果，减少了模板式代码编写，提高工作效率
 
-![1](/assets/image/2018-03-10-Android Studio Template 1.png)  
+![1](/assets/image/2018-03-10/2018-03-10-Android Studio Template 1.png)  
 
 这些模板文件被存放在 Android Studio 安装目录 \plugins\android\lib\templates 文件夹下，本教程以 Activity Template 为核心来讲解
 
-![2](/assets/image/2018-03-10-Android Studio Template 2.png)  
+![2](/assets/image/2018-03-10/2018-03-10-Android Studio Template 2.png)  
 
 -------------------
 
@@ -26,10 +26,10 @@ tags:
 ### 1、模板的创建
 创建模板很简单，你可以直接复制一份已经存在的模板，在 activities 目录下有个叫 EmptyActivity 的模板，里面只有一个类，是最简单的模板，可以以此模板做为基础
 
-![4](/assets/image/2018-03-10-Android Studio Template 4.png)
+![4](/assets/image/2018-03-10/2018-03-10-Android Studio Template 4.png)
 
 ### 2、模板的目录结构
-![3](/assets/image/2018-03-10-Android Studio Template 3.png)  
+![3](/assets/image/2018-03-10/2018-03-10-Android Studio Template 3.png)  
 
 ### 3、template.xml
 页面文件，模板配置文件，这是我自己已经写好的模板代码如下，注释已非常详细
@@ -185,10 +185,10 @@ underscoreToCamelCase 的作用和 classToResource 正好相反，当 moduleName
 
 ## 0x0002 使用模板
 模板制作完成后，将整个文件夹放到 activities 文件夹下
-![2](/assets/image/2018-03-10-Android Studio Template 2.png)  
+![2](/assets/image/2018-03-10/2018-03-10-Android Studio Template 2.png)  
 
 重启 Android Studio，即可看到模板了
-![6](/assets/image/2018-03-10-Android Studio Template 6.png)  
+![6](/assets/image/2018-03-10/2018-03-10-Android Studio Template 6.png)  
 
 -------------------
 

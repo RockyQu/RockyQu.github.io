@@ -54,7 +54,7 @@ tags:
 - mips 只兼容 mips；
 
 ### 6、NDK与JNI的关系
-![1](/assets/image/2018-01-18-Android Studio JNI Exercise 1.png)  
+![1](/assets/image/2018-01-18/2018-01-18-Android Studio JNI Exercise 1.png)  
 
 参考[NDK与JNI的关系](http://blog.csdn.net/carson_ho/article/details/73250163)
 
@@ -62,16 +62,16 @@ tags:
 
 ## 0x0002 环境安装（Windows）
 主要是 NDK、CMake必须安装
-![2](/assets/image/2018-01-18-Android Studio JNI Exercise 2.png)  
+![2](/assets/image/2018-01-18/2018-01-18-Android Studio JNI Exercise 2.png)  
 
 -------------------
 
 ## 0x0003 配置文件与代码讲解
 ### 1、新建项目，请勾选Include C++ support
-![3](/assets/image/2018-01-18-Android Studio JNI Exercise 3.png)  
+![3](/assets/image/2018-01-18/2018-01-18-Android Studio JNI Exercise 3.png)  
 
 ### 2、其他配置项
-![4](/assets/image/2018-01-18-Android Studio JNI Exercise 4.png)  
+![4](/assets/image/2018-01-18/2018-01-18-Android Studio JNI Exercise 4.png)  
 
 - C++ Standard是让我们选择C++标准
 - Exceptions Support是添加C++中对于异常的处理，如选中，Android Studio会 
@@ -86,7 +86,7 @@ typeid()，可以判断类型信息，判断指针指向位置，在多态中，
 > 点击完成，等待一会，项目可立即运行，屏幕会显示“Hello from C++”
 
 - 以下为完整目录结构
-![5](/assets/image/2018-01-18-Android Studio JNI Exercise 5.png)  
+![5](/assets/image/2018-01-18/2018-01-18-Android Studio JNI Exercise 5.png)  
 
 ### 3、代码讲解
 - 在 app 模块中新建了一个 cpp 文件夹放置 C/C++ 文件，此处默认的文件为native-lib.cpp

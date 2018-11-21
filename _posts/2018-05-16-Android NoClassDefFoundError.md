@@ -64,7 +64,7 @@ android {
 
 ## 0x0003 实际项目中的应用
 我的项目在引入 MultiDex 依然报如下错误，可能是这个类的实例是使用 Java newInstance 来创建对象导致的
-![1](/assets/image/2018-05-16-Android NoClassDefFoundError 1.png)
+![1](/assets/image/2018-05-16/2018-05-16-Android NoClassDefFoundError 1.png)
 
 使用 multiDexKeepProguard 添加 keep 这个类就行了
 ```

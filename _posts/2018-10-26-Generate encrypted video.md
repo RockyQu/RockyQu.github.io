@@ -28,8 +28,8 @@ tags:
 
 * 配置 FFmpeg
 下载完成解压进入 bin 目录，将 bin 目录配置到系统环境变量 Path 里即可
-![1](/assets/image/2018-10-26-Generate encrypted video 1.png)  
-![2](/assets/image/2018-10-26-Generate encrypted video 2.png)  
+![1](/assets/image/2018-10-26/2018-10-26-Generate encrypted video 1.png)  
+![2](/assets/image/2018-10-26/2018-10-26-Generate encrypted video 2.png)  
 
 * 配置 OpenSSL 这个是用来专门生成密码的，如果你是手写的可以不用  
 下载地址 [https://slproweb.com/products/Win32OpenSSL.html](https://slproweb.com/products/Win32OpenSSL.html)  

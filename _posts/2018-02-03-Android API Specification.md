@@ -19,7 +19,7 @@ tags:
 **常用方法**  
 1、如业务改动较小。根据App调用接口传入接口版本号，服务器业务逻辑做相应区分处理。  
 2、如业务改动较大，应启用新接口，在BaseAPI后端加入版本号例v1、v2、v3
-![1](/assets/image/2018-02-03-Android API Specification 1.png)  
+![1](/assets/image/2018-02-03/2018-02-03-Android API Specification 1.png)  
 
 -------------------
 
