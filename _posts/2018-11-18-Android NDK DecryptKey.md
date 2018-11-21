@@ -20,8 +20,86 @@ tags:
 - 配置 NDK 开发环境，看这里 → [Android Studio NDK 开发安装配置](https://rockycoder.cn/android%20ndk/2018/01/18/Android-Studio-JNI-Exercise.html)  
 - 有必要的了解一下 NDK 开发基础（此例子使用的是 CMake）、最好学习一下 C/C++ 基础，不然代码看起来很费劲
 
-## 0x02 前期的一些准备工作
-javah -d jni -classpath D:\Android\Workspace\EncryptKey\App\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes me.encrypt.key.JNIDecryptKey
+## 0x02 Java、C/C++ 代码
+1、新建 JNIKey.class 并声明 native 方法
+
+```
+public class JNIKey {
+
+    static {
+        System.loadLibrary("Key");
+    }
+
+    /**
+     * 初始化并判断当前 APP 是否为合法应用，只需调用一次
+     *
+     * @return 返回 true 则初始化成功并当前 APP 为合法应用
+     */
+    public static native boolean init();
+
+    /**
+     * 获取 Key
+     *
+     * @return return key
+     */
+    public static native String getKey();
+}
+```
+
+2、Build → Rebuild Project 生成 class 文件，生成目录一般在 JNIKey\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes\me\key\protection\ 下面
+
+3、根据生成的 class 文件生成 .h 文件，进入 Terminal 命令窗口输入以下命令
+
+```
+javah -d jni -classpath D:\Android\Workspace\JNIKeyProtection\Key\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes me.key.protection.JNIKey
+```
+
+> 注意路径不要写错了，生成的 .h 文件里包含自动生成的一些方法，方法名称一一应对 Java native 方法，如果在 .cpp 代码里用的是动态注册的方式，这步可以忽略不做，因为动态注册方法名可以随便写
+
+4、在 src\main 目录下新建 cpp 目录，新建 Key.cpp 文件在这里编写 C++ 代码，.cpp 表示 C++ 语言, .c 表示 C 语言 
+
+![1](/assets/image/2018-11-18/2018-11-18_1.png)
+
+5、在 Module 根目录下新建 CmakeLists.txt 文件，配置 JNI 相关参数
+
+```
+# 指定编译器版本
+cmake_minimum_required(VERSION 3.4.1)
+
+# 存放生成 so 库的目录
+# set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/libs/${ANDROID_ABI})
+
+# 配置 so 库信息
+add_library(
+
+        # 生成的 so 库名称，此处生成的 so 文件名称是libKey.so
+        Key
+
+        # STATIC：静态库，是目标文件的归档文件，在链接其它目标的时候使用
+        # SHARED：动态库，会被动态链接，在运行时被加载
+        # MODULE：模块库，是不会被链接到其它目标中的插件，但是可能会在运行时使用dlopen-系列的函数动态链接
+        SHARED
+
+        # 资源文件，可以多个，资源路径是相对路径，相对于本CMakeLists.txt所在目录
+        src/main/cpp/Key.cpp)
+
+# 依赖 NDK 中的 log 日志库
+find_library(
+        log-lib
+        log)
+
+# 关联 log 库到本地库。如果你本地的库（DecryptKey）想要调用log库的方法，那么就需要配置这个属性
+target_link_libraries(
+
+        # 目标库
+        Key
+
+        # 依赖库
+        ${log-lib})
+```
+
+6、
+
 
 
 -------------------
