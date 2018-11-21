@@ -16,9 +16,11 @@ tags:
 
 -------------------
 
-## 0x01 
-NDK 配置看这里 → [Android Studio NDK 开发安装配置](https://rockycoder.cn/android%20ndk/2018/01/18/Android-Studio-JNI-Exercise.html)
+## 0x01 一些准备工作
+- 配置 NDK 开发环境，看这里 → [Android Studio NDK 开发安装配置](https://rockycoder.cn/android%20ndk/2018/01/18/Android-Studio-JNI-Exercise.html)  
+- 有必要的了解一下 NDK 开发基础（此例子使用的是 CMake）、最好学习一下 C/C++ 基础，不然代码看起来很费劲
 
+## 0x02 前期的一些准备工作
 javah -d jni -classpath D:\Android\Workspace\EncryptKey\App\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes me.encrypt.key.JNIDecryptKey
 
 
