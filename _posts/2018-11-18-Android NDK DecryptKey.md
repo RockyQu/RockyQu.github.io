@@ -62,7 +62,7 @@ JNIKey\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes\me\key\
 javah -d jni -classpath D:\Android\Workspace\JNIKeyProtection\Key\build\intermediates\javac\debug\compileDebugJavaWithJavac\classes me.key.protection.JNIKey
 ```
 
-> 注意路径不要写错了，生成的 .h 文件里包含自动生成的一些方法，方法名称一一应对 Java native 方法，如果在 .cpp 代码里用的是动态注册的方式，这步可以忽略不做，因为动态注册方法名可以随便写
+> 注意路径不要写错了，生成的 .h 文件里包含自动生成的一些方法，方法名称一一应对 Java native 方法，如果在 .cpp 代码里用的是动态注册的方式，这步可以忽略不做，因为动态注册方法名可以随便写，具体看 .cpp 里的代码
 
 4、在 src\main 目录下新建 cpp 目录，新建 Key.cpp 文件在这里编写 C++ 代码，.cpp 表示 C++ 文件, .c 表示 C 文件
 
@@ -136,3 +136,4 @@ externalNativeBuild {
 ```
 
 -------------------
+

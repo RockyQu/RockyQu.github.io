@@ -9,6 +9,8 @@ tags:
   - ANR
 ---
 
+-------------------
+
 ## 0x00 触发 ANR 条件
 > ANR 全称 “Application Not Responding”，即“应用程序无响应“。系统会向用户显示一个对话框，用户可以选择“等待”而让程序继续运行，或“强制关闭”。App 的响应能力是由 Activity Manager 和 Window Manager 系统服务来监控的
 
