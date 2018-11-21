@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Android 使用 so 文件存储私密数据，并增加签名防盗机制"
-excerpt: "使用 .so 文件来存储 APP 私密数据，并且增加签名防盗机制的一种加密方案"
+excerpt: "使用 .so 文件来存储 APP 静态私密数据，并且增加身份验证，防止 .so 被恶意调用"
 date: 2018-11-18
 categories:
   - Android NDK
